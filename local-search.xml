@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title></title>
+    <title>关于hexo后续的发布流程</title>
     <link href="/2025/02/26/%E5%85%B3%E4%BA%8Ehexo%E5%90%8E%E7%BB%AD%E7%9A%84%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/"/>
     <url>/2025/02/26/%E5%85%B3%E4%BA%8Ehexo%E5%90%8E%E7%BB%AD%E7%9A%84%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/</url>
     
-    <content type="html"><![CDATA[<p>title:关于hexo后续的发布流程</p><h1 id="关于hexo后续的发布流程"><a href="#关于hexo后续的发布流程" class="headerlink" title="关于hexo后续的发布流程"></a>关于hexo后续的发布流程</h1><h3 id="1-本地md文件路径"><a href="#1-本地md文件路径" class="headerlink" title="1.本地md文件路径"></a>1.本地md文件路径</h3><p><code>E:\Develop\Blog\hexo-blog\source\_posts</code></p><h3 id="2-每篇文章需在文章前加上"><a href="#2-每篇文章需在文章前加上" class="headerlink" title="2.每篇文章需在文章前加上"></a>2.每篇文章需在文章前加上</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">titile:<span class="hljs-tag">&lt;<span class="hljs-name">文章标题</span>&gt;</span><br></code></pre></td></tr></table></figure><h3 id="2-编辑好后使用如下命令上传至托管即可"><a href="#2-编辑好后使用如下命令上传至托管即可" class="headerlink" title="2.编辑好后使用如下命令上传至托管即可"></a>2.编辑好后使用如下命令上传至托管即可</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sehll">hexo clean<br>hexo g<br>hexo deploy<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="关于hexo后续的发布流程"><a href="#关于hexo后续的发布流程" class="headerlink" title="关于hexo后续的发布流程"></a>关于hexo后续的发布流程</h1><h3 id="1-本地md文件路径"><a href="#1-本地md文件路径" class="headerlink" title="1.本地md文件路径"></a>1.本地md文件路径</h3><p><code>E:\Develop\Blog\hexo-blog\source\_posts</code></p><h3 id="2-每篇文章需在文章前加上"><a href="#2-每篇文章需在文章前加上" class="headerlink" title="2.每篇文章需在文章前加上"></a>2.每篇文章需在文章前加上</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">titile:<span class="hljs-tag">&lt;<span class="hljs-name">文章标题</span>&gt;</span><br></code></pre></td></tr></table></figure><h3 id="2-编辑好后使用如下命令上传至托管即可"><a href="#2-编辑好后使用如下命令上传至托管即可" class="headerlink" title="2.编辑好后使用如下命令上传至托管即可"></a>2.编辑好后使用如下命令上传至托管即可</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sehll">hexo clean<br>hexo g<br>hexo deploy<br></code></pre></td></tr></table></figure>]]></content>
     
     
     
