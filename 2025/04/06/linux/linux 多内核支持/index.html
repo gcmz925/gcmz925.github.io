@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hexo</title>
+  <title>linux 多内核支持（suse） | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Hexo">
+  <meta name="description" content="linux 多内核支持（suse） | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -54,7 +54,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -460,18 +460,57 @@
 
     </div>
     <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
+        <div class="semicircle" data-title="Toggle full screen shortcut key s">
             <div class="brackets first"><</div>
             <div class="brackets">&gt;</div>
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-linux/linux 多内核支持" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8F%B6%E8%90%BD%E9%98%81"><span class="toc-text">关于叶落阁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%B9%B3%E5%8F%B0"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+        <h1 class="article-title">linux 多内核支持（suse）</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="linux">linux</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2025-04-06 18:04:10'>2025-04-06 17:04</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux-%E5%A4%9A%E5%86%85%E6%A0%B8%E6%94%AF%E6%8C%81"><span class="toc-text">linux 多内核支持</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#suse"><span class="toc-text">suse</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-%E5%90%AF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%89%88%E6%9C%AC%E6%94%AF%E6%8C%81"><span class="toc-text">0.启用和配置多版本支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%86%85%E6%A0%B8rpm%E5%8C%85"><span class="toc-text">1.下载内核rpm包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85rpm%E5%8C%85"><span class="toc-text">2.安装rpm包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%87%8D%E5%90%AF"><span class="toc-text">3.重启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AE%BE%E7%BD%AE%E4%B8%BA%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E5%86%85%E6%A0%B8"><span class="toc-text">4.设置为默认启动内核</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -484,37 +523,62 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="linux-多内核支持"><a href="#linux-多内核支持" class="headerlink" title="linux 多内核支持"></a>linux 多内核支持</h1><h2 id="suse"><a href="#suse" class="headerlink" title="suse"></a>suse</h2><h3 id="0-启用和配置多版本支持"><a href="#0-启用和配置多版本支持" class="headerlink" title="0.启用和配置多版本支持"></a>0.启用和配置多版本支持</h3><p>从 SUSE Linux Enterprise Server 12 开始，系统默认支持安装软件包的多个版本（多版本支持）。要验证此设置，请按如下所示继续：</p>
+<ol>
+<li><p>以 <code>root</code> 身份使用所选的编辑器打开 <code>/etc/zypp/zypp.conf</code>。</p>
+</li>
+<li><p>搜索字符串 <code>multiversion</code>。如果为所有支持此功能的内核包启用多版本，以下行可能会取消注释：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multiversion = provides:multiversion(kernel)</span><br></pre></td></tr></table></figure></li>
+<li><p>要对特定的内核类型限制多版本支持，请将逗号分隔的包名称列表添加到 <code>/etc/zypp/zypp.conf</code> 中的 <code>multiversion</code> 选项 — 例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multiversion = kernel-default,kernel-default-base,kernel-source</span><br></pre></td></tr></table></figure></li>
+<li><p>保存所做的更改。</p>
+</li>
+</ol>
+<h3 id="1-下载内核rpm包"><a href="#1-下载内核rpm包" class="headerlink" title="1.下载内核rpm包"></a>1.下载内核rpm包</h3><blockquote>
+<p>需要下载对应想替换的内核的rpm包,我这里需要替换的是 <code>4.4.73-5.1</code> 这个版本的内核</p>
 </blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> 是阁主的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 已经在github上开源</p>
-<p><code>3-hexo</code> 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a></p>
-<p>主要功能：</p>
-<ul>
-<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
-<li>pad&#x2F;手机等移动端适配</li>
-<li>页面全局快捷键 <a target="_blank" rel="noopener" href='http://yelog.org/2017/03/24/3-hexo-shortcuts/'>3-hexo快捷键说明</a></li>
-</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kernel-default-4.4.73-5.1.x86_64.rpm</span><br><span class="line">kernel-default-debuginfo-4.4.73-5.1.x86_64.rpm</span><br><span class="line">kernel-default-devel-4.4.73-5.1.x86_64.rpm</span><br><span class="line">kernel-devel-4.4.73-5.1.noarch.rpm</span><br><span class="line">kernel-macros-4.4.73-5.1.noarch.rpm</span><br><span class="line">kernel-source-4.4.73-5.1.noarch.rpm</span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+<h3 id="2-安装rpm包"><a href="#2-安装rpm包" class="headerlink" title="2.安装rpm包"></a>2.安装rpm包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh *.rmp</span><br></pre></td></tr></table></figure>
+
+<p>如果当前内核版本较新，会安装不了报错如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which is newer than kernel-default-4.4.73-5.1.x86_64) is already installed</span><br></pre></td></tr></table></figure>
+
+<p>需要加上 <code>--oldpackage</code> 参数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm  -ivh  --oldpackage *.rpm</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h3><p>1.选择第二个选项</p>
+<p><img src="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202503181036623.png" alt="image-20250318103652447"></p>
+<p>选择对应的</p>
+<p><img src="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202503181037365.png" alt="image-20250318103725191"></p>
+<p>进入系统后进行确认，可以看到已经切换到需要替换的系统</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202503181039017.png" alt="image-20250318103925981"></p>
+<h3 id="4-设置为默认启动内核"><a href="#4-设置为默认启动内核" class="headerlink" title="4.设置为默认启动内核"></a>4.设置为默认启动内核</h3>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -523,11 +587,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="Toggle full screen shortcut key s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="Toggle full screen shortcut key s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
