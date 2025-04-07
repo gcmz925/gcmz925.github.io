@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>开机引导文件 etc/default/grub 文件详解 | Hexo</title>
+  <title>kill | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="开机引导文件 etc/default/grub 文件详解 | Hexo">
+  <meta name="description" content="kill | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -534,9 +534,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-linux/linux 开机引导文件[etcdefaultgrub 文件详解" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-linux/linux kill 命令" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">开机引导文件 etc/default/grub 文件详解</h1>
+        <h1 class="article-title">kill</h1>
     
     <div class="article-meta">
         
@@ -546,7 +546,9 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="linux">linux</a>
+            <a  data-rel="linux">linux</a> > 
+            
+            <a  data-rel="linux&lt;---&gt;命令">命令</a>
             
         </span>
         
@@ -554,7 +556,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-07 15:31:06'>2025-04-06 17:08</time>
+            Created At : <time class="date" title='Updated At: 2025-04-07 15:24:40'>2025-04-06 17:04</time>
         
     </div>
     <div class="article-meta">
@@ -576,7 +578,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6-etc-default-grub-%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3"><span class="toc-text">开机引导文件 etc&#x2F;default&#x2F;grub 文件详解</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%82%E8%B5%B7%E8%BF%9B%E7%A8%8B"><span class="toc-text">挂起进程</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -592,13 +594,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="开机引导文件-etc-default-grub-文件详解"><a href="#开机引导文件-etc-default-grub-文件详解" class="headerlink" title="开机引导文件 etc&#x2F;default&#x2F;grub 文件详解"></a>开机引导文件 etc&#x2F;default&#x2F;grub 文件详解</h2><p>参考文章:</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39094034/article/details/122075593">https://blog.csdn.net/weixin_39094034/article/details/122075593</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_14829643/article/details/138868823?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-138868823-blog-122075593.235%5Ev43%5Epc_blog_bottom_relevance_base2&spm=1001.2101.3001.4242.1&utm_relevant_index=1">https://blog.csdn.net/qq_14829643/article/details/138868823?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-138868823-blog-122075593.235^v43^pc_blog_bottom_relevance_base2&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=1</a></p>
-<p>可以使用的相关搜索:</p>
-<p>linux系统配置串口打印内核日志</p>
-<p>cmd</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cmdline</span><br></pre></td></tr></table></figure>
+        <h2 id="挂起进程"><a href="#挂起进程" class="headerlink" title="挂起进程"></a>挂起进程</h2><p>在 Linux 系统中，可以使用 <code>kill</code> 命令结合信号来挂起某个进程。要挂起某个 PID，可以发送 <code>SIGSTOP</code> 信号：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -SIGSTOP &lt;PID&gt;</span><br></pre></td></tr></table></figure>
+
+<p>替换 <code>&lt;PID&gt;</code> 为你要挂起的进程的实际进程 ID。要恢复进程，可以发送 <code>SIGCONT</code> 信号：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -SIGCONT &lt;PID&gt;</span><br></pre></td></tr></table></figure>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
