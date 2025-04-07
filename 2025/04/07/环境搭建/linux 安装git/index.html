@@ -530,7 +530,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-07 13:44:25'>2025-04-07 11:43</time>
+            Created At : <time class="date" title='Updated At: 2025-04-07 15:19:10'>2025-04-07 11:43</time>
         
     </div>
     <div class="article-meta">
@@ -568,12 +568,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考文档：<br><a target="_blank" rel="noopener" href="https://git.mosong.cc/guide/install-git-src.html">https://git.mosong.cc/guide/install-git-src.html</a></p>
+        <p>linux git 下载地址：<br><a target="_blank" rel="noopener" href="https://www.kernel.org/pub/software/scm/git/">https://www.kernel.org/pub/software/scm/git/</a></p>
+<p>安装参考官方文档：<br><a target="_blank" rel="noopener" href="https://git.mosong.cc/guide/install-git-src.html">https://git.mosong.cc/guide/install-git-src.html</a></p>
 <p>make prefix&#x3D;&#x2F;usr&#x2F;local all 中如果遇到错误</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/perl Makefile.PL PREFIX=&#x27;/usr/local&#x27; INSTALL_BASE=&#x27;&#x27; --localedir=&#x27;/usr/local/share/locale&#x27; Can&#x27;t locate ExtUtils/MakeMaker.pm in @INC (@INC contains: /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at Makefile.PL line 3. BEGIN failed--compilation aborted at Makefile.PL line 3. make[1]: *** [perl.mak] Error 2 make: *** [perl/perl.mak] Error 2</span><br></pre></td></tr></table></figure>
 
+<p>解决方案：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install perl-ExtUtils-MakeMaker perl-CPAN</span><br></pre></td></tr></table></figure>
-<p>解决</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
