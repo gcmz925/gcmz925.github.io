@@ -554,7 +554,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-07 15:19:10'>2025-04-07 11:43</time>
+            Created At : <time class="date" title='Updated At: 2025-04-08 10:15:52'>2025-04-07 11:43</time>
         
     </div>
     <div class="article-meta">
@@ -599,6 +599,20 @@
 
 <p>解决方案：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install perl-ExtUtils-MakeMaker perl-CPAN</span><br></pre></td></tr></table></figure>
+
+
+
+<p>离线安装：</p>
+<p>debian：<br>下载所有依赖但不安装（缓存到本机，建议下载机器是什么都没装的）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get --download-only install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev</span><br></pre></td></tr></table></figure>
+<p>下载好的文件会放在这里：</p>
+<p><code>/var/cache/apt/archives/</code></p>
+<p>可以把这些 <code>.deb</code> 打包起来，用于离线安装：</p>
+<p><code>cd /var/cache/apt/archives/</code><br><code>tar git-download.tar.gz ./*.deb</code></p>
+<p>如果还是有如下这种报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dpkg: dependency problems prevent configuration of krb5-multidev:</span><br><span class="line"></span><br><span class="line"> krb5-multidev depends on libkadm5srv-mit8 (= 1.10.1+dfsg-5+deb7u7); however:</span><br><span class="line"> </span><br><span class="line">  Package libkadm5srv-mit8:amd64 is not configured yet.</span><br></pre></td></tr></table></figure>
+
+<p>可以知道这是依赖没有装好，可能是下载机器已经有安装了，这个时候下载这些依赖一一解决就行<br>例如上面就是要下载 <code>libkadm5srv-mit8</code>  这个依赖,使用如下命令<br><code>--reinstall</code><br><code>apt-get --download-only --reinstall install  </code>libkadm5srv-mit8&#96;&#96;</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
