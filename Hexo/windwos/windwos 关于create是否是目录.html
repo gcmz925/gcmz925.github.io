@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>categories | Hexo</title>
+  <title>关于create是否是目录 | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="categories | Hexo">
+  <meta name="description" content="关于create是否是目录 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -199,17 +199,25 @@
     <div class="pjax">
         <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">categories</h1>
+        <h1 class="article-title">关于create是否是目录</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel=""></a>
+            
+        </span>
+        
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-04 10:23:35'>2025-04-04 10:22</time>
+            Created At : <time class="date" title='Updated At: 2025-04-06 18:09:26'>2025-04-06 18:19</time>
         
     </div>
     <div class="article-meta">
@@ -247,7 +255,85 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>关于create是否是目录</p>
+<p><strong><code>Iopb-&gt;TargetFileObject-&gt;FileName</code></strong>：这是一个 <code>UNICODE_STRING</code>类型，包含了目标文件对象的文件名。你可以通过检查文件名的特征（例如是否以反斜杠结尾）来推断它是文件还是目录。</p>
+<p><strong><code>Iopb-&gt;MajorFunction</code></strong>：这是一个指定主要函数的字段，表示这次操作的类型。例如，创建、读取、写入等操作。对于创建操作，可以进一步检查它是针对文件还是目录。</p>
+<p><strong><code>Iopb-&gt;Parameters.Create.Options</code></strong>：这是一个包含创建选项的字段。可以通过检查其中的标志位来确定目标是文件还是目录。具体来说：</p>
+<ul>
+<li><code>FILE_DIRECTORY_FILE</code>：表示目标是一个目录。 0x00000001</li>
+<li><code>FILE_NON_DIRECTORY_FILE</code>：表示目标是一个文件。 0x00000040</li>
+</ul>
+<p>该方法存在问题</p>
+<p>原因是：</p>
+<p>当 IRP_MJ_CREATE 操作创建目录的时候，一定要设置 FILE_DIRECTORY_FILE 标志，打开目录的时候，却不需要。</p>
+<p>因此在打开目录的时候，上面的判断方法就不能够很好的工作。</p>
+<p>如何设置了  FILE_DIRECTORY_FILE 标志去打开普通的文件，则操作会失败。</p>
+<hr>
+<p>FltIsDirectory 可以很好的解决这个问题，不过需要在IRP_MJ_CREATE 的 PostOperation 中调用。</p>
+<p><strong>想从另外一个角度解决，既是 存在 FILE_DIRECTORY_FILE ，又只有创建的权限</strong></p>
+<p>Parameters.Create.Options成员是一个 ULONG 值，描述打开句柄时使用的选项。高 8 位对应于<strong>ZwCreateFile</strong>的<em>CreateDisposition参数的值，低 24</em><strong>位对应于****ZwCreateFile</strong>的<em>CreateOptions</em>参数的值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[in] CreateDisposition</span><br></pre></td></tr></table></figure>
+
+<p>Specifies the action to perform if the file does or does not exist. <em>CreateDisposition</em> can be one of the values in the following table.</p>
+<table>
+<thead>
+<tr>
+<th align="left"><em>CreateDisposition</em> value</th>
+<th align="left">Action if file exists</th>
+<th align="left">Action if file does not exist</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">FILE_SUPERSEDE</td>
+<td align="left">Replace the file.</td>
+<td align="left">Create the file.</td>
+</tr>
+<tr>
+<td align="left">FILE_CREATE</td>
+<td align="left">Return an error.</td>
+<td align="left">Create the file.</td>
+</tr>
+<tr>
+<td align="left">FILE_OPEN</td>
+<td align="left">Open the file.</td>
+<td align="left">Return an error.</td>
+</tr>
+<tr>
+<td align="left">FILE_OPEN_IF</td>
+<td align="left">Open the file.</td>
+<td align="left">Create the file.</td>
+</tr>
+<tr>
+<td align="left">FILE_OVERWRITE</td>
+<td align="left">Open the file, and overwrite it.</td>
+<td align="left">Return an error.</td>
+</tr>
+<tr>
+<td align="left">FILE_OVERWRITE_IF</td>
+<td align="left">Open the file, and overwrite it.</td>
+<td align="left">Create the file.</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[in] CreateOptions</span><br></pre></td></tr></table></figure>
+
+<p>Specifies the options to apply when the driver creates or opens the file. Use one or more of the flags in the following table.</p>
+<table>
+<thead>
+<tr>
+<th align="left"><em>CreateOptions</em> flag</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">FILE_DIRECTORY_FILE</td>
+<td align="left">The file is a directory. Compatible<em>CreateOptions</em> flags are FILE_SYNCHRONOUS_IO_ALERT, FILE_SYNCHRONOUS_IO_NONALERT, FILE_WRITE_THROUGH, FILE_OPEN_FOR_BACKUP_INTENT, and FILE_OPEN_BY_FILE_ID. The <em>CreateDisposition</em> parameter must be set to FILE_CREATE, FILE_OPEN, or FILE_OPEN_IF.</td>
+</tr>
+<tr>
+<td align="left">FILE_NON_DIRECTORY_FILE</td>
+<td align="left">The file is not a directory. The file object to open can represent a data file; a logical, virtual, or physical device; or a volume.</td>
+</tr>
+</tbody></table>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>

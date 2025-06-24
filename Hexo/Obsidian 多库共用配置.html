@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>categories | Hexo</title>
+  <title>Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="categories | Hexo">
+  <meta name="description" content="Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -199,8 +199,6 @@
     <div class="pjax">
         <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">categories</h1>
-    
     <div class="article-meta">
         
         
@@ -209,7 +207,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-04 10:23:35'>2025-04-04 10:22</time>
+            Created At : <time class="date" title='Updated At: 2025-06-25 00:32:29'>2025-06-25 00:32</time>
         
     </div>
     <div class="article-meta">
@@ -231,7 +229,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#D-%E5%88%9B%E5%BB%BA%E7%AC%A6%E5%8F%B7%E7%9B%AE%E5%BD%95%E8%BF%9E%E6%8E%A5-%E8%BD%AF%E8%BF%9E%E6%8E%A5-H-%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5-%E7%A1%AC%E8%BF%9E%E6%8E%A5-J-%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95%E8%BF%9E%E6%8E%A5-%E8%BD%AF%E8%BF%9E%E6%8E%A5-Link-%E8%A6%81%E5%88%9B%E5%BB%BA%E6%96%B0%E9%93%BE%E6%8E%A5%E7%9A%84%E6%96%87%E4%BB%B6-Target-%E6%BA%90%E6%96%87%E4%BB%B6"><span class="toc-text">  &#x2F;D 创建符号目录连接,(软连接)  &#x2F;H 文本文件链接(硬连接)  &#x2F;J 创建目录连接(软连接)  Link 要创建新链接的文件  Target 源文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-D-%E5%92%8C-J-%E9%83%BD%E6%98%AF%E5%BB%BA%E7%AB%8B%E7%9B%AE%E5%BD%95%E8%BF%9E%E6%8E%A5-H-%E6%98%AF%E5%BB%BA%E7%AB%8B%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5"><span class="toc-text">  参数 &#x2F;D 和 &#x2F;J 都是建立目录连接, &#x2F;H 是建立文件链接</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -247,7 +245,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mklink [[/D] | [/H] | [/J]] Link Target</span><br></pre></td></tr></table></figure>
+
+<h2 id="D-创建符号目录连接-软连接-H-文本文件链接-硬连接-J-创建目录连接-软连接-Link-要创建新链接的文件-Target-源文件"><a href="#D-创建符号目录连接-软连接-H-文本文件链接-硬连接-J-创建目录连接-软连接-Link-要创建新链接的文件-Target-源文件" class="headerlink" title="  &#x2F;D 创建符号目录连接,(软连接)  &#x2F;H 文本文件链接(硬连接)  &#x2F;J 创建目录连接(软连接)  Link 要创建新链接的文件  Target 源文件"></a>  &#x2F;D 创建符号目录连接,(软连接)<br>  &#x2F;H 文本文件链接(硬连接)<br>  &#x2F;J 创建目录连接(软连接)<br>  Link 要创建新链接的文件<br>  Target 源文件</h2><h2 id="参数-D-和-J-都是建立目录连接-H-是建立文件链接"><a href="#参数-D-和-J-都是建立目录连接-H-是建立文件链接" class="headerlink" title="  参数 &#x2F;D 和 &#x2F;J 都是建立目录连接, &#x2F;H 是建立文件链接"></a>  参数 &#x2F;D 和 &#x2F;J 都是建立目录连接, &#x2F;H 是建立文件链接</h2><p>前面是目标，后面是源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mklink /j /d   E:\Develop\Hexoblog\source\Hexo\.obsidian  D:\AllSoftware\Obsidian\Ev\.obsidian</span><br><span class="line"></span><br><span class="line">mklink /j /d   E:\Develop\Project\WinKernelProgram\WinKernelProgram\.obsidian  D:\AllSoftware\Obsidian\Ev\.obsidian</span><br><span class="line"></span><br><span class="line">mklink /j /d   E:\Develop\Note\.obsidian  D:\AllSoftware\Obsidian\Ev\.obsidian</span><br></pre></td></tr></table></figure>
+
+
+<p>mlink 命令使用也可以看这里</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4268d00450c2">https://www.jianshu.com/p/4268d00450c2</a></p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>

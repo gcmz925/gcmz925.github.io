@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>categories | Hexo</title>
+  <title>开启ssh连接 | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="categories | Hexo">
+  <meta name="description" content="开启ssh连接 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -199,17 +199,25 @@
     <div class="pjax">
         <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">categories</h1>
+        <h1 class="article-title">开启ssh连接</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel=""></a>
+            
+        </span>
+        
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-04 10:23:35'>2025-04-04 10:22</time>
+            Created At : <time class="date" title='Updated At: 2025-04-07 15:31:07'>2025-04-07 15:31</time>
         
     </div>
     <div class="article-meta">
@@ -231,7 +239,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux-%E5%BC%80%E5%90%AFssh%E8%BF%9E%E6%8E%A5"><span class="toc-text">linux 开启ssh连接</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#suse"><span class="toc-text">suse</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -247,7 +255,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="linux-开启ssh连接"><a href="#linux-开启ssh连接" class="headerlink" title="linux 开启ssh连接"></a>linux 开启ssh连接</h1><h2 id="suse"><a href="#suse" class="headerlink" title="suse"></a>suse</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop SuSEfirewall2.service </span><br><span class="line">systemctl stop SuSEfirewall2_init.service</span><br><span class="line">systemctl disable SuSEfirewall2.service </span><br><span class="line">systemctl disable SuSEfirewall2_init.service </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">PermitRootLogin yes</span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>

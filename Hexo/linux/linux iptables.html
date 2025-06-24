@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>linux防火墙与iptables | Hexo</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="linux防火墙与iptables | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://example.com/categories/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-04T02:22:59.000Z">
+<meta property="article:modified_time" content="2025-04-04T02:23:35.182Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/gcmz.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/gcmz.png"/>
+</a>
+<div class="author">
+    <span>John Doe</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/gcmz925"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:zhenxingwang925@gmail.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(0)</small>
+            
+        </div>
+    </li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="0">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://gcmz925.github.io/">gcmz</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="search shortcut key i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="switch to outline view shortcut key w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="return"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="case sensitive"></i>
+            <i class="iconfont icon-tag" data-title="label"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">outline</div>
+            <i class="iconfont icon-list" data-title="switch to article list"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="Toggle full screen shortcut key s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">linux防火墙与iptables</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel=""></a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2025-04-06 18:06:38'>2025-04-06 18:19</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8Eiptables"><span class="toc-text">linux防火墙与iptables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-text">linux防火墙</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#firewalld"><span class="toc-text">firewalld</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%9A"><span class="toc-text">关闭防火墙：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%9A"><span class="toc-text">开启防火墙：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%EF%BC%9A"><span class="toc-text">开启开机启动：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%EF%BC%9A"><span class="toc-text">关闭开机启动：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%98%B2%E7%81%AB%E5%A2%99%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="toc-text">查看防火墙状态：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E7%AB%AF%E5%8F%A3"><span class="toc-text">开启端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E8%BD%BD%E5%85%A5"><span class="toc-text">重新载入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%E6%98%AF%E5%90%A6%E5%BC%80%E6%94%BE"><span class="toc-text">查询某个端口是否开放</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E7%AB%AF%E5%8F%A3"><span class="toc-text">移除端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%B7%B2%E7%BB%8F%E5%BC%80%E6%94%BE%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8"><span class="toc-text">查询已经开放的端口列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEfirewalld-cmd"><span class="toc-text">配置firewalld-cmd</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iptables"><span class="toc-text">iptables</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A7%84%E5%88%99"><span class="toc-text">查看规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A7%84%E5%88%99"><span class="toc-text">修改规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99"><span class="toc-text">添加规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99"><span class="toc-text">删除规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables%E6%9C%8D%E5%8A%A1%E5%91%BD%E4%BB%A4"><span class="toc-text">iptables服务命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A9%BA%E5%BD%93%E5%89%8D%E7%9A%84%E6%89%80%E6%9C%89%E8%A7%84%E5%88%99%E5%92%8C%E8%AE%A1%E6%95%B0"><span class="toc-text">空当前的所有规则和计数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E8%A7%84%E5%88%99"><span class="toc-text">保存规则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%951"><span class="toc-text">方法1:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%952"><span class="toc-text">方法2:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UFW"><span class="toc-text">UFW</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ubuntu%E5%AE%89%E8%A3%85UFW%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-text">Ubuntu安装UFW防火墙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%90%AF-%E7%A6%81%E7%94%A8"><span class="toc-text">开启&#x2F;禁用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E6%88%96%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3"><span class="toc-text">打开或关闭端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%98%B2%E7%81%AB%E5%A2%99%E7%8A%B6%E6%80%81"><span class="toc-text">查看防火墙状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UFW%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B%EF%BC%9A"><span class="toc-text">UFW使用范例：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemctl"><span class="toc-text">systemctl</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="linux防火墙与iptables"><a href="#linux防火墙与iptables" class="headerlink" title="linux防火墙与iptables"></a>linux防火墙与iptables</h2><h2 id="linux防火墙"><a href="#linux防火墙" class="headerlink" title="linux防火墙"></a>linux防火墙</h2><p>在 <a target="_blank" rel="noopener" href="https://www.linuxidc.com/topicnews.aspx?tid=14">CentOS</a> 7 中，引入了一个新的服务，Firewalld，下面一张图，让大家明确的了解防火墙 Firewall 与 iptables 之间的关系与区别。</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/dda2bff5d6a56dcad272d8b45e6fbbf4.png" alt="img"></p>
+<h3 id="firewalld"><a href="#firewalld" class="headerlink" title="firewalld"></a>firewalld</h3><blockquote>
+<p>防火墙守护 firewalld 服务引入了一个信任级别的概念来管理与之相关联的连接与接口。它支持 ipv4 与 ipv6，并支持网桥，采用 firewall-cmd (command) 或 firewall-config (gui) 来动态的管理 kernel netfilter 的临时或永久的接口规则，并实时生效而无需重启服务。</p>
+<p>zone</p>
+<ul>
+<li>drop: 丢弃所有进入的包，而不给出任何响应</li>
+<li>block: 拒绝所有外部发起的连接，允许内部发起的连接</li>
+<li>public: 允许指定的进入连接</li>
+<li>external: 同上，对伪装的进入连接，一般用于路由转发</li>
+<li>dmz: 允许受限制的进入连接</li>
+<li>work: 允许受信任的计算机被限制的进入连接，类似 workgroup</li>
+<li>home: 同上，类似 homegroup</li>
+<li>internal: 同上，范围针对所有互联网用户</li>
+<li>trusted: 信任所有连接</li>
+</ul>
+<p>过滤规则</p>
+<ul>
+<li>source: 根据源地址过滤</li>
+<li>interface: 根据网卡过滤</li>
+<li>service: 根据服务名过滤</li>
+<li>port: 根据端口过滤</li>
+<li>icmp-block: icmp 报文过滤，按照 icmp 类型配置</li>
+<li>masquerade: ip 地址伪装</li>
+<li>forward-port: 端口转发</li>
+<li>rule: 自定义规则</li>
+</ul>
+<p>其中，过滤规则的优先级遵循如下顺序</p>
+<p>1.source<br>2.interface<br>3.firewalld.conf</p>
+</blockquote>
+<p>使用方法:</p>
+<h4 id="关闭防火墙："><a href="#关闭防火墙：" class="headerlink" title="关闭防火墙："></a>关闭防火墙：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<h4 id="开启防火墙："><a href="#开启防火墙：" class="headerlink" title="开启防火墙："></a>开启防火墙：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld.service</span><br></pre></td></tr></table></figure>
+
+<p>若遇到无法开启</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">先用：systemctl unmask firewalld.service </span><br><span class="line">然后：systemctl start firewalld.service</span><br></pre></td></tr></table></figure>
+
+<h4 id="开启开机启动："><a href="#开启开机启动：" class="headerlink" title="开启开机启动："></a>开启开机启动：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable firewalld.service</span><br></pre></td></tr></table></figure>
+
+<h4 id="关闭开机启动："><a href="#关闭开机启动：" class="headerlink" title="关闭开机启动："></a>关闭开机启动：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看防火墙状态："><a href="#查看防火墙状态：" class="headerlink" title="查看防火墙状态："></a>查看防火墙状态：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld </span><br><span class="line">firewall-cmd --state</span><br></pre></td></tr></table></figure>
+
+<h4 id="开启端口"><a href="#开启端口" class="headerlink" title="开启端口"></a>开启端口</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#（--permanent永久生效，没有此参数重启后失效）</span><br><span class="line">#注：可以是一个端口范围，如1000-2000/tcp</span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent  </span><br></pre></td></tr></table></figure>
+
+<h4 id="重新载入"><a href="#重新载入" class="headerlink" title="重新载入"></a>重新载入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询某个端口是否开放"><a href="#查询某个端口是否开放" class="headerlink" title="查询某个端口是否开放"></a>查询某个端口是否开放</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port=80/tcp</span><br></pre></td></tr></table></figure>
+
+<h4 id="移除端口"><a href="#移除端口" class="headerlink" title="移除端口"></a>移除端口</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --permanent --remove-port=123/tcp</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询已经开放的端口列表"><a href="#查询已经开放的端口列表" class="headerlink" title="查询已经开放的端口列表"></a>查询已经开放的端口列表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-port</span><br><span class="line"></span><br><span class="line">命令含义：</span><br><span class="line"></span><br><span class="line">--zone #作用域</span><br><span class="line"></span><br><span class="line">--add-port=80/tcp #添加端口，格式为：端口/通讯协议</span><br><span class="line"></span><br><span class="line">--remove-port=80/tcp #移除端口，格式为：端口/通讯协议</span><br><span class="line"></span><br><span class="line">--permanent #永久生效，没有此参数重启后失效</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置firewalld-cmd"><a href="#配置firewalld-cmd" class="headerlink" title="配置firewalld-cmd"></a>配置firewalld-cmd</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">查看版本： firewall-cmd --version</span><br><span class="line"></span><br><span class="line">查看帮助： firewall-cmd --help</span><br><span class="line"></span><br><span class="line">显示状态： firewall-cmd --state</span><br><span class="line"></span><br><span class="line">查看所有打开的端口： firewall-cmd --zone=public --list-ports</span><br><span class="line"></span><br><span class="line">更新防火墙规则： firewall-cmd --reload</span><br><span class="line"></span><br><span class="line">查看区域信息:  firewall-cmd --get-active-zones</span><br><span class="line"></span><br><span class="line">查看指定接口所属区域： firewall-cmd --get-zone-of-interface=eth0</span><br><span class="line"></span><br><span class="line">拒绝所有包：firewall-cmd --panic-on</span><br><span class="line"></span><br><span class="line">取消拒绝状态： firewall-cmd --panic-off</span><br><span class="line"></span><br><span class="line">查看是否拒绝： firewall-cmd --query-panic</span><br></pre></td></tr></table></figure>
+
+<h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><blockquote>
+<p>[-t 表名]：该规则所操作的哪个表，可以使用filter、nat等，如果没有指定则默认为filter<br>-A：新增一条规则，到该规则链列表的最后一行<br>-I：插入一条规则，原本该位置上的规则会往后顺序移动，没有指定编号则为1<br>-D：从规则链中删除一条规则，要么输入完整的规则，或者指定规则编号加以删除<br>-R：替换某条规则，规则替换不会改变顺序，而且必须指定编号。<br>-P：设置某条规则链的默认动作<br>-nL：-L、-n，查看当前运行的防火墙规则列表<br>chain名：指定规则表的哪个链，如INPUT、OUPUT、FORWARD、PREROUTING等<br>[规则编号]：插入、删除、替换规则时用，<code>--line-numbers</code>显示号码<br>[-i|o 网卡名称]：i是指定数据包从哪块网卡进入，o是指定数据包从哪块网卡输出<br>[-p 协议类型]：可以指定规则应用的协议，包含tcp、udp和icmp等<br>[-s 源IP地址]：源主机的IP地址或子网地址<br>[–sport 源端口号]：数据包的IP的源端口号<br>[-d目标IP地址]：目标主机的IP地址或子网地址<br>[–dport目标端口号]：数据包的IP的目标端口号<br>-m：extend matches，这个选项用于提供更多的匹配参数，如：<br>-m state –state ESTABLISHED,RELATED<br>-m tcp –dport 22<br>-m multiport –dports 80,8080<br>-m icmp –icmp-type 8<br>&lt;-j 动作&gt;：处理数据包的动作，包括ACCEPT、DROP、REJECT等</p>
+</blockquote>
+<h4 id="查看规则"><a href="#查看规则" class="headerlink" title="查看规则"></a>查看规则</h4><p>查看规则集</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables --list -n</span></span><br></pre></td></tr></table></figure>
+
+<p>加一个-n以数字形式显示IP和端口，而不是默认的服务名称</p>
+<h4 id="修改规则"><a href="#修改规则" class="headerlink" title="修改规则"></a>修改规则</h4><p>配置默认规则，不允许数据进入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables -P INPUT DROP</span></span><br></pre></td></tr></table></figure>
+
+<p>允许转发</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables -P FORWARD ACCEPT</span></span><br></pre></td></tr></table></figure>
+
+<p>不允许数据流出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables -P OUTPUT DROP</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h4><p>允许源IP地址为192.168.0.0&#x2F;24网段的包流进（包括所有的协议，这里也可以指定单个IP）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -s 192.168.0.0/24 -j ACCEPT</span><br><span class="line">iptables -A INPUT -s 192.168.0.0/24 -j DROP</span><br></pre></td></tr></table></figure>
+
+<p>允许所有的IP到192.168.0.22的访问</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -d 192.168.0.22 -j ACCEPT</span><br><span class="line">iptables -A INPUT -d 192.168.0.22 -j DROP</span><br></pre></td></tr></table></figure>
+
+<p>开放本机80端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j DROP</span><br></pre></td></tr></table></figure>
+
+<p>开放本机的ICMP协议</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除规则"><a href="#删除规则" class="headerlink" title="删除规则"></a>删除规则</h4><p>删除允许源地址进入的规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -D INPUT -s 192.168.0.21 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h4 id="iptables服务命令"><a href="#iptables服务命令" class="headerlink" title="iptables服务命令"></a>iptables服务命令</h4><p>启动服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line"></span><br><span class="line">service iptables start</span><br></pre></td></tr></table></figure>
+
+<p>停止服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"></span><br><span class="line">service iptables stop</span><br></pre></td></tr></table></figure>
+
+<p>重启服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"></span><br><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
+
+<h4 id="空当前的所有规则和计数"><a href="#空当前的所有规则和计数" class="headerlink" title="空当前的所有规则和计数"></a>空当前的所有规则和计数</h4><p>清空所有的防火墙规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br></pre></td></tr></table></figure>
+
+<p>删除用户自定义的空链</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -X</span><br></pre></td></tr></table></figure>
+
+<p>清空计数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -Z</span><br></pre></td></tr></table></figure>
+
+<p>清空指定链 INPUT 上面的所有规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -F INPUT</span><br></pre></td></tr></table></figure>
+
+<p>删除指定的链，这个链必须没有被其它任何规则引用，而且这条上必须没有任何规则。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -X INPUT</span><br></pre></td></tr></table></figure>
+
+<p>如果没有指定链名，则会删除该表中所有非内置的链。</p>
+<p>把指定链，或者表中的所有链上的所有计数器清零。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -Z INPUT</span><br></pre></td></tr></table></figure>
+
+<h4 id="保存规则"><a href="#保存规则" class="headerlink" title="保存规则"></a>保存规则</h4><p>保存设置,将规则保存在&#x2F;etc&#x2F;sysconfig&#x2F;iptables文件里</p>
+<h5 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"></span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>iptables防火墙的配置文件存放于：&#x2F;etc&#x2F;sysconfig&#x2F;iptables</p>
+</blockquote>
+<h5 id="方法2"><a href="#方法2" class="headerlink" title="方法2:"></a>方法2:</h5><p>修改&#x2F;etc&#x2F;sysconfig&#x2F;iptables-config 将里面的IPTABLES_SAVE_ON_STOP&#x3D;”no”, 这一句的”no”改为”yes”这样每次服务在停止之前会自动将现有的规则保存在 &#x2F;etc&#x2F;sysconfig&#x2F;iptables 这个文件中去。</p>
+<h3 id="UFW"><a href="#UFW" class="headerlink" title="UFW"></a>UFW</h3><h4 id="Ubuntu安装UFW防火墙"><a href="#Ubuntu安装UFW防火墙" class="headerlink" title="Ubuntu安装UFW防火墙"></a>Ubuntu安装UFW防火墙</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw </span><br></pre></td></tr></table></figure>
+
+<p>一般用户，只需如下设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw</span><br><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny</span><br></pre></td></tr></table></figure>
+
+<p>以上三条命令已经足够安全了，如果你需要开放某些服务，再使用sudo ufw allow开启。</p>
+<p>开启防火墙</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable </span><br><span class="line">sudo ufw default deny </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">运行以上两条命令后，开启了防火墙，并在系统启动时自动开启。</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭所有外部对本机的访问，但本机访问外部正常。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="开启-禁用"><a href="#开启-禁用" class="headerlink" title="开启&#x2F;禁用"></a>开启&#x2F;禁用</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow|deny [service] </span><br></pre></td></tr></table></figure>
+
+<h4 id="打开或关闭端口"><a href="#打开或关闭端口" class="headerlink" title="打开或关闭端口"></a>打开或关闭端口</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow smtp　      #允许所有的外部IP访问本机的25/tcp (smtp)端口 </span><br><span class="line">sudo ufw allow 22/tcp      #允许所有的外部IP访问本机的22/tcp (ssh)端口 </span><br><span class="line">sudo ufw allow 53          #允许外部访问53端口(tcp/udp) </span><br><span class="line">sudo ufw allow from 192.168.1.100 #允许此IP访问所有的本机端口 </span><br><span class="line">sudo ufw allow proto udp 192.168.0.1 port 53 to 192.168.0.2 port 53 </span><br><span class="line">sudo ufw deny smtp         #禁止外部访问smtp服务 </span><br><span class="line">sudo ufw delete allow smtp #删除上面建立的某条规则 </span><br></pre></td></tr></table></figure>
+
+<h4 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status </span><br></pre></td></tr></table></figure>
+
+<p>补充：开启&#x2F;关闭防火墙 (默认设置是’disable’)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw enable|disable</span><br></pre></td></tr></table></figure>
+
+<p>转换日志状态</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw logging on|off</span><br></pre></td></tr></table></figure>
+
+<p>设置默认策略 (比如 “mostly open” vs “mostly closed”)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ufw default allow|deny</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>#许可或者屏蔽某些入埠的包 (可以在“status” 中查看到服务列表［见后文］)<br>#可以用“协议：端口”的方式指定一个存在于&#x2F;etc&#x2F;services中的服务名称，也可以通过包的meta-data。 ‘allow’ 参数将把条目加入 &#x2F;etc&#x2F;ufw&#x2F;maps ，而 ‘deny’ 则相反。基本语法如下：ufw allow|deny [service]<br>#显示防火墙和端口的侦听状态，参见 &#x2F;var&#x2F;lib&#x2F;ufw&#x2F;maps。括号中的数字将不会被显示出来。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw status</span><br></pre></td></tr></table></figure>
+
+<h4 id="UFW使用范例："><a href="#UFW使用范例：" class="headerlink" title="UFW使用范例："></a>UFW使用范例：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">允许 53 端口</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw allow 53</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">禁用 53 端口</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw delete allow 53</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">允许 80 端口</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw allow 80/tcp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">禁用 80 端口</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw delete allow 80/tcp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">允许 smtp 端口</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw allow smtp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除 smtp 端口的许可</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw delete allow smtp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">允许某特定 IP</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw allow from 192.168.254.254</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除上面的规则</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw delete allow from 192.168.254.254</span>  </span><br></pre></td></tr></table></figure>
+
+<h3 id="systemctl"><a href="#systemctl" class="headerlink" title="systemctl"></a>systemctl</h3><p>systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">启动一个服务：systemctl start firewalld.service</span><br><span class="line">关闭一个服务：systemctl stop firewalld.service</span><br><span class="line">重启一个服务：systemctl restart firewalld.service</span><br><span class="line">显示一个服务的状态：systemctl status firewalld.service</span><br><span class="line">在开机时启用一个服务：systemctl enable firewalld.service</span><br><span class="line">在开机时禁用一个服务：systemctl disable firewalld.service</span><br><span class="line">查看服务是否开机启动：systemctl is-enabled firewalld.service</span><br><span class="line">查看已启动的服务列表：systemctl list-unit-files|grep enabled</span><br><span class="line">查看启动失败的服务列表：systemctl --failed</span><br></pre></td></tr></table></figure>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="Toggle full screen shortcut key s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

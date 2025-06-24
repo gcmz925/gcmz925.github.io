@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>categories | Hexo</title>
+  <title>linux sys_call_table 测试 | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="categories | Hexo">
+  <meta name="description" content="linux sys_call_table 测试 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -199,17 +199,25 @@
     <div class="pjax">
         <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">categories</h1>
+        <h1 class="article-title">linux sys_call_table 测试</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel=""></a>
+            
+        </span>
+        
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-04 10:23:35'>2025-04-04 10:22</time>
+            Created At : <time class="date" title='Updated At: 2025-04-11 20:25:35'>2025-04-11 20:25</time>
         
     </div>
     <div class="article-meta">
@@ -247,7 +255,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>__NR_rename 等定义在  <code>unistd_64.h</code> 文件中，例如以下：</p>
+<p><code>/usr/src/kernels/3.10.0-957.el7.x86_64/arch/x86/include/generated/uapi/asm/unistd_64.h</code> </p>
+<p>并且发现有在 <code>/proc/kallsyms</code> 中有 sys_mount ，但是在调用 mount 时，可能不是调用的 sys_mount , 可能时 sys_mount2 ，原因在与 unistd_64.h 文件中没有定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>

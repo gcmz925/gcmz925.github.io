@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>categories | Hexo</title>
+  <title>crash + windbg | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="categories | Hexo">
+  <meta name="description" content="crash + windbg | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -199,17 +199,25 @@
     <div class="pjax">
         <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">categories</h1>
+        <h1 class="article-title">crash + windbg</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel=""></a>
+            
+        </span>
+        
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-04 10:23:35'>2025-04-04 10:22</time>
+            Created At : <time class="date" title='Updated At: 2025-05-14 19:49:33'>2025-06-08 22:57</time>
         
     </div>
     <div class="article-meta">
@@ -231,7 +239,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#crash"><span class="toc-text">crash</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -247,7 +255,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="crash"><a href="#crash" class="headerlink" title="crash"></a>crash</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">centos:</span><br><span class="line">rpm -ivh kernel-debuginfo-common-x86_64-3.10.0-862.el7.x86_64.rpm(need install)</span><br><span class="line">rpm -ivh kernel-debuginfo-3.10.0-862.el7.x86_64.rpm(need install)</span><br><span class="line">crash /usr/lib/debug/lib/modules/3.10.0-1160.el7.x86_64/vmlinux /root/127.0.0.1-2023-08-22-12\:31\:24/vmcore</span><br><span class="line">suse:</span><br><span class="line">rpm -ivh </span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">强制转储：</span><br><span class="line">echo 1 &gt; /proc/sys/kernel/sysrq</span><br><span class="line">echo c &gt; /proc/sysrq-trigger</span><br></pre></td></tr></table></figure>
+
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>

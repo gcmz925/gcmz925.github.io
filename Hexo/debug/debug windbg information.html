@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>categories | Hexo</title>
+  <title>Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="categories | Hexo">
+  <meta name="description" content="Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -199,8 +199,6 @@
     <div class="pjax">
         <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">categories</h1>
-    
     <div class="article-meta">
         
         
@@ -209,7 +207,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-04 10:23:35'>2025-04-04 10:22</time>
+            Created At : <time class="date" title='Updated At: 2025-05-14 19:51:08'>2025-06-08 22:57</time>
         
     </div>
     <div class="article-meta">
@@ -231,7 +229,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#windbg"><span class="toc-text">windbg</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pdb"><span class="toc-text">pdb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%A6%BB%E8%BF%9B%E7%A8%8B"><span class="toc-text">分离进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E5%82%A8"><span class="toc-text">转储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windbg-%E6%8E%A7%E5%88%B6%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA"><span class="toc-text">windbg 控制日志输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B"><span class="toc-text">进程线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apc"><span class="toc-text">Apc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IRP"><span class="toc-text">IRP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#handle"><span class="toc-text">handle</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -247,7 +245,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="windbg"><a href="#windbg" class="headerlink" title="windbg"></a>windbg</h2><h3 id="pdb"><a href="#pdb" class="headerlink" title="pdb"></a>pdb</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">!sym noisy</span><br><span class="line">!sym quiet</span><br><span class="line"></span><br><span class="line">D:\Environment\Symbols;SRV*D:\Environment\Symbols*http://msdl.microsoft.com/download/symbols;E:\Develop\Project;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="分离进程"><a href="#分离进程" class="headerlink" title="分离进程"></a>分离进程</h3><blockquote>
+<p> 注意:如果是windbg附加到应用层，如果不进行分离，直接关闭windbg，会导致被附加的进程死亡</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.detach</span><br><span class="line">qd</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="转储"><a href="#转储" class="headerlink" title="转储"></a>转储</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.dump</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="windbg-控制日志输出"><a href="#windbg-控制日志输出" class="headerlink" title="windbg 控制日志输出"></a>windbg 控制日志输出</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eb nt!Kd_DEFAULT_Mask 0</span><br><span class="line">eb nt!Kd_DEFAULT_Mask 0xf</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>下面 eb 直接将DbgPrint函数返回</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">eb DbgPrint 0xc3; </span><br><span class="line">eb DbgPrintEx 0xc3; </span><br><span class="line">ed nt!Kd_FUSION_Mask 0; </span><br><span class="line">ed nt!Kd_SXS_Mask 0; </span><br><span class="line">ed nt!Kd_WIN2000_Mask 0;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="进程线程"><a href="#进程线程" class="headerlink" title="进程线程"></a>进程线程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">!process 0 0</span><br><span class="line"></span><br><span class="line">## dump 所有</span><br><span class="line">!process 0 1f  </span><br><span class="line"></span><br><span class="line">## 通过程序名获取</span><br><span class="line">!process 0 0 &lt;xxx.exe&gt;</span><br><span class="line"></span><br><span class="line">!process ffffde06b43d04c0 1f</span><br><span class="line">!object  ffffde06b43d04c0</span><br><span class="line"></span><br><span class="line">## 正在运行的线程,查死锁卡死问题</span><br><span class="line">!running it </span><br><span class="line">!thread &lt;&gt;</span><br><span class="line"></span><br><span class="line">## 切换到目标进程/线程空间</span><br><span class="line">.process &lt;&gt;</span><br><span class="line">.thread &lt;&gt;</span><br><span class="line"></span><br><span class="line">## 查看当前进程/线程</span><br><span class="line">.process</span><br><span class="line">.thread</span><br><span class="line"></span><br><span class="line">## 获取线程的堆栈范围</span><br><span class="line">dt _KTHREAD ffffa68d9a78e080</span><br><span class="line">+0x030 StackLimit</span><br><span class="line">+0x038 StackBase</span><br><span class="line">dsp StackLimit StackBase</span><br><span class="line"></span><br><span class="line">## 可以查看一个线程的调用栈</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">~* k</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Apc"><a href="#Apc" class="headerlink" title="Apc"></a>Apc</h3><blockquote>
+<p>这里需要进行补充</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">!apc</span><br><span class="line">    !apc proc Process</span><br><span class="line">    !apc thre Thread</span><br><span class="line">    !apc KAPC</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="IRP"><a href="#IRP" class="headerlink" title="IRP"></a>IRP</h3><p>在!process &lt;&gt; 1f 的过程中，如果有进程还有未处理完的irp，会出现一下的日志打印</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IRP List:</span><br><span class="line">            ffffde0371c7b010: (0006,0478) Flags: 00060000  Mdl: 00000000</span><br><span class="line">            ffffde036fd6ba20: (0006,0478) Flags: 00060000  Mdl: 00000000</span><br><span class="line">            ffffde03727efb20: (0006,0478) Flags: 00060000  Mdl: 00000000</span><br></pre></td></tr></table></figure>
+
+<p>以上信息中 ffffde0371c7b010 为 IRP 指针，通过 <code>!irp &lt;address&gt;</code> 命令可以查看当前irp 的详细信息，例如以下输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[IRP_MJ_DIRECTORY_CONTROL(c), N/A(2)]</span><br><span class="line">     0  1 ffffde036c5ad030 ffffde0374e5adf0 00000000-00000000    pending</span><br><span class="line">        \FileSystem\Ntfs</span><br><span class="line">        Args: 00000800 00000015 00000000 00000000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其中第二点：<br><code>ffffde0374e5adf0</code>: FileObject 地址</p>
+<p>通过  <code>dt _FILE_OBJECT ffffde0374e5adf0</code>  进行查看</p>
+<h3 id="handle"><a href="#handle" class="headerlink" title="handle"></a>handle</h3><p>!htrace -enable：启用handle trace,并且创建第一个快照作为初始状态，方便使用 -diff选项<br>!htrace：显示当前的所有句柄信息<br>!htrace -snapshot：创建快照，用作-diff选项<br>!handle xxx f：查看一下handle的信息</p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>

@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>categories | Hexo</title>
+  <title>Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="categories | Hexo">
+  <meta name="description" content="Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -199,8 +199,6 @@
     <div class="pjax">
         <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">categories</h1>
-    
     <div class="article-meta">
         
         
@@ -209,7 +207,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-04 10:23:35'>2025-04-04 10:22</time>
+            Created At : <time class="date" title='Updated At: 2025-04-22 16:17:30'>2025-04-22 16:17</time>
         
     </div>
     <div class="article-meta">
@@ -231,7 +229,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81CONTAINING-RECORD-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">一、CONTAINING_RECORD 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%8F%E6%8B%86%E8%A7%A3%E5%88%86%E6%9E%90"><span class="toc-text">二、宏拆解分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%99%85%E4%BE%8B%E5%AD%90"><span class="toc-text">三、实际例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">四、应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%86%85%E6%A0%B8%E9%93%BE%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="toc-text">1. 内核链表结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">五、小结</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -247,7 +245,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>在 C 语言开发中，尤其是驱动开发和内核级编程中，我们常常需要从结构体的某个成员指针，反推整个结构体的起始地址。这在实现内核链表（如 Windows 内核的 LIST_ENTRY）、对象封装或回调系统中尤为常见。实现这一需求的核心技巧就是使用 <code>CONTAINING_RECORD</code> 宏，它的实现背后，正是 <code>&amp;((type*)0)-&gt;member</code> 这样的偏移量计算技巧。</p>
+<h2 id="一、CONTAINING-RECORD-是什么？"><a href="#一、CONTAINING-RECORD-是什么？" class="headerlink" title="一、CONTAINING_RECORD 是什么？"></a>一、CONTAINING_RECORD 是什么？</h2><p><code>CONTAINING_RECORD</code> 是一个宏，它的定义如下（常见版本）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> CONTAINING_RECORD(address, type, field) \</span></span><br><span class="line"><span class="meta">    ((type *)((char *)(address) - (size_t)&amp;(((type *)0)-&gt;field)))</span></span><br></pre></td></tr></table></figure>
+
+<p>它的作用是：</p>
+<blockquote>
+<p>已知结构体 <code>type</code> 中 <code>field</code> 成员的地址为 <code>address</code>，反推出结构体 <code>type</code> 的起始地址。</p>
+</blockquote>
+<h2 id="二、宏拆解分析"><a href="#二、宏拆解分析" class="headerlink" title="二、宏拆解分析"></a>二、宏拆解分析</h2><p>我们来逐步拆解这个宏：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="type">char</span> *)(address)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将成员地址强制转换为 <code>char*</code> 类型是为了方便做字节级的指针运算。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="type">size_t</span>)&amp;(((type *)<span class="number">0</span>)-&gt;field)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>这部分是计算 <code>field</code> 成员在 <code>type</code> 结构体中的偏移量。</p>
+</li>
+<li><p>通过将 0 强制转换为 <code>type*</code> 指针，访问它的 <code>field</code> 成员，再取地址，就可以得到 <code>field</code> 相对于结构体起始地址的偏移（以字节为单位）。</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((<span class="type">char</span> *)(address) - 偏移量)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>从成员地址中减去偏移量，就得到了结构体首地址。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((type *)...)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最后，将结果强制转换为结构体指针类型。</li>
+</ul>
+<h2 id="三、实际例子"><a href="#三、实际例子" class="headerlink" title="三、实际例子"></a>三、实际例子</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">MY_STRUCT</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">&#125; MY_STRUCT;</span><br><span class="line"></span><br><span class="line">MY_STRUCT s = &#123;<span class="number">10</span>, <span class="number">20</span>&#125;;</span><br><span class="line"><span class="type">int</span> *pb = &amp;s.b;</span><br><span class="line"></span><br><span class="line">MY_STRUCT *ps = CONTAINING_RECORD(pb, MY_STRUCT, b);</span><br></pre></td></tr></table></figure>
+
+<p>展开后就是：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps = (MY_STRUCT *)((<span class="type">char</span> *)pb - offsetof(MY_STRUCT, b));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>你会发现，<code>CONTAINING_RECORD</code> 其实和 <code>offsetof</code> 的本质是一致的，都是基于成员偏移量计算结构体地址。</p>
+</blockquote>
+<h2 id="四、应用场景"><a href="#四、应用场景" class="headerlink" title="四、应用场景"></a>四、应用场景</h2><p>这个宏在实际开发中的用途非常广泛，以下是常见场景：</p>
+<h3 id="1-内核链表结构"><a href="#1-内核链表结构" class="headerlink" title="1. 内核链表结构"></a>1. 内核链表结构</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">DEVICE</span> &#123;</span></span><br><span class="line">    LIST_ENTRY List;</span><br><span class="line">    <span class="type">int</span> DeviceId;</span><br><span class="line">&#125; DEVICE;</span><br><span class="line"></span><br><span class="line">DEVICE *dev = CONTAINING_RECORD(pListEntry, DEVICE, List);</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、小结"><a href="#五、小结" class="headerlink" title="五、小结"></a>五、小结</h2><p><code>CONTAINING_RECORD</code> 的核心思想是：</p>
+<blockquote>
+<p><strong>结构体指针 &#x3D; 成员指针 - 成员偏移量</strong></p>
+</blockquote>
+<p>它看起来有点黑魔法，但实际是一种非常高效、零开销的做法，用好了能写出非常优雅的底层代码。</p>
+<p>这个技巧背后最根本的就是 <code>&amp;((type *)0)-&gt;member</code>，建议你深入理解这个表达式背后的含义和使用方式，它不仅对理解 <code>CONTAINING_RECORD</code> 有帮助，更是很多底层 C 语言技巧的基础。</p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>

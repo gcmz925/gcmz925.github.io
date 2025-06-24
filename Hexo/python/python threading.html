@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>categories | Hexo</title>
+  <title>python使用 `threading` 模块来实现守护线程和定时任务 | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="categories | Hexo">
+  <meta name="description" content="python使用 `threading` 模块来实现守护线程和定时任务 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -199,17 +199,25 @@
     <div class="pjax">
         <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">categories</h1>
+        <h1 class="article-title">python使用 `threading` 模块来实现守护线程和定时任务</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel=""></a>
+            
+        </span>
+        
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-04 10:23:35'>2025-04-04 10:22</time>
+            Created At : <time class="date" title='Updated At: 2025-04-06 18:11:51'>2025-04-06 18:19</time>
         
     </div>
     <div class="article-meta">
@@ -231,7 +239,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python%E4%BD%BF%E7%94%A8-threading-%E6%A8%A1%E5%9D%97%E6%9D%A5%E5%AE%9E%E7%8E%B0%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-text">python使用 threading 模块来实现守护线程和定时任务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">线程的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF"><span class="toc-text">问题背景</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -247,7 +255,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="python使用-threading-模块来实现守护线程和定时任务"><a href="#python使用-threading-模块来实现守护线程和定时任务" class="headerlink" title="python使用 threading 模块来实现守护线程和定时任务"></a>python使用 <code>threading</code> 模块来实现守护线程和定时任务</h1><h3 id="线程的基本概念"><a href="#线程的基本概念" class="headerlink" title="线程的基本概念"></a>线程的基本概念</h3><p>在 Python 中，<code>threading</code> 模块允许我们创建和管理多个线程。每个线程都可以并行执行任务，从而提高程序的执行效率。通过使用线程，我们可以在同一个程序中同时执行多个操作。</p>
+<p><strong>守护线程</strong>是指一种特殊类型的线程。与普通线程不同，守护线程会在程序退出时自动结束，而不需要显式地调用 <code>join()</code> 或者其他结束方法。这使得守护线程非常适合那些在后台持续运行、不需要干预主程序的任务。</p>
+<h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><p>假设我们需要在一个 Python 程序中同时执行两个任务：</p>
+<ol>
+<li>定时任务：每隔一段时间执行某个操作，比如检查防火墙规则。</li>
+<li>后台任务：不断查询防火墙配置或执行其他持续的工作。</li>
+<li>立即执行：特殊请求时能够立即调用执行一次</li>
+</ol>
+<p>这时，如果使用单一线程，程序将会被阻塞，直到某个任务完成。为了避免这种情况，我们可以使用 Python 的 <code>threading</code> 模块来实现并发。</p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>

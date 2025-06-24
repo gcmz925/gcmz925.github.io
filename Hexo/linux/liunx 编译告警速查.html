@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>categories | Hexo</title>
+  <title>Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="categories | Hexo">
+  <meta name="description" content="Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -199,8 +199,6 @@
     <div class="pjax">
         <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">categories</h1>
-    
     <div class="article-meta">
         
         
@@ -209,7 +207,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-04 10:23:35'>2025-04-04 10:22</time>
+            Created At : <time class="date" title='Updated At: 2025-04-22 17:28:08'>2025-04-22 17:28</time>
         
     </div>
     <div class="article-meta">
@@ -247,7 +245,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>1.多级宏定义可以加 <code>error</code></p>
+<blockquote>
+<p>使用多级宏判断时，判断进入哪一分支，可以在编码中加入  <code>error</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#ifdef __x86__</span><br><span class="line">    // x86 处理</span><br><span class="line">#elif defined(__arm__)</span><br><span class="line">    // ARM 处理</span><br><span class="line">    #error &quot;Unsupported architecture. Please define a valid arch macro.&quot;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>

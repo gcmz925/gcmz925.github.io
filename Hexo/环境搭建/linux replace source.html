@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>categories | Hexo</title>
+  <title>linux 换源 | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="categories | Hexo">
+  <meta name="description" content="linux 换源 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -199,17 +199,25 @@
     <div class="pjax">
         <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">categories</h1>
+        <h1 class="article-title">linux 换源</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel=""></a>
+            
+        </span>
+        
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-04-04 10:23:35'>2025-04-04 10:22</time>
+            Created At : <time class="date" title='Updated At: 2025-04-07 16:47:55'>2025-04-11 22:37</time>
         
     </div>
     <div class="article-meta">
@@ -231,7 +239,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%BD%91%E7%AB%99"><span class="toc-text">0.开源镜像网站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-centos"><span class="toc-text">1.centos</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-ubuntu"><span class="toc-text">2.ubuntu</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -247,7 +255,79 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="0-开源镜像网站"><a href="#0-开源镜像网站" class="headerlink" title="0.开源镜像网站"></a>0.开源镜像网站</h2><p>[阿里源]<a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/">https://developer.aliyun.com/mirror/</a><br>[清华源]<a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/">https://mirror.tuna.tsinghua.edu.cn/</a><br>[网易源]<a target="_blank" rel="noopener" href="http://mirrors.163.com/">http://mirrors.163.com/</a><br>[中科大]<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">https://mirrors.ustc.edu.cn/</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>RPM (Red Hat&#x2F;Fedora)</strong></th>
+<th><strong>Debian&#x2F;Ubuntu 等效命令</strong></th>
+<th>说明</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>rpm -ivh pkg.rpm</code></td>
+<td><code>dpkg -i pkg.deb</code></td>
+<td>安装本地包</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rpm -e pkg</code></td>
+<td><code>dpkg -r pkg</code></td>
+<td>移除包</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rpm -qa</code></td>
+<td><code>dpkg -l</code></td>
+<td>列出所有已安装包</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rpm -q pkg</code></td>
+<td>&#96;dpkg -l</td>
+<td>grep pkg&#96;</td>
+<td>检查是否安装</td>
+</tr>
+<tr>
+<td><code>rpm -qf /path/to/file</code></td>
+<td><code>dpkg -S /path/to/file</code></td>
+<td>查询文件属于哪个包</td>
+<td></td>
+</tr>
+<tr>
+<td><code>yum install pkg</code></td>
+<td><code>apt-get install pkg</code></td>
+<td>从仓库安装</td>
+<td></td>
+</tr>
+<tr>
+<td><code>yum remove pkg</code></td>
+<td><code>apt-get remove pkg</code></td>
+<td>卸载包</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="1-centos"><a href="#1-centos" class="headerlink" title="1.centos"></a>1.centos</h2><p>1.备份</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak</span><br></pre></td></tr></table></figure>
+
+<p>2.替换</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+
+<p>3.清理缓存验证</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo yum clean all </span><br><span class="line">sudo yum makecache</span><br><span class="line">sudo yum repolist</span><br><span class="line">sudo yum install vim -y</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-ubuntu"><a href="#2-ubuntu" class="headerlink" title="2.ubuntu"></a>2.ubuntu</h2><p>1.备份</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
+
+<p>2.修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换</span><br><span class="line">deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse</span><br><span class="line"># deb-src http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</span><br><span class="line"># # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>3.更新索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>
