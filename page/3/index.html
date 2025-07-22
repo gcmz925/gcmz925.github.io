@@ -1,1395 +1,922 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.2","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
-
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Gcmz Blog">
-<meta property="og:url" content="http://example.com/page/3/index.html">
+  <meta charset="utf-8">
+  <title>Gcmz Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Gcmz Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://example.com/categories/index.html">
 <meta property="og:site_name" content="Gcmz Blog">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-04T02:22:59.000Z">
+<meta property="article:modified_time" content="2025-04-04T02:23:35.182Z">
 <meta property="article:author" content="Gcmz">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/page/3/">
+<link rel="icon" href="/img/gcmz.png">
 
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/3/index.html","title":""}</script>
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Gcmz Blog</title>
-  
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
 
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
 
-
-
-
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
-
-  
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
 
 
 
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
 
+<script src="/js/iconfont.js?v=1.1.0" ></script>
 
-
-  
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Gcmz Blog</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
 </div>
 
 
 
+<body>
+<aside class="nav mobile">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/gcmz.png"/>
+</a>
+<div class="author">
+    <span>Gcmz</span>
+</div>
 
-
-
-
-</header>
+<div class="icon">
+    
         
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Gcmz</p>
-  <div class="site-description" itemprop="description"></div>
+            <a title="github"
+               href="https://github.com/gcmz925"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:zhenxingwang925@gmail.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
 </div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">39</span>
-          <span class="site-state-item-name">日志</span>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(39)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="编码">
+            
+            编码
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="环境搭建">
+            
+            环境搭建
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="debug">
+            
+            debug
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="hexo">
+            
+            hexo
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="linux">
+            <i class="fold iconfont icon-right"></i>
+            linux
+            <small>(12)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="linux&lt;---&gt;命令">
+            
+            命令
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="linux&lt;---&gt;驱动">
+            
+            驱动
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="python">
+            
+            python
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="shell">
+            
+            shell
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="windwos">
+            
+            windwos
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="39">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://gcmz925.github.io/">gcmz</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 "
+           href="/2025/07/07/Windows%20C++%20%E9%A1%B9%E7%9B%AE%E5%AE%9E%E7%8E%B0%20GNU%20gettext%20%E5%9B%BD%E9%99%85%E5%8C%96%E6%94%AF%E6%8C%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-07-07 00:24:31">2025/07/07</span>
         </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-  </nav>
-</div>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/22/debug/%E4%BE%8B%E5%AD%90/PE%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-22 22:53:55">2025/06/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/15/debug/%E4%BE%8B%E5%AD%90/%E3%80%8AWindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8B%E8%8B%A5%E5%B9%B2%E7%9F%A5%E8%AF%86%E7%82%B9%E5%AE%9E%E6%88%98%E5%BA%94%E7%94%A8%E5%88%86%E4%BA%AB2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-15 22:00:28">2025/06/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/15/Obsidian%20%E5%A4%9A%E5%BA%93%E5%85%B1%E7%94%A8%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-15 22:00:15">2025/06/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/02/debug/%E4%BE%8B%E5%AD%90/%E3%80%8AWindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8B%E8%8B%A5%E5%B9%B2%E7%9F%A5%E8%AF%86%E7%82%B9%E5%AE%9E%E6%88%98%E5%BA%94%E7%94%A8%E5%88%86%E4%BA%AB/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-02 22:22:57">2025/06/02</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/05/26/debug/%E4%BE%8B%E5%AD%90/Windows%20UAC%E6%9D%83%E9%99%90%E8%AF%A6%E8%A7%A3%E4%BB%A5%E5%8F%8Awindbg%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-05-26 22:32:50">2025/05/26</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/05/14/debug/debug%20windbg%20information/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-05-14 19:48:44">2025/05/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/05/14/debug/%E4%BE%8B%E5%AD%90/windbg%20%E8%A7%82%E5%AF%9F%E5%8F%A5%E6%9F%84%E6%B3%84%E9%9C%B2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-05-14 19:06:11">2025/05/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/22/linux/liunx%20%E7%BC%96%E8%AF%91%E5%91%8A%E8%AD%A6%E9%80%9F%E6%9F%A5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-22 16:17:41">2025/04/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/22/linux/linux%20CONTAINING_RECORD/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-22 15:37:04">2025/04/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/11/debug/debug%20Linux%20enable%20kdump/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-11 21:59:04">2025/04/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/09/linux/linux%20sys_call_table%20%E6%B5%8B%E8%AF%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux sys_call_table 测试">linux sys_call_table 测试</span>
+            <span class="post-date" title="2025-04-09 16:43:04">2025/04/09</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/08/python/python%20win%E6%97%A5%E5%BF%97%E8%A7%A3%E6%9E%90/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-08 20:48:50">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 windwos "
+           href="/2025/04/08/windwos/windows%20%E5%B8%B8%E7%94%A8regedit/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="常用regedit">常用regedit</span>
+            <span class="post-date" title="2025-04-08 14:10:22">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 编码 "
+           href="/2025/04/08/%E7%BC%96%E7%A0%81/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="编码规范">编码规范</span>
+            <span class="post-date" title="2025-04-08 14:08:52">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 编码 "
+           href="/2025/04/08/%E7%BC%96%E7%A0%81/%E6%9C%AA%E5%A4%84%E7%90%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="总结">总结</span>
+            <span class="post-date" title="2025-04-08 14:08:33">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 环境搭建 "
+           href="/2025/04/08/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/Iso%20And%20SoftwarePackage%20Download/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="iso 软件包下载地址">iso 软件包下载地址</span>
+            <span class="post-date" title="2025-04-08 10:45:50">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 环境搭建 "
+           href="/2025/04/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20replace%20source/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux 换源">linux 换源</span>
+            <span class="post-date" title="2025-04-07 15:56:02">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 hexo "
+           href="/2025/04/07/hexo/hexo%20options/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hexo options">hexo options</span>
+            <span class="post-date" title="2025-04-07 15:14:07">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/07/linux/linux%20mount%20umount/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mount umount">mount umount</span>
+            <span class="post-date" title="2025-04-07 13:42:21">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 环境搭建 "
+           href="/2025/04/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20install%20git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux 安装git">linux 安装git</span>
+            <span class="post-date" title="2025-04-07 11:43:07">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 windwos "
+           href="/2025/04/06/windwos/windows%20%E7%89%A9%E7%90%86%E6%9C%BA%E5%BC%80%E5%90%AF%E8%BD%AC%E5%82%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows物理机开启强制转储">windows物理机开启强制转储</span>
+            <span class="post-date" title="2025-04-06 17:08:37">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6%5Betcdefaultgrub%20%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="开机引导文件 etc/default/grub 文件详解">开机引导文件 etc/default/grub 文件详解</span>
+            <span class="post-date" title="2025-04-06 17:08:06">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 windwos "
+           href="/2025/04/06/windwos/windwos%20%E5%85%B3%E4%BA%8Ecreate%E6%98%AF%E5%90%A6%E6%98%AF%E7%9B%AE%E5%BD%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="关于create是否是目录">关于create是否是目录</span>
+            <span class="post-date" title="2025-04-06 17:07:52">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 debug "
+           href="/2025/04/06/debug/debug%20windows%20%E5%86%85%E6%A0%B8%E4%B8%8D%E9%87%8D%E5%90%AF%E8%BD%AC%E5%82%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="获取pdb强制转储">获取pdb强制转储</span>
+            <span class="post-date" title="2025-04-06 17:06:05">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20ERR_PTR%E3%80%81PTR_ERR%E3%80%81IS_ERR%E5%92%8CIS_ERR_OR_NULL/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux中ERR_PTR、PTR_ERR、IS_ERR和IS_ERR_OR_NULL">linux中ERR_PTR、PTR_ERR、IS_ERR和IS_ERR_OR_NULL</span>
+            <span class="post-date" title="2025-04-06 17:05:56">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20iptables/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux防火墙与iptables">linux防火墙与iptables</span>
+            <span class="post-date" title="2025-04-06 17:05:41">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20CreateThread/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux kernel CreateThread">Linux kernel CreateThread</span>
+            <span class="post-date" title="2025-04-06 17:05:18">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux 命令 "
+           href="/2025/04/06/linux/linux%20kill%20%E5%91%BD%E4%BB%A4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="kill">kill</span>
+            <span class="post-date" title="2025-04-06 17:04:19">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux 驱动 "
+           href="/2025/04/06/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20suse%20configure%20kernel%20compilation%20env/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="配置内核编译环境(suse)">配置内核编译环境(suse)</span>
+            <span class="post-date" title="2025-04-06 17:04:16">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20%E5%BC%80%E5%90%AFssh%E8%BF%9E%E6%8E%A5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="开启ssh连接">开启ssh连接</span>
+            <span class="post-date" title="2025-04-06 17:04:15">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux 驱动 "
+           href="/2025/04/06/linux/linux%20%E5%A4%9A%E5%86%85%E6%A0%B8%E6%94%AF%E6%8C%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux 多内核支持（suse）">linux 多内核支持（suse）</span>
+            <span class="post-date" title="2025-04-06 17:04:13">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20Kernel%20ARM64%E6%9E%B6%E6%9E%84%E4%B8%AD,%20%E7%AA%81%E7%A0%B4%E5%86%85%E5%AD%98%E5%8F%AA%E8%AF%BB%E7%9A%84%E9%99%90%E5%88%B6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux Kernel ARM64架构中, 突破内存只读的限制">Linux Kernel ARM64架构中, 突破内存只读的限制</span>
+            <span class="post-date" title="2025-04-06 17:04:12">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20arm64%20hook/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux ARM64平台上Hook系统调用">Linux ARM64平台上Hook系统调用</span>
+            <span class="post-date" title="2025-04-06 17:04:10">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 debug "
+           href="/2025/04/06/debug/debug%20Linux%20information/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="crash + windbg">crash + windbg</span>
+            <span class="post-date" title="2025-04-06 17:03:52">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 shell "
+           href="/2025/04/06/shell/shell%20%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E8%BF%90%E7%94%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bash 脚本中关于时间的运用">bash 脚本中关于时间的运用</span>
+            <span class="post-date" title="2025-04-06 17:03:33">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 python "
+           href="/2025/04/06/python/python%20threading/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="python使用 `threading` 模块来实现守护线程和定时任务">python使用 `threading` 模块来实现守护线程和定时任务</span>
+            <span class="post-date" title="2025-04-06 17:02:35">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 hexo "
+           href="/2025/04/04/hexo/hexo%20temp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2025-04-04 08:42:25">2025/04/04</span>
+        </a>
+        
+        
+        <a  class="全部文章 python "
+           href="/2024/12/05/python/python%20%E8%A3%85%E9%A5%B0%E5%99%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 装饰器">Python 装饰器</span>
+            <span class="post-date" title="2024-12-05 17:42:24">2024/12/05</span>
+        </a>
+        
+        <div id="no-item-tips">
 
         </div>
-      </div>
+    </nav>
+    <div id="outline-list">
     </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20install%20git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20install%20git/" class="post-title-link" itemprop="url">linux 安装git</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-07 11:43:07" itemprop="dateCreated datePublished" datetime="2025-04-07T11:43:07+08:00">2025-04-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-08 10:15:52" itemprop="dateModified" datetime="2025-04-08T10:15:52+08:00">2025-04-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">环境搭建</span></a>
-        </span>
-    </span>
-
-  
 </div>
 
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>linux git 下载地址：<br><a target="_blank" rel="noopener" href="https://www.kernel.org/pub/software/scm/git/">https://www.kernel.org/pub/software/scm/git/</a></p>
-<p>安装参考官方文档：<br><a target="_blank" rel="noopener" href="https://git.mosong.cc/guide/install-git-src.html">https://git.mosong.cc/guide/install-git-src.html</a></p>
-<p>make prefix&#x3D;&#x2F;usr&#x2F;local all 中如果遇到错误</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/perl Makefile.PL PREFIX=&#x27;/usr/local&#x27; INSTALL_BASE=&#x27;&#x27; --localedir=&#x27;/usr/local/share/locale&#x27; Can&#x27;t locate ExtUtils/MakeMaker.pm in @INC (@INC contains: /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at Makefile.PL line 3. BEGIN failed--compilation aborted at Makefile.PL line 3. make[1]: *** [perl.mak] Error 2 make: *** [perl/perl.mak] Error 2</span><br></pre></td></tr></table></figure>
-
-<p>解决方案：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install perl-ExtUtils-MakeMaker perl-CPAN</span><br></pre></td></tr></table></figure>
-
-
-
-<p>离线安装：</p>
-<p>debian：<br>下载所有依赖但不安装（缓存到本机，建议下载机器是什么都没装的）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get --download-only install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev</span><br></pre></td></tr></table></figure>
-<p>下载好的文件会放在这里：</p>
-<p><code>/var/cache/apt/archives/</code></p>
-<p>可以把这些 <code>.deb</code> 打包起来，用于离线安装：</p>
-<p><code>cd /var/cache/apt/archives/</code><br><code>tar git-download.tar.gz ./*.deb</code></p>
-<p>如果还是有如下这种报错</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dpkg: dependency problems prevent configuration of krb5-multidev:</span><br><span class="line"></span><br><span class="line"> krb5-multidev depends on libkadm5srv-mit8 (= 1.10.1+dfsg-5+deb7u7); however:</span><br><span class="line"> </span><br><span class="line">  Package libkadm5srv-mit8:amd64 is not configured yet.</span><br></pre></td></tr></table></figure>
-
-<p>可以知道这是依赖没有装好，可能是下载机器已经有安装了，这个时候下载这些依赖一一解决就行<br>例如上面就是要下载 <code>libkadm5srv-mit8</code>  这个依赖,使用如下命令<br><code>--reinstall</code><br><code>apt-get --download-only --reinstall install  </code>libkadm5srv-mit8&#96;&#96;</p>
-
-      
     </div>
-
+</aside>
+<div id="post" class="index">
+    <div class="pjax">
+        <article class="index">
+            <div class="toc-ref">
     
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8F%B6%E8%90%BD%E9%98%81"><span class="toc-text">关于叶落阁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%B9%B3%E5%8F%B0"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
     
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
 </div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/windwos/windows%20%E7%89%A9%E7%90%86%E6%9C%BA%E5%BC%80%E5%90%AF%E8%BD%AC%E5%82%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/windwos/windows%20%E7%89%A9%E7%90%86%E6%9C%BA%E5%BC%80%E5%90%AF%E8%BD%AC%E5%82%A8/" class="post-title-link" itemprop="url">windows物理机开启强制转储</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-04-06 17:08:37 / 修改时间：18:09:13" itemprop="dateCreated datePublished" datetime="2025-04-06T17:08:37+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/windwos/" itemprop="url" rel="index"><span itemprop="name">windwos</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="windows物理机开启强制转储"><a href="#windows物理机开启强制转储" class="headerlink" title="windows物理机开启强制转储"></a>windows物理机开启强制转储</h2><blockquote>
-<p>CrashControl.reg</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters]</span><br><span class="line"><span class="string">&quot;CrashOnCtrlScroll&quot;</span>=dword:00000001</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kbdhid\Parameters]</span><br><span class="line"><span class="string">&quot;CrashOnCtrlScroll&quot;</span>=dword:00000001</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-写入注册表项目"><a href="#1-写入注册表项目" class="headerlink" title="1.写入注册表项目"></a>1.写入注册表项目</h3><p>创建上述 <code>CrashControl.reg</code> 文件，管理员运行，写入注册表</p>
-<h3 id="2-开启widnwos转储"><a href="#2-开启widnwos转储" class="headerlink" title="2.开启widnwos转储"></a>2.开启widnwos转储</h3><p>系统属性→高级→启动和故障恢复→写入调试信息→完全内存转储。</p>
-<h3 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h3><p>上述配置重启后生效。</p>
-<h3 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h3><p>重启后，连续按两次Ctrl+Scroll Lock触发蓝屏并写入dump，是右侧的Ctrl。</p>
-<p>（右侧Ctrl按住不动，按两下 Scroll Lock）</p>
-<h3 id="5-详细配置"><a href="#5-详细配置" class="headerlink" title="5.详细配置"></a>5.详细配置</h3><blockquote>
-<p>微软官方说明</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows-hardware/drivers/debugger/forcing-a-system-crash-from-the-keyboard">通过键盘强制系统崩溃</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/linux/linux%20%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6[etcdefaultgrub%20%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/linux/linux%20%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6%5Betcdefaultgrub%20%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">开机引导文件 etc/default/grub 文件详解</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-06 17:08:06" itemprop="dateCreated datePublished" datetime="2025-04-06T17:08:06+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-07 15:31:06" itemprop="dateModified" datetime="2025-04-07T15:31:06+08:00">2025-04-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="开机引导文件-etc-default-grub-文件详解"><a href="#开机引导文件-etc-default-grub-文件详解" class="headerlink" title="开机引导文件 etc&#x2F;default&#x2F;grub 文件详解"></a>开机引导文件 etc&#x2F;default&#x2F;grub 文件详解</h2><p>参考文章:</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39094034/article/details/122075593">https://blog.csdn.net/weixin_39094034/article/details/122075593</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_14829643/article/details/138868823?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-138868823-blog-122075593.235%5Ev43%5Epc_blog_bottom_relevance_base2&spm=1001.2101.3001.4242.1&utm_relevant_index=1">https://blog.csdn.net/qq_14829643/article/details/138868823?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-138868823-blog-122075593.235^v43^pc_blog_bottom_relevance_base2&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=1</a></p>
-<p>可以使用的相关搜索:</p>
-<p>linux系统配置串口打印内核日志</p>
-<p>cmd</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cmdline</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/windwos/windwos%20%E5%85%B3%E4%BA%8Ecreate%E6%98%AF%E5%90%A6%E6%98%AF%E7%9B%AE%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/windwos/windwos%20%E5%85%B3%E4%BA%8Ecreate%E6%98%AF%E5%90%A6%E6%98%AF%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">关于create是否是目录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-04-06 17:07:52 / 修改时间：18:09:26" itemprop="dateCreated datePublished" datetime="2025-04-06T17:07:52+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/windwos/" itemprop="url" rel="index"><span itemprop="name">windwos</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>关于create是否是目录</p>
-<p><strong><code>Iopb-&gt;TargetFileObject-&gt;FileName</code></strong>：这是一个 <code>UNICODE_STRING</code>类型，包含了目标文件对象的文件名。你可以通过检查文件名的特征（例如是否以反斜杠结尾）来推断它是文件还是目录。</p>
-<p><strong><code>Iopb-&gt;MajorFunction</code></strong>：这是一个指定主要函数的字段，表示这次操作的类型。例如，创建、读取、写入等操作。对于创建操作，可以进一步检查它是针对文件还是目录。</p>
-<p><strong><code>Iopb-&gt;Parameters.Create.Options</code></strong>：这是一个包含创建选项的字段。可以通过检查其中的标志位来确定目标是文件还是目录。具体来说：</p>
-<ul>
-<li><code>FILE_DIRECTORY_FILE</code>：表示目标是一个目录。 0x00000001</li>
-<li><code>FILE_NON_DIRECTORY_FILE</code>：表示目标是一个文件。 0x00000040</li>
-</ul>
-<p>该方法存在问题</p>
-<p>原因是：</p>
-<p>当 IRP_MJ_CREATE 操作创建目录的时候，一定要设置 FILE_DIRECTORY_FILE 标志，打开目录的时候，却不需要。</p>
-<p>因此在打开目录的时候，上面的判断方法就不能够很好的工作。</p>
-<p>如何设置了  FILE_DIRECTORY_FILE 标志去打开普通的文件，则操作会失败。</p>
-<hr>
-<p>FltIsDirectory 可以很好的解决这个问题，不过需要在IRP_MJ_CREATE 的 PostOperation 中调用。</p>
-<p><strong>想从另外一个角度解决，既是 存在 FILE_DIRECTORY_FILE ，又只有创建的权限</strong></p>
-<p>Parameters.Create.Options成员是一个 ULONG 值，描述打开句柄时使用的选项。高 8 位对应于<strong>ZwCreateFile</strong>的<em>CreateDisposition参数的值，低 24</em><strong>位对应于****ZwCreateFile</strong>的<em>CreateOptions</em>参数的值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[in] CreateDisposition</span><br></pre></td></tr></table></figure>
-
-<p>Specifies the action to perform if the file does or does not exist. <em>CreateDisposition</em> can be one of the values in the following table.</p>
-<table>
-<thead>
-<tr>
-<th align="left"><em>CreateDisposition</em> value</th>
-<th align="left">Action if file exists</th>
-<th align="left">Action if file does not exist</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">FILE_SUPERSEDE</td>
-<td align="left">Replace the file.</td>
-<td align="left">Create the file.</td>
-</tr>
-<tr>
-<td align="left">FILE_CREATE</td>
-<td align="left">Return an error.</td>
-<td align="left">Create the file.</td>
-</tr>
-<tr>
-<td align="left">FILE_OPEN</td>
-<td align="left">Open the file.</td>
-<td align="left">Return an error.</td>
-</tr>
-<tr>
-<td align="left">FILE_OPEN_IF</td>
-<td align="left">Open the file.</td>
-<td align="left">Create the file.</td>
-</tr>
-<tr>
-<td align="left">FILE_OVERWRITE</td>
-<td align="left">Open the file, and overwrite it.</td>
-<td align="left">Return an error.</td>
-</tr>
-<tr>
-<td align="left">FILE_OVERWRITE_IF</td>
-<td align="left">Open the file, and overwrite it.</td>
-<td align="left">Create the file.</td>
-</tr>
-</tbody></table>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[in] CreateOptions</span><br></pre></td></tr></table></figure>
-
-<p>Specifies the options to apply when the driver creates or opens the file. Use one or more of the flags in the following table.</p>
-<table>
-<thead>
-<tr>
-<th align="left"><em>CreateOptions</em> flag</th>
-<th align="left">Meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">FILE_DIRECTORY_FILE</td>
-<td align="left">The file is a directory. Compatible<em>CreateOptions</em> flags are FILE_SYNCHRONOUS_IO_ALERT, FILE_SYNCHRONOUS_IO_NONALERT, FILE_WRITE_THROUGH, FILE_OPEN_FOR_BACKUP_INTENT, and FILE_OPEN_BY_FILE_ID. The <em>CreateDisposition</em> parameter must be set to FILE_CREATE, FILE_OPEN, or FILE_OPEN_IF.</td>
-</tr>
-<tr>
-<td align="left">FILE_NON_DIRECTORY_FILE</td>
-<td align="left">The file is not a directory. The file object to open can represent a data file; a logical, virtual, or physical device; or a volume.</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/debug/debug%20windows%20%E5%86%85%E6%A0%B8%E4%B8%8D%E9%87%8D%E5%90%AF%E8%BD%AC%E5%82%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/debug/debug%20windows%20%E5%86%85%E6%A0%B8%E4%B8%8D%E9%87%8D%E5%90%AF%E8%BD%AC%E5%82%A8/" class="post-title-link" itemprop="url">获取pdb强制转储</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-04-06 17:06:05 / 修改时间：18:03:47" itemprop="dateCreated datePublished" datetime="2025-04-06T17:06:05+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/debug/" itemprop="url" rel="index"><span itemprop="name">debug</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="使用-PDB-和强制转储分析-Windows-内存"><a href="#使用-PDB-和强制转储分析-Windows-内存" class="headerlink" title="使用 PDB 和强制转储分析 Windows 内存"></a>使用 PDB 和强制转储分析 Windows 内存</h2><p>在调试 Windows 系统时，内存转储和符号管理是非常重要的两项任务。特别是在分析系统崩溃、内核问题或驱动开发过程中，能够有效生成并使用内存转储文件（.dmp）以及关联正确的调试符号（PDB 文件）是解决问题的关键。本文将详细介绍如何使用 <code>livekd.exe</code> 工具强制生成内存转储，以及如何通过 <code>symchk.exe</code> 工具管理调试符号。</p>
-<h3 id="一、使用-livekd-exe-强制生成内存转储"><a href="#一、使用-livekd-exe-强制生成内存转储" class="headerlink" title="一、使用 livekd.exe 强制生成内存转储"></a>一、使用 <code>livekd.exe</code> 强制生成内存转储</h3><p><code>livekd.exe</code> 是 Sysinternals 工具包中的一个工具，它允许我们从正在运行的系统中生成内存转储文件，并能够结合 Windbg 工具进行分析。以下是具体的操作步骤：</p>
-<h4 id="1-基本命令："><a href="#1-基本命令：" class="headerlink" title="1. 基本命令："></a>1. 基本命令：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">livekd.exe -y C:\ -k C:\x64\windbg.exe</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-各参数详解："><a href="#2-各参数详解：" class="headerlink" title="2. 各参数详解："></a>2. 各参数详解：</h4><ul>
-<li><code>-m</code>：指定生成完整的内存转储（memory dump），这个参数非常适合内存分析。</li>
-<li><code>-o &lt;filename&gt;</code>：指定输出的文件名，例如 <code>1.dmp</code>，表示生成的内存转储文件将保存为 <code>1.dmp</code>。</li>
-<li><code>-y &lt;symbol_path&gt;</code>：指定符号文件路径，等同于 Windbg 中的 <code>_NT_SYMBOL_PATH</code>，该路径可以指向本地或网络上的符号服务器。</li>
-<li><code>-k &lt;windbg_path&gt;</code>：指定 Windbg 的安装路径，如果符号文件已存在，可以随便指定一个路径；否则，必须是 Windbg 安装目录下的可执行文件路径。</li>
-</ul>
-<h4 id="3-实际操作："><a href="#3-实际操作：" class="headerlink" title="3. 实际操作："></a>3. 实际操作：</h4><p>在命令行中执行以下命令，强制生成系统的内存转储：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">livekd.exe -m -o 1.dmp -y C:\Symbols -k <span class="string">&quot;C:\Program Files\Windows Kits\10\Debuggers\x64&quot;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">livekd.exe -m -o 1.dmp -y C:\ -k C:\</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">livekd.exe -m -o &quot;D:\wzx\1.dmp&quot; -y &quot;D:\wzx&quot; -k &quot;D:\wzx&quot;</span><br></pre></td></tr></table></figure>
-
-<p>以上命令将生成完整内存转储并保存在 <code>1.dmp</code> 文件中，同时使用 <code>C:\Symbols</code> 作为符号文件路径。</p>
-<h3 id="二、符号检查工具-symchk-exe"><a href="#二、符号检查工具-symchk-exe" class="headerlink" title="二、符号检查工具 symchk.exe"></a>二、符号检查工具 <code>symchk.exe</code></h3><p>生成内存转储后，我们需要确保 Windbg 能够正确加载符号文件来分析转储内容。<code>symchk.exe</code> 是一个符号检查工具，可以帮助我们下载缺失的符号文件并验证符号的完整性。</p>
-<h4 id="1-基本命令：-1"><a href="#1-基本命令：-1" class="headerlink" title="1. 基本命令："></a>1. 基本命令：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;D:\Windows Kits\10\Debuggers\x64\symchk.exe&quot;</span> -r <span class="string">&quot;C:\Users\Administrator\Desktop\wzx&quot;</span> -s srv*D:\symbols11111*http://msdl.microsoft.com/download/symbols</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-各参数详解：-1"><a href="#2-各参数详解：-1" class="headerlink" title="2. 各参数详解："></a>2. 各参数详解：</h4><ul>
-<li><code>-r &lt;path&gt;</code>：递归检查指定目录下的所有文件，这个选项会遍历目录中的文件来查找所需的符号文件。</li>
-<li><code>-s &lt;symbol_path&gt;</code>：指定符号文件路径，使用 <code>srv*&lt;local_path&gt;*&lt;server_path&gt;</code> 形式指定符号路径，表示首先查找本地的符号文件（如 <code>D:\symbols11111</code>），如果找不到，则从微软公开的符号服务器下载（<code>http://msdl.microsoft.com/download/symbols</code>）。</li>
-</ul>
-<h4 id="3-实际操作：-1"><a href="#3-实际操作：-1" class="headerlink" title="3. 实际操作："></a>3. 实际操作：</h4><p>假设需要检查 <code>C:\Users\Administrator\Desktop\wzx</code> 目录中的符号文件并下载缺失的符号，执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;D:\Windows Kits\10\Debuggers\x64\symchk.exe&quot;</span> -r <span class="string">&quot;C:\Users\Administrator\Desktop\wzx&quot;</span> -s srv*D:\symbols11111*http://msdl.microsoft.com/download/symbols</span><br></pre></td></tr></table></figure>
-
-<p>该命令将会检查 <code>wzx</code> 目录中的文件是否有对应的符号文件，并自动从微软服务器下载缺失的符号。</p>
-<h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3><p>通过结合使用 <code>livekd.exe</code> 和 <code>symchk.exe</code>，我们可以高效生成 Windows 内存转储并保证符号文件的完整性，方便进一步的调试分析。生成转储文件后，我们可以使用 Windbg 工具打开该文件并加载正确的符号，以便更深入地分析系统崩溃或其他内核问题。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/linux/linux%20ERR_PTR%E3%80%81PTR_ERR%E3%80%81IS_ERR%E5%92%8CIS_ERR_OR_NULL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/linux/linux%20ERR_PTR%E3%80%81PTR_ERR%E3%80%81IS_ERR%E5%92%8CIS_ERR_OR_NULL/" class="post-title-link" itemprop="url">linux中ERR_PTR、PTR_ERR、IS_ERR和IS_ERR_OR_NULL</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-04-06 17:05:56 / 修改时间：18:06:22" itemprop="dateCreated datePublished" datetime="2025-04-06T17:05:56+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="linux中ERR-PTR、PTR-ERR、IS-ERR和IS-ERR-OR-NULL"><a href="#linux中ERR-PTR、PTR-ERR、IS-ERR和IS-ERR-OR-NULL" class="headerlink" title="linux中ERR_PTR、PTR_ERR、IS_ERR和IS_ERR_OR_NULL"></a>linux中ERR_PTR、PTR_ERR、IS_ERR和IS_ERR_OR_NULL</h2><h3 id="判断返回指针是否错误的内联函数"><a href="#判断返回指针是否错误的内联函数" class="headerlink" title="判断返回指针是否错误的内联函数"></a>判断返回指针是否错误的内联函数</h3><p>　　linux内核中判断返回指针是否错误的内联函数主要有：ERR_PTR、PTR_ERR、IS_ERR和IS_ERR_OR_NULL等。<br>　　其源代码见include&#x2F;linux&#x2F;err.h</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/compiler.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;asm/errno.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Kernel pointers have redundant information, so we can use a</span></span><br><span class="line"><span class="comment"> * scheme where we can return either an error code or a normal</span></span><br><span class="line"><span class="comment"> * pointer with the same return value.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * This should be a per-architecture thing, to allow different</span></span><br><span class="line"><span class="comment"> * error and pointer decisions.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_ERRNO   4095</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> __ASSEMBLY__</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IS_ERR_VALUE(x) unlikely((x) &gt;= (unsigned long)-MAX_ERRNO)</span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">void</span> * __must_check <span class="title function_">ERR_PTR</span><span class="params">(<span class="type">long</span> error)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="type">void</span> *) error;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">long</span> __must_check <span class="title function_">PTR_ERR</span><span class="params">(__force <span class="type">const</span> <span class="type">void</span> *ptr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="type">long</span>) ptr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">bool</span> __must_check <span class="title function_">IS_ERR</span><span class="params">(__force <span class="type">const</span> <span class="type">void</span> *ptr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> IS_ERR_VALUE((<span class="type">unsigned</span> <span class="type">long</span>)ptr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">bool</span> __must_check <span class="title function_">IS_ERR_OR_NULL</span><span class="params">(__force <span class="type">const</span> <span class="type">void</span> *ptr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> !ptr || IS_ERR_VALUE((<span class="type">unsigned</span> <span class="type">long</span>)ptr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>　　理解IS_ERR()，首先理解要内核空间。所有的驱动程序都是运行在内核空间，内核空间虽然很大，但总是有限的，而在这有限的空间中，其最后一个page是专门保留的，也就是说一般人不可能用到内核空间最后一个page的指针。换句话说，你在写设备驱动程序的过程中，涉及到的任何一个指针，必然有三种情况：<br>1，有效指针；<br>2，NULL，空指针；<br>3，错误指针，或者说无效指针。<br>　　所谓的错误指针就是指其已经到达了最后一个page，即内核用最后一页捕捉错误。比如对于32bit的系统来说，内核空间最高地址0xffffffff，那么最后一个page就是指的0xfffff000~0xffffffff(假设4k一个page)，这段地址是被保留的。<br>　　内核空间为什么留出最后一个page？我们知道一个page可能是4k，也可能是更多，比如8k，但至少它也是4k，所以留出一个page出来就可以让我们把内核空间的指针来记录错误了。内核返回的指针一般是指向页面的边界(4k边界)，即ptr &amp; 0xfff &#x3D;&#x3D; 0。如果你发现你的一个指针指向这个范围中的某个地址，那么你的代码肯定出错了。<br>　　IS_ERR( )就是判断指针是否有错，如果指针并不是指向最后一个page，那么没有问题；如果指针指向了最后一个page，那么说明实际上这不是一个有效的指针，这个指针里保存的实际上是一种错误代码。<br>　　通常很常用的方法就是先用IS_ERR()来判断是否是错误，然后如果是，那么就调用PTR_ERR()来返回这个错误代码。因此，判断一个指针是不是有效的，可用如下的方式：</p>
-<p>#define IS_ERR_VALUE(x) unlikely((x) &gt;&#x3D; (unsigned long)-MAX_ERRNO)）<br>1<br>　　MAX_ERRNO是4095即0xfff，注意(unsigned long)-MAX_ERRNO并不是(unsigned long)减去MAX_ERRNO，而是对负数-MAX_ERRNO进行强制类型转化，即上面应该等价于为(unsigned long)（-MAX_ERRNO），-0xfff转换为无符号long型是0xfffff000,即：</p>
-<p>#define IS_ERR_VALUE(x) unlikely(x &gt;&#x3D; 0xfffff000）<br>1<br>　　即判断是不是在（0xfffff000，0xffffffff)之间，在这个区间的话就是错误指针。因此，可以用IS_ERR()来判断内核函数的返回值是不是一个有效的指针。所以经常在内核中看见返回错误码的时候加个负号如 -ENOSYS。注意这里的unlikely意思是括号内的值很有可能是假，具体likely和unlikely用法见likely和unlikely。<br>　　ERR_PTR、PTR_ERR只是对错误进行转换。<br>　　IS_ERR_OR_NULL是判断指针是空指针或是错误指针，即上述2和3类型的指针。<br>　　注意函数前面还用到了__must_check ，__must_check 函数是指调用函数一定要处理该函数的返回值，否则编译器会给出警告。即返回的指针有可能是错误指针，一定要对返回的指针进行处理。<br>compiler-gcc.5中定义如下：</p>
-<p>#define __must_check            <strong>attribute</strong>((warn_unused_result))<br>&#x2F;&#x2F;警告结果未使用，也即是返回值未被处理<br>1<br>2<br>常见错误源定义<br>　　Linux内核中,出错有多种可能.关于Linux内核中的错误,参考include&#x2F;asm-generic&#x2F;errno-base.h文件:</p>
-<p>   1#ifndef _ASM_GENERIC_ERRNO_BASE_H<br>   2#define _ASM_GENERIC_ERRNO_BASE_H<br>   3<br>   4#define EPERM            1      &#x2F;* Operation not permitted <em>&#x2F;操作禁止<br>   5#define ENOENT           2      &#x2F;</em> No such file or directory <em>&#x2F;文件或者目录不存在<br>   6#define ESRCH            3      &#x2F;</em> No such process <em>&#x2F;相应的进程不存在<br>   7#define EINTR            4      &#x2F;</em> Interrupted system call <em>&#x2F;中断系统调用<br>   8#define EIO              5      &#x2F;</em> I&#x2F;O error <em>&#x2F;I&#x2F;O错误<br>   9#define ENXIO            6      &#x2F;</em> No such device or address <em>&#x2F;相应设备或者地址不存在<br>  10#define E2BIG            7      &#x2F;</em> Argument list too long <em>&#x2F;参数列表太长<br>  11#define ENOEXEC          8      &#x2F;</em> Exec format error <em>&#x2F;Exec格式错误<br>  12#define EBADF            9      &#x2F;</em> Bad file number <em>&#x2F;错误的文档编号<br>  13#define ECHILD          10      &#x2F;</em> No child processes <em>&#x2F;没有子进程<br>  14#define EAGAIN          11      &#x2F;</em> Try again <em>&#x2F; 重试<br>  15#define ENOMEM          12      &#x2F;</em> Out of memory <em>&#x2F;溢出内存<br>  16#define EACCES          13      &#x2F;</em> Permission denied <em>&#x2F;没有权限<br>  17#define EFAULT          14      &#x2F;</em> Bad address <em>&#x2F;错误的地址<br>  18#define ENOTBLK         15      &#x2F;</em> Block device required <em>&#x2F;块设备需求<br>  19#define EBUSY           16      &#x2F;</em> Device or resource busy <em>&#x2F;设备或者资源繁忙<br>  20#define EEXIST          17      &#x2F;</em> File exists <em>&#x2F;文件已经存在<br>  21#define EXDEV           18      &#x2F;</em> Cross-device link <em>&#x2F;交叉链接设备<br>  22#define ENODEV          19      &#x2F;</em> No such device <em>&#x2F;没有对应的设备<br>  23#define ENOTDIR         20      &#x2F;</em> Not a directory <em>&#x2F;不是路径<br>  24#define EISDIR          21      &#x2F;</em> Is a directory <em>&#x2F;是路径，与上面意思相反<br>  25#define EINVAL          22      &#x2F;</em> Invalid argument <em>&#x2F;无效参数<br>  26#define ENFILE          23      &#x2F;</em> File table overflow <em>&#x2F;文件表溢出<br>  27#define EMFILE          24      &#x2F;</em> Too many open files <em>&#x2F;打开的文件太多了<br>  28#define ENOTTY          25      &#x2F;</em> Not a typewriter <em>&#x2F;非打印机<br>  29#define ETXTBSY         26      &#x2F;</em> Text file busy <em>&#x2F;文本文件繁忙<br>  30#define EFBIG           27      &#x2F;</em> File too large <em>&#x2F;文件太大<br>  31#define ENOSPC          28      &#x2F;</em> No space left on device <em>&#x2F;没有足够的空间留给设备使用<br>  32#define ESPIPE          29      &#x2F;</em> Illegal seek <em>&#x2F;非法定位<br>  33#define EROFS           30      &#x2F;</em> Read-only file system <em>&#x2F;只读文件系统<br>  34#define EMLINK          31      &#x2F;</em> Too many links <em>&#x2F;太多的链接<br>  35#define EPIPE           32      &#x2F;</em> Broken pipe <em>&#x2F;管道中断<br>  36#define EDOM            33      &#x2F;</em> Math argument out of domain of func <em>&#x2F;??<br>  37#define ERANGE          34      &#x2F;</em> Math result not representable *&#x2F;非数字结果<br>  38<br>  39#endif</p>
-<p>　　最常见的几个是-EBUSY,-EINVAL,-ENODEV,-EPIPE,-EAGAIN,-ENOMEM.这些是每个体系结构里都有的,另外各个体系结构也都定义了自己的一些错误代码.这些东西当然也都是宏,实际上对应的是一些数字,这个数字就叫做错误号.<br>　　对于Linux内核来说,不管任何体系结构,最大的错误号不会超过4095.而4095又正好是比4k小1,即4096减1.而我们知道一个page可能是4k,也可能是更多,比如8k,但至少它也是4k,所以留出一个page出来就可以让我们把内核空间的指针来记录错误了.</p>
-<h1 id="Linux-64位进程地址空间分布概况"><a href="#Linux-64位进程地址空间分布概况" class="headerlink" title="Linux 64位进程地址空间分布概况"></a>Linux 64位进程地址空间分布概况</h1><p>对于Linux 64位系统，理论上，64bit内存地址可用空间为0x0000000000000000 ~ 0xFFFFFFFFFFFFFFFF（16位十六进制数），这是个相当庞大的空间，Linux实际上只用了其中一小部分（256T）。</p>
-<p>Linux64位操作系统仅使用低47位，高17位做扩展（只能是全0或全1）。所以，实际用到的地址为空间为0x0000000000000000 ~ 0x00007FFFFFFFFFFF（user space）和0xFFFF800000000000 ~ 0xFFFFFFFFFFFFFFFF（kernel space）,其余的都是unused space。</p>
-<p>user space 也就是用户区由以下几部分组成：代码段，数据段，BSS段，heap，stack</p>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/9256b843eca81f1953426b542de12a8d.png#pic_center" alt="在这里插入图片描述"></p>
-<p>在精细一些：一个进程在内存中的分配如下</p>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/7610bcf587f48987181ffb35e109303c.png#pic_center" alt="在这里插入图片描述"></p>
-<h1 id="kmalloc、vmalloc、-get-free-pages-的区别"><a href="#kmalloc、vmalloc、-get-free-pages-的区别" class="headerlink" title="[kmalloc、vmalloc、__get_free_pages()的区别]"></a>[kmalloc、vmalloc、__get_free_pages()的区别]</h1><h2 id="一、分布位置上的区别："><a href="#一、分布位置上的区别：" class="headerlink" title="一、分布位置上的区别："></a>一、分布位置上的区别：</h2><p>kmalloc()和__get_free_pages()函数申请的内存位于物理内存的映射区域，而且在物理上也是连续的，它们与真实的物理地址只有一个固定的偏移，因此存在简单的线性关系；（3G+896M）（低端内存）；</p>
-<p>vmalloc函数申请的虚拟内存与物理内存之间也没有简单的换算关系；（高端内存）（3G+896M以上的内存）；</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/linhaostudy/p/7477370.html#_labelTop">回到顶部</a></p>
-<h2 id="二、特性上的区别："><a href="#二、特性上的区别：" class="headerlink" title="二、特性上的区别："></a>二、特性上的区别：</h2><p>1、kmalloc()</p>
-<p>void *kmalloc(size_t size, int flags);</p>
-<p>kmalloc第一个参数是要分配块的大小，第二个参数为分配标志，用于控制kmalloc的行为；</p>
-<p>最常用的分配标志是GFP_KERNEL，其含义是内核空间的进程中申请内存。kmalloc()的底层依赖__get_free_page()实现，分配标志的前缀GFP正好是底层函数的缩写。</p>
-<p>kmalloc申请的是较小的连续的物理内存，内存物理地址上连续，虚拟地址上也是连续的，使用的是内存分配器slab的一小片。申请的内存位于物理内存的映射区域。其真正的物理地址只相差一个固定的偏移。可以用两个宏来简单转换__pa(address) { virt_to_phys()} 和__va(address) {phys_to_virt()}</p>
-<p>使用kmalloc函数之后使用kfree函数；</p>
-<p>2、__get_free_pages()</p>
-<p>get_free_page()申请的内存是一整页，一页的大小一般是128K。</p>
-<p> 从本质上讲，kmalloc和get_free_page最终调用实现是相同的，只不过在调用最终函数时所传的flag不同而已。</p>
-<p>3、vmalloc()</p>
-<p>vmalloc()一般用在只存在于软件中的较大顺序缓冲区分配内存，vmalloc()远大于__get_free_pages()的开销，为了完成vmalloc()，新的页表需要被建立。所以效率没有kmalloc和__get_free_page效率高；</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/linhaostudy/p/7477370.html#_labelTop">回到顶部</a></p>
-<h2 id="三、另外的一些东西："><a href="#三、另外的一些东西：" class="headerlink" title="三、另外的一些东西："></a>三、另外的一些东西：</h2><p><strong>kmalloc()</strong></p>
-<p>**用于申请较小的、连续的物理内存<br>**<strong>1. 以字节为单位进行分配，在&lt;linux&#x2F;slab.h&gt;中<br>\2. void *kmalloc(size_t size, int flags) 分配的内存物理地址上连续，虚拟地址上自然连续<br>\3. gfp_mask标志</strong>：什么时候使用哪种标志？如下：<br>———————————————————————————————-<br>情形 相应标志<br>———————————————————————————————-<br>进程上下文，可以睡眠 GFP_KERNEL<br>进程上下文，不可以睡眠 GFP_ATOMIC<br>中断处理程序 GFP_ATOMIC<br>软中断 GFP_ATOMIC<br>Tasklet GFP_ATOMIC<br>用于DMA的内存，可以睡眠 GFP_DMA | GFP_KERNEL<br>用于DMA的内存，不可以睡眠 GFP_DMA | GFP_ATOMIC<br>———————————————————————————————-</p>
-<p>kzalloc函数</p>
-<p>用kzalloc申请内存的时候， 效果等同于先是用 kmalloc() 申请空间 , 然后用 memset() 来初始化 ,所有申请的元素都被初始化为 0.</p>
-<p> 对应的释放函数也是kfree函数；</p>
-<h3 id="vmalloc基本知识"><a href="#vmalloc基本知识" class="headerlink" title="vmalloc基本知识"></a>vmalloc基本知识</h3><ul>
-<li>vmalloc用于分配虚拟地址连续(物理地址不连续)的内存空间，vzmalloc相对于vmalloc多了个0初始化;</li>
-<li>vmalloc&#x2F;vzmalloc分配的虚拟地址范围在VMALLOC_START&#x2F;VMALLOC_END之间，属于堆内存;</li>
-<li>linux管理vmalloc分别有两个数据结构: <a target="_blank" rel="noopener" href="https://pzh2386034.github.io/Black-Jack/linux-memory/2019/09/05/ARM64%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%8D%81%E4%BA%8C-vmalloc%E5%86%85%E5%AD%98%E6%9C%BA%E5%88%B6/#vm_struct">vm_struct</a>, <a target="_blank" rel="noopener" href="https://pzh2386034.github.io/Black-Jack/linux-memory/2019/09/05/ARM64%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%8D%81%E4%BA%8C-vmalloc%E5%86%85%E5%AD%98%E6%9C%BA%E5%88%B6/#vm_area_struct">vm_area_struct</a>；前者是内核虚拟地址空间的映射，后者是应用进程虚拟地址空间映射;</li>
-<li>内核vmalloc区具体地址空间的管理是通过<a target="_blank" rel="noopener" href="https://pzh2386034.github.io/Black-Jack/linux-memory/2019/09/05/ARM64%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%8D%81%E4%BA%8C-vmalloc%E5%86%85%E5%AD%98%E6%9C%BA%E5%88%B6/#vmap_area">vmap_area</a>管理的，该结构体记录整个区间的起始和结束;</li>
-<li>vmalloc是内核出于自身的目的使用高端内存页的少数情形之一</li>
-<li>vmalloc在申请内存时逐页分配，确保在物理内存有严重碎片的情况下，vmalloc仍然可以工作</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/kernel.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/init.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/vmalloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/fs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/uaccess.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DRIVER_NAME <span class="string">&quot;vmalloc_demo&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEVICE_FILE <span class="string">&quot;/dev/vmalloc_demo&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">char</span> *vmalloc_buffer = <span class="literal">NULL</span>;</span><br><span class="line"><span class="type">static</span> <span class="type">unsigned</span> <span class="type">int</span> mlen = <span class="number">1024</span>;  <span class="comment">// 分配 1024 字节内存</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> __aarch64__</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PTR_IS_ERROR(ptr) IS_ERR_OR_NULL(ptr)</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PTR_IS_ERROR(ptr) ((unsigned long)(ptr) &lt; PAGE_OFFSET || IS_ERR_OR_NULL(ptr))</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 驱动初始化函数</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> __init <span class="title function_">vmalloc_demo_init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    printk(KERN_INFO <span class="string">&quot;%s: 初始化驱动\n&quot;</span>, DRIVER_NAME);</span><br><span class="line">  </span><br><span class="line">    printk(KERN_INFO <span class="string">&quot;%s: VMALLOC_START: %llx, VMALLOC_END: %llx&quot;</span>, DRIVER_NAME, VMALLOC_START, VMALLOC_END);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用 vmalloc 分配内存</span></span><br><span class="line">    vmalloc_buffer = vmalloc(mlen);</span><br><span class="line">    <span class="keyword">if</span> (!vmalloc_buffer) </span><br><span class="line">    &#123;</span><br><span class="line">        printk(KERN_ERR <span class="string">&quot;%s: 内存分配失败\n&quot;</span>, DRIVER_NAME);</span><br><span class="line">        <span class="keyword">return</span> -ENOMEM;</span><br><span class="line">    &#125;</span><br><span class="line">    printk(KERN_INFO <span class="string">&quot;%s: 成功分配内存\n&quot;</span>, DRIVER_NAME);</span><br><span class="line">  </span><br><span class="line">    printk(KERN_INFO <span class="string">&quot;%s: vmalloc_buffer:%llx, PAGE_OFFSET:%llx\n&quot;</span>, DRIVER_NAME, vmalloc_buffer, PAGE_OFFSET);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> ((<span class="type">unsigned</span> <span class="type">long</span>)vmalloc_buffer &lt; PAGE_OFFSET)</span><br><span class="line">	&#123;</span><br><span class="line">		printk(KERN_INFO <span class="string">&quot;%s: vmalloc_buffer &lt; PAGE_OFFSET\n&quot;</span>, DRIVER_NAME);</span><br><span class="line">	&#125;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 驱动退出函数</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> __exit <span class="title function_">vmalloc_demo_exit</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (vmalloc_buffer) &#123;</span><br><span class="line">        vfree(vmalloc_buffer);</span><br><span class="line">        printk(KERN_INFO <span class="string">&quot;%s: 释放内存\n&quot;</span>, DRIVER_NAME);</span><br><span class="line">    &#125;</span><br><span class="line">    printk(KERN_INFO <span class="string">&quot;%s: 驱动卸载\n&quot;</span>, DRIVER_NAME);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module_init(vmalloc_demo_init);</span><br><span class="line">module_exit(vmalloc_demo_exit);</span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">&quot;GPL&quot;</span>);</span><br><span class="line">MODULE_AUTHOR(<span class="string">&quot;Your Name&quot;</span>);</span><br><span class="line">MODULE_DESCRIPTION(<span class="string">&quot;一个简单的 vmalloc 驱动示例&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>在arm中需要使用新增的 PTR_IS_ERROR 进行判断，在原有的判断中 分配的内存 vmalloc_buffer 的地址是在  VMALLOC_START, VMALLOC_END 内但是小于 PAGE_OFFSET 的。</p>
-<ol>
-<li>kmalloc分配内存的大小<br>本文基于linux-5.15分析。</li>
-</ol>
-<p>kmalloc会根据申请的内存大小来决定来决定使用块分配器(slab&#x2F;slub&#x2F;slob)或页分配器进行内存分配。控制kmalloc分配行为的主要有如下三个宏。</p>
-<p>macro	desc<br>KMALLOC_MAX_SIZE	kmalloc可以分配的最大内存，超过此大小时返回NULL<br>KMALLOC_MAX_CACHE_SIZE	kmalloc使用slab分配器分配的最大内存，超过此大小后会通过伙伴系统分配页<br>KMALLOC_MIN_SIZE	kmalloc可以分配的最小内存，小于此大小时，kmalloc内部会按此大小分配</p>
-<p>1.1. KMALLOC_MAX_SIZE：kmalloc可以分配的最大内存<br>KMALLOC_MAX_SIZE与块分配器类型(slab&#x2F;slub&#x2F;slob)和页面大小以及MAX_ORDER有关，相关定义在include&#x2F;linux&#x2F;slab.h中。一般最大为2 ^ (MAX_ORDER + PAGE_SHIFT - 1)，也就是2 ^ (MAX_ORDER - 1)个页面，就是伙伴系统所管理的最大内存块。通常MAX_ORDER为11，页面大小为4K，相应的，kmalloc最大可以分配1024个页面，也就是4M。</p>
-<p>分配器类型	KMALLOC_MAX_SIZE<br>slab	2 ^ (MAX_ORDER + PAGE_SHIFT - 1)，但不得超过32M(2^25)<br>slub	2 ^ (MAX_ORDER + PAGE_SHIFT - 1)<br>slob	2 ^ (MAX_ORDER + PAGE_SHIFT - 1)</p>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/1c378b598b2efac9ee0d64b745c960d3.png#pic_center" alt="在这里插入图片描述"></p>
-<p>另外，早期的slab是可以支持分配64M的，在5.13版本时，改为了32M，具体可以参考commit 588c7fa022d7b2361500ead5660d9a1a2ecd9b7d</p>
-<p>参考链接:</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014001096/article/details/125902768">https://blog.csdn.net/u014001096/article/details/125902768</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/linhaostudy/p/7477370.html">https://www.cnblogs.com/linhaostudy/p/7477370.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/linux/linux%20iptables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/linux/linux%20iptables/" class="post-title-link" itemprop="url">linux防火墙与iptables</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-04-06 17:05:41 / 修改时间：18:06:38" itemprop="dateCreated datePublished" datetime="2025-04-06T17:05:41+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="linux防火墙与iptables"><a href="#linux防火墙与iptables" class="headerlink" title="linux防火墙与iptables"></a>linux防火墙与iptables</h2><h2 id="linux防火墙"><a href="#linux防火墙" class="headerlink" title="linux防火墙"></a>linux防火墙</h2><p>在 <a target="_blank" rel="noopener" href="https://www.linuxidc.com/topicnews.aspx?tid=14">CentOS</a> 7 中，引入了一个新的服务，Firewalld，下面一张图，让大家明确的了解防火墙 Firewall 与 iptables 之间的关系与区别。</p>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/dda2bff5d6a56dcad272d8b45e6fbbf4.png" alt="img"></p>
-<h3 id="firewalld"><a href="#firewalld" class="headerlink" title="firewalld"></a>firewalld</h3><blockquote>
-<p>防火墙守护 firewalld 服务引入了一个信任级别的概念来管理与之相关联的连接与接口。它支持 ipv4 与 ipv6，并支持网桥，采用 firewall-cmd (command) 或 firewall-config (gui) 来动态的管理 kernel netfilter 的临时或永久的接口规则，并实时生效而无需重启服务。</p>
-<p>zone</p>
-<ul>
-<li>drop: 丢弃所有进入的包，而不给出任何响应</li>
-<li>block: 拒绝所有外部发起的连接，允许内部发起的连接</li>
-<li>public: 允许指定的进入连接</li>
-<li>external: 同上，对伪装的进入连接，一般用于路由转发</li>
-<li>dmz: 允许受限制的进入连接</li>
-<li>work: 允许受信任的计算机被限制的进入连接，类似 workgroup</li>
-<li>home: 同上，类似 homegroup</li>
-<li>internal: 同上，范围针对所有互联网用户</li>
-<li>trusted: 信任所有连接</li>
-</ul>
-<p>过滤规则</p>
-<ul>
-<li>source: 根据源地址过滤</li>
-<li>interface: 根据网卡过滤</li>
-<li>service: 根据服务名过滤</li>
-<li>port: 根据端口过滤</li>
-<li>icmp-block: icmp 报文过滤，按照 icmp 类型配置</li>
-<li>masquerade: ip 地址伪装</li>
-<li>forward-port: 端口转发</li>
-<li>rule: 自定义规则</li>
-</ul>
-<p>其中，过滤规则的优先级遵循如下顺序</p>
-<p>1.source<br>2.interface<br>3.firewalld.conf</p>
-</blockquote>
-<p>使用方法:</p>
-<h4 id="关闭防火墙："><a href="#关闭防火墙：" class="headerlink" title="关闭防火墙："></a>关闭防火墙：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="开启防火墙："><a href="#开启防火墙：" class="headerlink" title="开启防火墙："></a>开启防火墙：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld.service</span><br></pre></td></tr></table></figure>
-
-<p>若遇到无法开启</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">先用：systemctl unmask firewalld.service </span><br><span class="line">然后：systemctl start firewalld.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="开启开机启动："><a href="#开启开机启动：" class="headerlink" title="开启开机启动："></a>开启开机启动：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable firewalld.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="关闭开机启动："><a href="#关闭开机启动：" class="headerlink" title="关闭开机启动："></a>关闭开机启动：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看防火墙状态："><a href="#查看防火墙状态：" class="headerlink" title="查看防火墙状态："></a>查看防火墙状态：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld </span><br><span class="line">firewall-cmd --state</span><br></pre></td></tr></table></figure>
-
-<h4 id="开启端口"><a href="#开启端口" class="headerlink" title="开启端口"></a>开启端口</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#（--permanent永久生效，没有此参数重启后失效）</span><br><span class="line">#注：可以是一个端口范围，如1000-2000/tcp</span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent  </span><br></pre></td></tr></table></figure>
-
-<h4 id="重新载入"><a href="#重新载入" class="headerlink" title="重新载入"></a>重新载入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<h4 id="查询某个端口是否开放"><a href="#查询某个端口是否开放" class="headerlink" title="查询某个端口是否开放"></a>查询某个端口是否开放</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port=80/tcp</span><br></pre></td></tr></table></figure>
-
-<h4 id="移除端口"><a href="#移除端口" class="headerlink" title="移除端口"></a>移除端口</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --permanent --remove-port=123/tcp</span><br></pre></td></tr></table></figure>
-
-<h4 id="查询已经开放的端口列表"><a href="#查询已经开放的端口列表" class="headerlink" title="查询已经开放的端口列表"></a>查询已经开放的端口列表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-port</span><br><span class="line"></span><br><span class="line">命令含义：</span><br><span class="line"></span><br><span class="line">--zone #作用域</span><br><span class="line"></span><br><span class="line">--add-port=80/tcp #添加端口，格式为：端口/通讯协议</span><br><span class="line"></span><br><span class="line">--remove-port=80/tcp #移除端口，格式为：端口/通讯协议</span><br><span class="line"></span><br><span class="line">--permanent #永久生效，没有此参数重启后失效</span><br></pre></td></tr></table></figure>
-
-<h4 id="配置firewalld-cmd"><a href="#配置firewalld-cmd" class="headerlink" title="配置firewalld-cmd"></a>配置firewalld-cmd</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">查看版本： firewall-cmd --version</span><br><span class="line"></span><br><span class="line">查看帮助： firewall-cmd --help</span><br><span class="line"></span><br><span class="line">显示状态： firewall-cmd --state</span><br><span class="line"></span><br><span class="line">查看所有打开的端口： firewall-cmd --zone=public --list-ports</span><br><span class="line"></span><br><span class="line">更新防火墙规则： firewall-cmd --reload</span><br><span class="line"></span><br><span class="line">查看区域信息:  firewall-cmd --get-active-zones</span><br><span class="line"></span><br><span class="line">查看指定接口所属区域： firewall-cmd --get-zone-of-interface=eth0</span><br><span class="line"></span><br><span class="line">拒绝所有包：firewall-cmd --panic-on</span><br><span class="line"></span><br><span class="line">取消拒绝状态： firewall-cmd --panic-off</span><br><span class="line"></span><br><span class="line">查看是否拒绝： firewall-cmd --query-panic</span><br></pre></td></tr></table></figure>
-
-<h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><blockquote>
-<p>[-t 表名]：该规则所操作的哪个表，可以使用filter、nat等，如果没有指定则默认为filter<br>-A：新增一条规则，到该规则链列表的最后一行<br>-I：插入一条规则，原本该位置上的规则会往后顺序移动，没有指定编号则为1<br>-D：从规则链中删除一条规则，要么输入完整的规则，或者指定规则编号加以删除<br>-R：替换某条规则，规则替换不会改变顺序，而且必须指定编号。<br>-P：设置某条规则链的默认动作<br>-nL：-L、-n，查看当前运行的防火墙规则列表<br>chain名：指定规则表的哪个链，如INPUT、OUPUT、FORWARD、PREROUTING等<br>[规则编号]：插入、删除、替换规则时用，<code>--line-numbers</code>显示号码<br>[-i|o 网卡名称]：i是指定数据包从哪块网卡进入，o是指定数据包从哪块网卡输出<br>[-p 协议类型]：可以指定规则应用的协议，包含tcp、udp和icmp等<br>[-s 源IP地址]：源主机的IP地址或子网地址<br>[–sport 源端口号]：数据包的IP的源端口号<br>[-d目标IP地址]：目标主机的IP地址或子网地址<br>[–dport目标端口号]：数据包的IP的目标端口号<br>-m：extend matches，这个选项用于提供更多的匹配参数，如：<br>-m state –state ESTABLISHED,RELATED<br>-m tcp –dport 22<br>-m multiport –dports 80,8080<br>-m icmp –icmp-type 8<br>&lt;-j 动作&gt;：处理数据包的动作，包括ACCEPT、DROP、REJECT等</p>
-</blockquote>
-<h4 id="查看规则"><a href="#查看规则" class="headerlink" title="查看规则"></a>查看规则</h4><p>查看规则集</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables --list -n</span></span><br></pre></td></tr></table></figure>
-
-<p>加一个-n以数字形式显示IP和端口，而不是默认的服务名称</p>
-<h4 id="修改规则"><a href="#修改规则" class="headerlink" title="修改规则"></a>修改规则</h4><p>配置默认规则，不允许数据进入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables -P INPUT DROP</span></span><br></pre></td></tr></table></figure>
-
-<p>允许转发</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables -P FORWARD ACCEPT</span></span><br></pre></td></tr></table></figure>
-
-<p>不允许数据流出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables -P OUTPUT DROP</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h4><p>允许源IP地址为192.168.0.0&#x2F;24网段的包流进（包括所有的协议，这里也可以指定单个IP）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -s 192.168.0.0/24 -j ACCEPT</span><br><span class="line">iptables -A INPUT -s 192.168.0.0/24 -j DROP</span><br></pre></td></tr></table></figure>
-
-<p>允许所有的IP到192.168.0.22的访问</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -d 192.168.0.22 -j ACCEPT</span><br><span class="line">iptables -A INPUT -d 192.168.0.22 -j DROP</span><br></pre></td></tr></table></figure>
-
-<p>开放本机80端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j DROP</span><br></pre></td></tr></table></figure>
-
-<p>开放本机的ICMP协议</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT</span><br></pre></td></tr></table></figure>
-
-<h4 id="删除规则"><a href="#删除规则" class="headerlink" title="删除规则"></a>删除规则</h4><p>删除允许源地址进入的规则</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -D INPUT -s 192.168.0.21 -j ACCEPT</span><br></pre></td></tr></table></figure>
-
-<h4 id="iptables服务命令"><a href="#iptables服务命令" class="headerlink" title="iptables服务命令"></a>iptables服务命令</h4><p>启动服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line"></span><br><span class="line">service iptables start</span><br></pre></td></tr></table></figure>
-
-<p>停止服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"></span><br><span class="line">service iptables stop</span><br></pre></td></tr></table></figure>
-
-<p>重启服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"></span><br><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
-
-<h4 id="空当前的所有规则和计数"><a href="#空当前的所有规则和计数" class="headerlink" title="空当前的所有规则和计数"></a>空当前的所有规则和计数</h4><p>清空所有的防火墙规则</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br></pre></td></tr></table></figure>
-
-<p>删除用户自定义的空链</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -X</span><br></pre></td></tr></table></figure>
-
-<p>清空计数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -Z</span><br></pre></td></tr></table></figure>
-
-<p>清空指定链 INPUT 上面的所有规则</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -F INPUT</span><br></pre></td></tr></table></figure>
-
-<p>删除指定的链，这个链必须没有被其它任何规则引用，而且这条上必须没有任何规则。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -X INPUT</span><br></pre></td></tr></table></figure>
-
-<p>如果没有指定链名，则会删除该表中所有非内置的链。</p>
-<p>把指定链，或者表中的所有链上的所有计数器清零。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -Z INPUT</span><br></pre></td></tr></table></figure>
-
-<h4 id="保存规则"><a href="#保存规则" class="headerlink" title="保存规则"></a>保存规则</h4><p>保存设置,将规则保存在&#x2F;etc&#x2F;sysconfig&#x2F;iptables文件里</p>
-<h5 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"></span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
-
+            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
 <blockquote>
-<p>iptables防火墙的配置文件存放于：&#x2F;etc&#x2F;sysconfig&#x2F;iptables</p>
+<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
 </blockquote>
-<h5 id="方法2"><a href="#方法2" class="headerlink" title="方法2:"></a>方法2:</h5><p>修改&#x2F;etc&#x2F;sysconfig&#x2F;iptables-config 将里面的IPTABLES_SAVE_ON_STOP&#x3D;”no”, 这一句的”no”改为”yes”这样每次服务在停止之前会自动将现有的规则保存在 &#x2F;etc&#x2F;sysconfig&#x2F;iptables 这个文件中去。</p>
-<h3 id="UFW"><a href="#UFW" class="headerlink" title="UFW"></a>UFW</h3><h4 id="Ubuntu安装UFW防火墙"><a href="#Ubuntu安装UFW防火墙" class="headerlink" title="Ubuntu安装UFW防火墙"></a>Ubuntu安装UFW防火墙</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw </span><br></pre></td></tr></table></figure>
-
-<p>一般用户，只需如下设置：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw</span><br><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny</span><br></pre></td></tr></table></figure>
-
-<p>以上三条命令已经足够安全了，如果你需要开放某些服务，再使用sudo ufw allow开启。</p>
-<p>开启防火墙</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable </span><br><span class="line">sudo ufw default deny </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">运行以上两条命令后，开启了防火墙，并在系统启动时自动开启。</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭所有外部对本机的访问，但本机访问外部正常。</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="开启-禁用"><a href="#开启-禁用" class="headerlink" title="开启&#x2F;禁用"></a>开启&#x2F;禁用</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow|deny [service] </span><br></pre></td></tr></table></figure>
-
-<h4 id="打开或关闭端口"><a href="#打开或关闭端口" class="headerlink" title="打开或关闭端口"></a>打开或关闭端口</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow smtp　      #允许所有的外部IP访问本机的25/tcp (smtp)端口 </span><br><span class="line">sudo ufw allow 22/tcp      #允许所有的外部IP访问本机的22/tcp (ssh)端口 </span><br><span class="line">sudo ufw allow 53          #允许外部访问53端口(tcp/udp) </span><br><span class="line">sudo ufw allow from 192.168.1.100 #允许此IP访问所有的本机端口 </span><br><span class="line">sudo ufw allow proto udp 192.168.0.1 port 53 to 192.168.0.2 port 53 </span><br><span class="line">sudo ufw deny smtp         #禁止外部访问smtp服务 </span><br><span class="line">sudo ufw delete allow smtp #删除上面建立的某条规则 </span><br></pre></td></tr></table></figure>
-
-<h4 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status </span><br></pre></td></tr></table></figure>
-
-<p>补充：开启&#x2F;关闭防火墙 (默认设置是’disable’)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw enable|disable</span><br></pre></td></tr></table></figure>
-
-<p>转换日志状态</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw logging on|off</span><br></pre></td></tr></table></figure>
-
-<p>设置默认策略 (比如 “mostly open” vs “mostly closed”)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ufw default allow|deny</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>#许可或者屏蔽某些入埠的包 (可以在“status” 中查看到服务列表［见后文］)<br>#可以用“协议：端口”的方式指定一个存在于&#x2F;etc&#x2F;services中的服务名称，也可以通过包的meta-data。 ‘allow’ 参数将把条目加入 &#x2F;etc&#x2F;ufw&#x2F;maps ，而 ‘deny’ 则相反。基本语法如下：ufw allow|deny [service]<br>#显示防火墙和端口的侦听状态，参见 &#x2F;var&#x2F;lib&#x2F;ufw&#x2F;maps。括号中的数字将不会被显示出来。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw status</span><br></pre></td></tr></table></figure>
-
-<h4 id="UFW使用范例："><a href="#UFW使用范例：" class="headerlink" title="UFW使用范例："></a>UFW使用范例：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">允许 53 端口</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw allow 53</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">禁用 53 端口</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw delete allow 53</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">允许 80 端口</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw allow 80/tcp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">禁用 80 端口</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw delete allow 80/tcp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">允许 smtp 端口</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw allow smtp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除 smtp 端口的许可</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw delete allow smtp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">允许某特定 IP</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw allow from 192.168.254.254</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除上面的规则</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> ufw delete allow from 192.168.254.254</span>  </span><br></pre></td></tr></table></figure>
-
-<h3 id="systemctl"><a href="#systemctl" class="headerlink" title="systemctl"></a>systemctl</h3><p>systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">启动一个服务：systemctl start firewalld.service</span><br><span class="line">关闭一个服务：systemctl stop firewalld.service</span><br><span class="line">重启一个服务：systemctl restart firewalld.service</span><br><span class="line">显示一个服务的状态：systemctl status firewalld.service</span><br><span class="line">在开机时启用一个服务：systemctl enable firewalld.service</span><br><span class="line">在开机时禁用一个服务：systemctl disable firewalld.service</span><br><span class="line">查看服务是否开机启动：systemctl is-enabled firewalld.service</span><br><span class="line">查看已启动的服务列表：systemctl list-unit-files|grep enabled</span><br><span class="line">查看启动失败的服务列表：systemctl --failed</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/linux/linux%20CreateThread/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/linux/linux%20CreateThread/" class="post-title-link" itemprop="url">Linux kernel CreateThread</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-06 17:05:18" itemprop="dateCreated datePublished" datetime="2025-04-06T17:05:18+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-12 16:02:19" itemprop="dateModified" datetime="2025-05-12T16:02:19+08:00">2025-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/s2603898260/article/details/102673486">https://blog.csdn.net/s2603898260/article/details/102673486</a></p>
-<p>参考这篇输出一篇</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/linux/linux%20kill%20%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/linux/linux%20kill%20%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">kill</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-06 17:04:19" itemprop="dateCreated datePublished" datetime="2025-04-06T17:04:19+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-07 15:24:40" itemprop="dateModified" datetime="2025-04-07T15:24:40+08:00">2025-04-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">命令</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="挂起进程"><a href="#挂起进程" class="headerlink" title="挂起进程"></a>挂起进程</h2><p>在 Linux 系统中，可以使用 <code>kill</code> 命令结合信号来挂起某个进程。要挂起某个 PID，可以发送 <code>SIGSTOP</code> 信号：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -SIGSTOP &lt;PID&gt;</span><br></pre></td></tr></table></figure>
-
-<p>替换 <code>&lt;PID&gt;</code> 为你要挂起的进程的实际进程 ID。要恢复进程，可以发送 <code>SIGCONT</code> 信号：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -SIGCONT &lt;PID&gt;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20suse%20configure%20kernel%20compilation%20env/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20suse%20configure%20kernel%20compilation%20env/" class="post-title-link" itemprop="url">配置内核编译环境(suse)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-06 17:04:16" itemprop="dateCreated datePublished" datetime="2025-04-06T17:04:16+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-07 15:31:23" itemprop="dateModified" datetime="2025-04-07T15:31:23+08:00">2025-04-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/%E9%A9%B1%E5%8A%A8/" itemprop="url" rel="index"><span itemprop="name">驱动</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="linux-配置内核编译环境"><a href="#linux-配置内核编译环境" class="headerlink" title="linux 配置内核编译环境"></a>linux 配置内核编译环境</h1><h2 id="suse"><a href="#suse" class="headerlink" title="suse"></a>suse</h2><h3 id="1-下载内核安装包"><a href="#1-下载内核安装包" class="headerlink" title="1.下载内核安装包"></a>1.下载内核安装包</h3><blockquote>
-<p>我下载了这三个可以,你们可以尝试一下看是不是两个也行</p>
+<blockquote>
+<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kernel-default-debuginfo-4.4.73-5.1.x86_64.rpm(crash)</span><br><span class="line">kernel-default-devel-4.4.73-5.1.x86_64.rpm</span><br><span class="line">kernel-devel-4.4.73-5.1.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-安装-gcc-环境"><a href="#2-安装-gcc-环境" class="headerlink" title="2.安装 gcc 环境"></a>2.安装 gcc 环境</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper install gcc-c++</span><br><span class="line">aypper --download-only install gcc-c++ (只下载不安装)</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-Makefile"><a href="#3-Makefile" class="headerlink" title="3.Makefile"></a>3.Makefile</h3><blockquote>
-<p>suse的Makefile 的内核头文件路径有点奇怪</p>
+<blockquote>
+<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
 </blockquote>
-<p>Makefile</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">obj-m += main.o</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定内核源码路径</span></span><br><span class="line">KDIR := /usr/src/linux-4.4.73-5-obj/x86_64/default</span><br><span class="line"></span><br><span class="line"><span class="section">all:</span></span><br><span class="line">	make -C <span class="variable">$(KDIR)</span> M=<span class="variable">$(PWD)</span> modules</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	make -C <span class="variable">$(KDIR)</span> M=<span class="variable">$(PWD)</span> clean</span><br></pre></td></tr></table></figure>
+<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
+<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
+<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> 是阁主的个人站。</p>
+<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
+<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 已经在github上开源</p>
+<p><code>3-hexo</code> 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a></p>
+<p>主要功能：</p>
+<ul>
+<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
+<li>pad&#x2F;手机等移动端适配</li>
+<li>页面全局快捷键 <a target="_blank" rel="noopener" href='http://yelog.org/2017/03/24/3-hexo-shortcuts/'>3-hexo快捷键说明</a></li>
+</ul>
 
-<p>main.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/kernel.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 模块初始化函数</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> __init <span class="title function_">kthread_example_init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    printk(KERN_INFO <span class="string">&quot;Hello example: Initializing module\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模块退出函数</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> __exit <span class="title function_">kthread_example_exit</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    printk(KERN_INFO <span class="string">&quot;Hello example: Exiting module\n&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module_init(kthread_example_init);</span><br><span class="line">module_exit(kthread_example_exit);</span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">&quot;GPL&quot;</span>);</span><br><span class="line">MODULE_AUTHOR(<span class="string">&quot;Your Name&quot;</span>);</span><br><span class="line">MODULE_DESCRIPTION(<span class="string">&quot;A simple example of hello&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-      
+        </article>
+        
+        <p>
+            <a  class="dashang" onclick="dashangToggle()">赏</a>
+        </p>
+        
+        
     </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/4/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2025</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Gcmz</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-  </footer>
+</div>
+<div class="full-toc">
+    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
 
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
+</div>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
 
 </body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
 </html>

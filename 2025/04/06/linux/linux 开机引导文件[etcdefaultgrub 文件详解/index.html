@@ -1,229 +1,766 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.2","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
-
-    <meta name="description" content="开机引导文件 etc&#x2F;default&#x2F;grub 文件详解参考文章: https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_39094034&#x2F;article&#x2F;details&#x2F;122075593 https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_14829643&#x2F;article&#x2F;details&#x2F;138868823?utm_medium&#x3D;distribute.pc_relevan">
-<meta property="og:type" content="article">
-<meta property="og:title" content="开机引导文件 etc&#x2F;default&#x2F;grub 文件详解">
-<meta property="og:url" content="http://example.com/2025/04/06/linux/linux%20%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6[etcdefaultgrub%20%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/index.html">
+  <meta charset="utf-8">
+  <title>开机引导文件 etc/default/grub 文件详解 | Gcmz Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="开机引导文件 etc/default/grub 文件详解 | Gcmz Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://example.com/categories/index.html">
 <meta property="og:site_name" content="Gcmz Blog">
-<meta property="og:description" content="开机引导文件 etc&#x2F;default&#x2F;grub 文件详解参考文章: https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_39094034&#x2F;article&#x2F;details&#x2F;122075593 https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_14829643&#x2F;article&#x2F;details&#x2F;138868823?utm_medium&#x3D;distribute.pc_relevan">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-04-06T09:08:06.448Z">
-<meta property="article:modified_time" content="2025-04-07T07:31:06.692Z">
+<meta property="article:published_time" content="2025-04-04T02:22:59.000Z">
+<meta property="article:modified_time" content="2025-04-04T02:23:35.182Z">
 <meta property="article:author" content="Gcmz">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2025/04/06/linux/linux%20%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6[etcdefaultgrub%20%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/">
+<link rel="icon" href="/img/gcmz.png">
 
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/04/06/linux/linux%20%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6[etcdefaultgrub%20%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/","path":"2025/04/06/linux/linux 开机引导文件[etcdefaultgrub 文件详解/","title":"开机引导文件 etc/default/grub 文件详解"}</script>
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>开机引导文件 etc/default/grub 文件详解 | Gcmz Blog</title>
-  
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
 
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
 
-
-
-
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
-
-  
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
 
 
 
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
 
+<script src="/js/iconfont.js?v=1.1.0" ></script>
 
-
-  
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">Gcmz Blog</p>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
 </div>
 
 
 
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/gcmz.png"/>
+</a>
+<div class="author">
+    <span>Gcmz</span>
+</div>
 
-
-
-
-</header>
+<div class="icon">
+    
         
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6-etc-default-grub-%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">开机引导文件 etc&#x2F;default&#x2F;grub 文件详解</span></a></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Gcmz</p>
-  <div class="site-description" itemprop="description"></div>
+            <a title="github"
+               href="https://github.com/gcmz925"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:zhenxingwang925@gmail.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
 </div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">39</span>
-          <span class="site-state-item-name">日志</span>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(39)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="编码">
+            
+            编码
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="环境搭建">
+            
+            环境搭建
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="debug">
+            
+            debug
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="hexo">
+            
+            hexo
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="linux">
+            <i class="fold iconfont icon-right"></i>
+            linux
+            <small>(12)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="linux&lt;---&gt;命令">
+            
+            命令
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="linux&lt;---&gt;驱动">
+            
+            驱动
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="python">
+            
+            python
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="shell">
+            
+            shell
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="windwos">
+            
+            windwos
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="39">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://gcmz925.github.io/">gcmz</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 "
+           href="/2025/07/07/Windows%20C++%20%E9%A1%B9%E7%9B%AE%E5%AE%9E%E7%8E%B0%20GNU%20gettext%20%E5%9B%BD%E9%99%85%E5%8C%96%E6%94%AF%E6%8C%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-07-07 00:24:31">2025/07/07</span>
         </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-  </nav>
-</div>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/22/debug/%E4%BE%8B%E5%AD%90/PE%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-22 22:53:55">2025/06/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/15/debug/%E4%BE%8B%E5%AD%90/%E3%80%8AWindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8B%E8%8B%A5%E5%B9%B2%E7%9F%A5%E8%AF%86%E7%82%B9%E5%AE%9E%E6%88%98%E5%BA%94%E7%94%A8%E5%88%86%E4%BA%AB2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-15 22:00:28">2025/06/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/15/Obsidian%20%E5%A4%9A%E5%BA%93%E5%85%B1%E7%94%A8%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-15 22:00:15">2025/06/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/02/debug/%E4%BE%8B%E5%AD%90/%E3%80%8AWindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8B%E8%8B%A5%E5%B9%B2%E7%9F%A5%E8%AF%86%E7%82%B9%E5%AE%9E%E6%88%98%E5%BA%94%E7%94%A8%E5%88%86%E4%BA%AB/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-02 22:22:57">2025/06/02</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/05/26/debug/%E4%BE%8B%E5%AD%90/Windows%20UAC%E6%9D%83%E9%99%90%E8%AF%A6%E8%A7%A3%E4%BB%A5%E5%8F%8Awindbg%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-05-26 22:32:50">2025/05/26</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/05/14/debug/debug%20windbg%20information/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-05-14 19:48:44">2025/05/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/05/14/debug/%E4%BE%8B%E5%AD%90/windbg%20%E8%A7%82%E5%AF%9F%E5%8F%A5%E6%9F%84%E6%B3%84%E9%9C%B2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-05-14 19:06:11">2025/05/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/22/linux/liunx%20%E7%BC%96%E8%AF%91%E5%91%8A%E8%AD%A6%E9%80%9F%E6%9F%A5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-22 16:17:41">2025/04/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/22/linux/linux%20CONTAINING_RECORD/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-22 15:37:04">2025/04/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/11/debug/debug%20Linux%20enable%20kdump/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-11 21:59:04">2025/04/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/09/linux/linux%20sys_call_table%20%E6%B5%8B%E8%AF%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux sys_call_table 测试">linux sys_call_table 测试</span>
+            <span class="post-date" title="2025-04-09 16:43:04">2025/04/09</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/08/python/python%20win%E6%97%A5%E5%BF%97%E8%A7%A3%E6%9E%90/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-08 20:48:50">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 windwos "
+           href="/2025/04/08/windwos/windows%20%E5%B8%B8%E7%94%A8regedit/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="常用regedit">常用regedit</span>
+            <span class="post-date" title="2025-04-08 14:10:22">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 编码 "
+           href="/2025/04/08/%E7%BC%96%E7%A0%81/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="编码规范">编码规范</span>
+            <span class="post-date" title="2025-04-08 14:08:52">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 编码 "
+           href="/2025/04/08/%E7%BC%96%E7%A0%81/%E6%9C%AA%E5%A4%84%E7%90%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="总结">总结</span>
+            <span class="post-date" title="2025-04-08 14:08:33">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 环境搭建 "
+           href="/2025/04/08/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/Iso%20And%20SoftwarePackage%20Download/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="iso 软件包下载地址">iso 软件包下载地址</span>
+            <span class="post-date" title="2025-04-08 10:45:50">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 环境搭建 "
+           href="/2025/04/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20replace%20source/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux 换源">linux 换源</span>
+            <span class="post-date" title="2025-04-07 15:56:02">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 hexo "
+           href="/2025/04/07/hexo/hexo%20options/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hexo options">hexo options</span>
+            <span class="post-date" title="2025-04-07 15:14:07">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/07/linux/linux%20mount%20umount/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mount umount">mount umount</span>
+            <span class="post-date" title="2025-04-07 13:42:21">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 环境搭建 "
+           href="/2025/04/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20install%20git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux 安装git">linux 安装git</span>
+            <span class="post-date" title="2025-04-07 11:43:07">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 windwos "
+           href="/2025/04/06/windwos/windows%20%E7%89%A9%E7%90%86%E6%9C%BA%E5%BC%80%E5%90%AF%E8%BD%AC%E5%82%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows物理机开启强制转储">windows物理机开启强制转储</span>
+            <span class="post-date" title="2025-04-06 17:08:37">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6%5Betcdefaultgrub%20%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="开机引导文件 etc/default/grub 文件详解">开机引导文件 etc/default/grub 文件详解</span>
+            <span class="post-date" title="2025-04-06 17:08:06">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 windwos "
+           href="/2025/04/06/windwos/windwos%20%E5%85%B3%E4%BA%8Ecreate%E6%98%AF%E5%90%A6%E6%98%AF%E7%9B%AE%E5%BD%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="关于create是否是目录">关于create是否是目录</span>
+            <span class="post-date" title="2025-04-06 17:07:52">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 debug "
+           href="/2025/04/06/debug/debug%20windows%20%E5%86%85%E6%A0%B8%E4%B8%8D%E9%87%8D%E5%90%AF%E8%BD%AC%E5%82%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="获取pdb强制转储">获取pdb强制转储</span>
+            <span class="post-date" title="2025-04-06 17:06:05">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20ERR_PTR%E3%80%81PTR_ERR%E3%80%81IS_ERR%E5%92%8CIS_ERR_OR_NULL/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux中ERR_PTR、PTR_ERR、IS_ERR和IS_ERR_OR_NULL">linux中ERR_PTR、PTR_ERR、IS_ERR和IS_ERR_OR_NULL</span>
+            <span class="post-date" title="2025-04-06 17:05:56">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20iptables/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux防火墙与iptables">linux防火墙与iptables</span>
+            <span class="post-date" title="2025-04-06 17:05:41">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20CreateThread/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux kernel CreateThread">Linux kernel CreateThread</span>
+            <span class="post-date" title="2025-04-06 17:05:18">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux 命令 "
+           href="/2025/04/06/linux/linux%20kill%20%E5%91%BD%E4%BB%A4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="kill">kill</span>
+            <span class="post-date" title="2025-04-06 17:04:19">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux 驱动 "
+           href="/2025/04/06/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20suse%20configure%20kernel%20compilation%20env/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="配置内核编译环境(suse)">配置内核编译环境(suse)</span>
+            <span class="post-date" title="2025-04-06 17:04:16">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20%E5%BC%80%E5%90%AFssh%E8%BF%9E%E6%8E%A5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="开启ssh连接">开启ssh连接</span>
+            <span class="post-date" title="2025-04-06 17:04:15">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux 驱动 "
+           href="/2025/04/06/linux/linux%20%E5%A4%9A%E5%86%85%E6%A0%B8%E6%94%AF%E6%8C%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux 多内核支持（suse）">linux 多内核支持（suse）</span>
+            <span class="post-date" title="2025-04-06 17:04:13">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20Kernel%20ARM64%E6%9E%B6%E6%9E%84%E4%B8%AD,%20%E7%AA%81%E7%A0%B4%E5%86%85%E5%AD%98%E5%8F%AA%E8%AF%BB%E7%9A%84%E9%99%90%E5%88%B6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux Kernel ARM64架构中, 突破内存只读的限制">Linux Kernel ARM64架构中, 突破内存只读的限制</span>
+            <span class="post-date" title="2025-04-06 17:04:12">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20arm64%20hook/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux ARM64平台上Hook系统调用">Linux ARM64平台上Hook系统调用</span>
+            <span class="post-date" title="2025-04-06 17:04:10">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 debug "
+           href="/2025/04/06/debug/debug%20Linux%20information/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="crash + windbg">crash + windbg</span>
+            <span class="post-date" title="2025-04-06 17:03:52">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 shell "
+           href="/2025/04/06/shell/shell%20%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E8%BF%90%E7%94%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bash 脚本中关于时间的运用">bash 脚本中关于时间的运用</span>
+            <span class="post-date" title="2025-04-06 17:03:33">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 python "
+           href="/2025/04/06/python/python%20threading/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="python使用 `threading` 模块来实现守护线程和定时任务">python使用 `threading` 模块来实现守护线程和定时任务</span>
+            <span class="post-date" title="2025-04-06 17:02:35">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 hexo "
+           href="/2025/04/04/hexo/hexo%20temp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2025-04-04 08:42:25">2025/04/04</span>
+        </a>
+        
+        
+        <a  class="全部文章 python "
+           href="/2024/12/05/python/python%20%E8%A3%85%E9%A5%B0%E5%99%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 装饰器">Python 装饰器</span>
+            <span class="post-date" title="2024-12-05 17:42:24">2024/12/05</span>
+        </a>
+        
+        <div id="no-item-tips">
 
         </div>
-      </div>
+    </nav>
+    <div id="outline-list">
     </div>
+</div>
 
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-linux/linux 开机引导文件[etcdefaultgrub 文件详解" class="article article-type-post" itemscope itemprop="blogPost">
     
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/linux/linux%20%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6[etcdefaultgrub%20%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="开机引导文件 etc&#x2F;default&#x2F;grub 文件详解 | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          开机引导文件 etc/default/grub 文件详解
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-06 17:08:06" itemprop="dateCreated datePublished" datetime="2025-04-06T17:08:06+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-07 15:31:06" itemprop="dateModified" datetime="2025-04-07T15:31:06+08:00">2025-04-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        <h1 class="article-title">开机引导文件 etc/default/grub 文件详解</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="linux">linux</a>
+            
         </span>
-    </span>
-
-  
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2025-04-07 15:31:06'>2025-04-06 17:08</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6-etc-default-grub-%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3"><span class="toc-text">开机引导文件 etc&#x2F;default&#x2F;grub 文件详解</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
 </div>
-
-        </div>
-      </header>
-
     
-    
-    
-    <div class="post-body" itemprop="articleBody"><h2 id="开机引导文件-etc-default-grub-文件详解"><a href="#开机引导文件-etc-default-grub-文件详解" class="headerlink" title="开机引导文件 etc&#x2F;default&#x2F;grub 文件详解"></a>开机引导文件 etc&#x2F;default&#x2F;grub 文件详解</h2><p>参考文章:</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="开机引导文件-etc-default-grub-文件详解"><a href="#开机引导文件-etc-default-grub-文件详解" class="headerlink" title="开机引导文件 etc&#x2F;default&#x2F;grub 文件详解"></a>开机引导文件 etc&#x2F;default&#x2F;grub 文件详解</h2><p>参考文章:</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39094034/article/details/122075593">https://blog.csdn.net/weixin_39094034/article/details/122075593</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_14829643/article/details/138868823?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-138868823-blog-122075593.235%5Ev43%5Epc_blog_bottom_relevance_base2&spm=1001.2101.3001.4242.1&utm_relevant_index=1">https://blog.csdn.net/qq_14829643/article/details/138868823?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-138868823-blog-122075593.235^v43^pc_blog_bottom_relevance_base2&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=1</a></p>
 <p>可以使用的相关搜索:</p>
@@ -231,72 +768,194 @@
 <p>cmd</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cmdline</span><br></pre></td></tr></table></figure>
 
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1750239165@qq.com </span>
     </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
 
     
-    
-    
-
-    <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2025/04/06/windwos/windwos%20%E5%85%B3%E4%BA%8Ecreate%E6%98%AF%E5%90%A6%E6%98%AF%E7%9B%AE%E5%BD%95/" rel="prev" title="关于create是否是目录">
-                  <i class="fa fa-angle-left"></i> 关于create是否是目录
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2025/04/06/windwos/windows%20%E7%89%A9%E7%90%86%E6%9C%BA%E5%BC%80%E5%90%AF%E8%BD%AC%E5%82%A8/" rel="next" title="windows物理机开启强制转储">
-                  windows物理机开启强制转储 <i class="fa fa-angle-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
 
 
 
-
-
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2025</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Gcmz</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
 
     </div>
-  </footer>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
 
 </body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
 </html>

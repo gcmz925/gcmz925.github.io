@@ -1,1210 +1,922 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.2","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
-
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Gcmz Blog">
-<meta property="og:url" content="http://example.com/page/4/index.html">
+  <meta charset="utf-8">
+  <title>Gcmz Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Gcmz Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://example.com/categories/index.html">
 <meta property="og:site_name" content="Gcmz Blog">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-04T02:22:59.000Z">
+<meta property="article:modified_time" content="2025-04-04T02:23:35.182Z">
 <meta property="article:author" content="Gcmz">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/page/4/">
+<link rel="icon" href="/img/gcmz.png">
 
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/4/index.html","title":""}</script>
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Gcmz Blog</title>
-  
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
 
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
 
-
-
-
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
-
-  
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
 
 
 
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
 
+<script src="/js/iconfont.js?v=1.1.0" ></script>
 
-
-  
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Gcmz Blog</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
 </div>
 
 
 
+<body>
+<aside class="nav mobile">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/gcmz.png"/>
+</a>
+<div class="author">
+    <span>Gcmz</span>
+</div>
 
-
-
-
-</header>
+<div class="icon">
+    
         
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Gcmz</p>
-  <div class="site-description" itemprop="description"></div>
+            <a title="github"
+               href="https://github.com/gcmz925"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:zhenxingwang925@gmail.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
 </div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">39</span>
-          <span class="site-state-item-name">日志</span>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(39)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="编码">
+            
+            编码
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="环境搭建">
+            
+            环境搭建
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="debug">
+            
+            debug
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="hexo">
+            
+            hexo
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="linux">
+            <i class="fold iconfont icon-right"></i>
+            linux
+            <small>(12)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="linux&lt;---&gt;命令">
+            
+            命令
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="linux&lt;---&gt;驱动">
+            
+            驱动
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="python">
+            
+            python
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="shell">
+            
+            shell
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="windwos">
+            
+            windwos
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="39">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://gcmz925.github.io/">gcmz</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 "
+           href="/2025/07/07/Windows%20C++%20%E9%A1%B9%E7%9B%AE%E5%AE%9E%E7%8E%B0%20GNU%20gettext%20%E5%9B%BD%E9%99%85%E5%8C%96%E6%94%AF%E6%8C%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-07-07 00:24:31">2025/07/07</span>
         </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-  </nav>
-</div>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/22/debug/%E4%BE%8B%E5%AD%90/PE%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-22 22:53:55">2025/06/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/15/debug/%E4%BE%8B%E5%AD%90/%E3%80%8AWindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8B%E8%8B%A5%E5%B9%B2%E7%9F%A5%E8%AF%86%E7%82%B9%E5%AE%9E%E6%88%98%E5%BA%94%E7%94%A8%E5%88%86%E4%BA%AB2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-15 22:00:28">2025/06/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/15/Obsidian%20%E5%A4%9A%E5%BA%93%E5%85%B1%E7%94%A8%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-15 22:00:15">2025/06/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/06/02/debug/%E4%BE%8B%E5%AD%90/%E3%80%8AWindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8B%E8%8B%A5%E5%B9%B2%E7%9F%A5%E8%AF%86%E7%82%B9%E5%AE%9E%E6%88%98%E5%BA%94%E7%94%A8%E5%88%86%E4%BA%AB/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-06-02 22:22:57">2025/06/02</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/05/26/debug/%E4%BE%8B%E5%AD%90/Windows%20UAC%E6%9D%83%E9%99%90%E8%AF%A6%E8%A7%A3%E4%BB%A5%E5%8F%8Awindbg%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-05-26 22:32:50">2025/05/26</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/05/14/debug/debug%20windbg%20information/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-05-14 19:48:44">2025/05/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/05/14/debug/%E4%BE%8B%E5%AD%90/windbg%20%E8%A7%82%E5%AF%9F%E5%8F%A5%E6%9F%84%E6%B3%84%E9%9C%B2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-05-14 19:06:11">2025/05/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/22/linux/liunx%20%E7%BC%96%E8%AF%91%E5%91%8A%E8%AD%A6%E9%80%9F%E6%9F%A5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-22 16:17:41">2025/04/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/22/linux/linux%20CONTAINING_RECORD/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-22 15:37:04">2025/04/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/11/debug/debug%20Linux%20enable%20kdump/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-11 21:59:04">2025/04/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/09/linux/linux%20sys_call_table%20%E6%B5%8B%E8%AF%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux sys_call_table 测试">linux sys_call_table 测试</span>
+            <span class="post-date" title="2025-04-09 16:43:04">2025/04/09</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2025/04/08/python/python%20win%E6%97%A5%E5%BF%97%E8%A7%A3%E6%9E%90/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2025-04-08 20:48:50">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 windwos "
+           href="/2025/04/08/windwos/windows%20%E5%B8%B8%E7%94%A8regedit/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="常用regedit">常用regedit</span>
+            <span class="post-date" title="2025-04-08 14:10:22">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 编码 "
+           href="/2025/04/08/%E7%BC%96%E7%A0%81/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="编码规范">编码规范</span>
+            <span class="post-date" title="2025-04-08 14:08:52">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 编码 "
+           href="/2025/04/08/%E7%BC%96%E7%A0%81/%E6%9C%AA%E5%A4%84%E7%90%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="总结">总结</span>
+            <span class="post-date" title="2025-04-08 14:08:33">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 环境搭建 "
+           href="/2025/04/08/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/Iso%20And%20SoftwarePackage%20Download/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="iso 软件包下载地址">iso 软件包下载地址</span>
+            <span class="post-date" title="2025-04-08 10:45:50">2025/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 环境搭建 "
+           href="/2025/04/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20replace%20source/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux 换源">linux 换源</span>
+            <span class="post-date" title="2025-04-07 15:56:02">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 hexo "
+           href="/2025/04/07/hexo/hexo%20options/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hexo options">hexo options</span>
+            <span class="post-date" title="2025-04-07 15:14:07">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/07/linux/linux%20mount%20umount/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mount umount">mount umount</span>
+            <span class="post-date" title="2025-04-07 13:42:21">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 环境搭建 "
+           href="/2025/04/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20install%20git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux 安装git">linux 安装git</span>
+            <span class="post-date" title="2025-04-07 11:43:07">2025/04/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 windwos "
+           href="/2025/04/06/windwos/windows%20%E7%89%A9%E7%90%86%E6%9C%BA%E5%BC%80%E5%90%AF%E8%BD%AC%E5%82%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows物理机开启强制转储">windows物理机开启强制转储</span>
+            <span class="post-date" title="2025-04-06 17:08:37">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6%5Betcdefaultgrub%20%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="开机引导文件 etc/default/grub 文件详解">开机引导文件 etc/default/grub 文件详解</span>
+            <span class="post-date" title="2025-04-06 17:08:06">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 windwos "
+           href="/2025/04/06/windwos/windwos%20%E5%85%B3%E4%BA%8Ecreate%E6%98%AF%E5%90%A6%E6%98%AF%E7%9B%AE%E5%BD%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="关于create是否是目录">关于create是否是目录</span>
+            <span class="post-date" title="2025-04-06 17:07:52">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 debug "
+           href="/2025/04/06/debug/debug%20windows%20%E5%86%85%E6%A0%B8%E4%B8%8D%E9%87%8D%E5%90%AF%E8%BD%AC%E5%82%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="获取pdb强制转储">获取pdb强制转储</span>
+            <span class="post-date" title="2025-04-06 17:06:05">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20ERR_PTR%E3%80%81PTR_ERR%E3%80%81IS_ERR%E5%92%8CIS_ERR_OR_NULL/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux中ERR_PTR、PTR_ERR、IS_ERR和IS_ERR_OR_NULL">linux中ERR_PTR、PTR_ERR、IS_ERR和IS_ERR_OR_NULL</span>
+            <span class="post-date" title="2025-04-06 17:05:56">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20iptables/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux防火墙与iptables">linux防火墙与iptables</span>
+            <span class="post-date" title="2025-04-06 17:05:41">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20CreateThread/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux kernel CreateThread">Linux kernel CreateThread</span>
+            <span class="post-date" title="2025-04-06 17:05:18">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux 命令 "
+           href="/2025/04/06/linux/linux%20kill%20%E5%91%BD%E4%BB%A4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="kill">kill</span>
+            <span class="post-date" title="2025-04-06 17:04:19">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux 驱动 "
+           href="/2025/04/06/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20suse%20configure%20kernel%20compilation%20env/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="配置内核编译环境(suse)">配置内核编译环境(suse)</span>
+            <span class="post-date" title="2025-04-06 17:04:16">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20%E5%BC%80%E5%90%AFssh%E8%BF%9E%E6%8E%A5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="开启ssh连接">开启ssh连接</span>
+            <span class="post-date" title="2025-04-06 17:04:15">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux 驱动 "
+           href="/2025/04/06/linux/linux%20%E5%A4%9A%E5%86%85%E6%A0%B8%E6%94%AF%E6%8C%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux 多内核支持（suse）">linux 多内核支持（suse）</span>
+            <span class="post-date" title="2025-04-06 17:04:13">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20Kernel%20ARM64%E6%9E%B6%E6%9E%84%E4%B8%AD,%20%E7%AA%81%E7%A0%B4%E5%86%85%E5%AD%98%E5%8F%AA%E8%AF%BB%E7%9A%84%E9%99%90%E5%88%B6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux Kernel ARM64架构中, 突破内存只读的限制">Linux Kernel ARM64架构中, 突破内存只读的限制</span>
+            <span class="post-date" title="2025-04-06 17:04:12">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 linux "
+           href="/2025/04/06/linux/linux%20arm64%20hook/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux ARM64平台上Hook系统调用">Linux ARM64平台上Hook系统调用</span>
+            <span class="post-date" title="2025-04-06 17:04:10">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 debug "
+           href="/2025/04/06/debug/debug%20Linux%20information/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="crash + windbg">crash + windbg</span>
+            <span class="post-date" title="2025-04-06 17:03:52">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 shell "
+           href="/2025/04/06/shell/shell%20%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E8%BF%90%E7%94%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bash 脚本中关于时间的运用">bash 脚本中关于时间的运用</span>
+            <span class="post-date" title="2025-04-06 17:03:33">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 python "
+           href="/2025/04/06/python/python%20threading/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="python使用 `threading` 模块来实现守护线程和定时任务">python使用 `threading` 模块来实现守护线程和定时任务</span>
+            <span class="post-date" title="2025-04-06 17:02:35">2025/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 hexo "
+           href="/2025/04/04/hexo/hexo%20temp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2025-04-04 08:42:25">2025/04/04</span>
+        </a>
+        
+        
+        <a  class="全部文章 python "
+           href="/2024/12/05/python/python%20%E8%A3%85%E9%A5%B0%E5%99%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 装饰器">Python 装饰器</span>
+            <span class="post-date" title="2024-12-05 17:42:24">2024/12/05</span>
+        </a>
+        
+        <div id="no-item-tips">
 
         </div>
-      </div>
+    </nav>
+    <div id="outline-list">
     </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/linux/linux%20%E5%BC%80%E5%90%AFssh%E8%BF%9E%E6%8E%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/linux/linux%20%E5%BC%80%E5%90%AFssh%E8%BF%9E%E6%8E%A5/" class="post-title-link" itemprop="url">开启ssh连接</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-06 17:04:15" itemprop="dateCreated datePublished" datetime="2025-04-06T17:04:15+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-07 15:31:07" itemprop="dateModified" datetime="2025-04-07T15:31:07+08:00">2025-04-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-    </span>
-
-  
 </div>
 
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="linux-开启ssh连接"><a href="#linux-开启ssh连接" class="headerlink" title="linux 开启ssh连接"></a>linux 开启ssh连接</h1><h2 id="suse"><a href="#suse" class="headerlink" title="suse"></a>suse</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop SuSEfirewall2.service </span><br><span class="line">systemctl stop SuSEfirewall2_init.service</span><br><span class="line">systemctl disable SuSEfirewall2.service </span><br><span class="line">systemctl disable SuSEfirewall2_init.service </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">PermitRootLogin yes</span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
-
-      
     </div>
-
+</aside>
+<div id="post" class="index">
+    <div class="pjax">
+        <article class="index">
+            <div class="toc-ref">
     
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8F%B6%E8%90%BD%E9%98%81"><span class="toc-text">关于叶落阁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%B9%B3%E5%8F%B0"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
     
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
 </div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/linux/linux%20%E5%A4%9A%E5%86%85%E6%A0%B8%E6%94%AF%E6%8C%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/linux/linux%20%E5%A4%9A%E5%86%85%E6%A0%B8%E6%94%AF%E6%8C%81/" class="post-title-link" itemprop="url">linux 多内核支持（suse）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-06 17:04:13" itemprop="dateCreated datePublished" datetime="2025-04-06T17:04:13+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-07 15:31:01" itemprop="dateModified" datetime="2025-04-07T15:31:01+08:00">2025-04-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/%E9%A9%B1%E5%8A%A8/" itemprop="url" rel="index"><span itemprop="name">驱动</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="linux-多内核支持"><a href="#linux-多内核支持" class="headerlink" title="linux 多内核支持"></a>linux 多内核支持</h1><h2 id="suse"><a href="#suse" class="headerlink" title="suse"></a>suse</h2><h3 id="0-启用和配置多版本支持"><a href="#0-启用和配置多版本支持" class="headerlink" title="0.启用和配置多版本支持"></a>0.启用和配置多版本支持</h3><p>从 SUSE Linux Enterprise Server 12 开始，系统默认支持安装软件包的多个版本（多版本支持）。要验证此设置，请按如下所示继续：</p>
-<ol>
-<li><p>以 <code>root</code> 身份使用所选的编辑器打开 <code>/etc/zypp/zypp.conf</code>。</p>
-</li>
-<li><p>搜索字符串 <code>multiversion</code>。如果为所有支持此功能的内核包启用多版本，以下行可能会取消注释：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multiversion = provides:multiversion(kernel)</span><br></pre></td></tr></table></figure></li>
-<li><p>要对特定的内核类型限制多版本支持，请将逗号分隔的包名称列表添加到 <code>/etc/zypp/zypp.conf</code> 中的 <code>multiversion</code> 选项 — 例如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multiversion = kernel-default,kernel-default-base,kernel-source</span><br></pre></td></tr></table></figure></li>
-<li><p>保存所做的更改。</p>
-</li>
-</ol>
-<h3 id="1-下载内核rpm包"><a href="#1-下载内核rpm包" class="headerlink" title="1.下载内核rpm包"></a>1.下载内核rpm包</h3><blockquote>
-<p>需要下载对应想替换的内核的rpm包,我这里需要替换的是 <code>4.4.73-5.1</code> 这个版本的内核</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kernel-default-4.4.73-5.1.x86_64.rpm</span><br><span class="line">kernel-default-debuginfo-4.4.73-5.1.x86_64.rpm</span><br><span class="line">kernel-default-devel-4.4.73-5.1.x86_64.rpm</span><br><span class="line">kernel-devel-4.4.73-5.1.noarch.rpm</span><br><span class="line">kernel-macros-4.4.73-5.1.noarch.rpm</span><br><span class="line">kernel-source-4.4.73-5.1.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-安装rpm包"><a href="#2-安装rpm包" class="headerlink" title="2.安装rpm包"></a>2.安装rpm包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh *.rmp</span><br></pre></td></tr></table></figure>
-
-<p>如果当前内核版本较新，会安装不了报错如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which is newer than kernel-default-4.4.73-5.1.x86_64) is already installed</span><br></pre></td></tr></table></figure>
-
-<p>需要加上 <code>--oldpackage</code> 参数</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm  -ivh  --oldpackage *.rpm</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h3><p>1.选择第二个选项</p>
-<p><img src="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202503181036623.png" alt="image-20250318103652447"></p>
-<p>选择对应的</p>
-<p><img src="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202503181037365.png" alt="image-20250318103725191"></p>
-<p>进入系统后进行确认，可以看到已经切换到需要替换的系统</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202503181039017.png" alt="image-20250318103925981"></p>
-<h3 id="4-设置为默认启动内核"><a href="#4-设置为默认启动内核" class="headerlink" title="4.设置为默认启动内核"></a>4.设置为默认启动内核</h3>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/linux/linux%20Kernel%20ARM64%E6%9E%B6%E6%9E%84%E4%B8%AD,%20%E7%AA%81%E7%A0%B4%E5%86%85%E5%AD%98%E5%8F%AA%E8%AF%BB%E7%9A%84%E9%99%90%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/linux/linux%20Kernel%20ARM64%E6%9E%B6%E6%9E%84%E4%B8%AD,%20%E7%AA%81%E7%A0%B4%E5%86%85%E5%AD%98%E5%8F%AA%E8%AF%BB%E7%9A%84%E9%99%90%E5%88%B6/" class="post-title-link" itemprop="url">Linux Kernel ARM64架构中, 突破内存只读的限制</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-06 17:04:12" itemprop="dateCreated datePublished" datetime="2025-04-06T17:04:12+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-08 14:13:53" itemprop="dateModified" datetime="2025-04-08T14:13:53+08:00">2025-04-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Linux-Kernel-ARM64架构中-突破内存只读的限制"><a href="#Linux-Kernel-ARM64架构中-突破内存只读的限制" class="headerlink" title="Linux Kernel ARM64架构中, 突破内存只读的限制"></a>Linux Kernel ARM64架构中, 突破内存只读的限制</h2><p>参考:</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_47763623/article/details/129220161">https://blog.csdn.net/weixin_47763623/article/details/129220161</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45030965/article/details/129212657">https://blog.csdn.net/weixin_45030965/article/details/129212657</a></p>
-<p>系统hook调用</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45030965/article/details/129203081">https://blog.csdn.net/weixin_45030965/article/details/129203081</a></p>
-<p><a target="_blank" rel="noopener" href="https://xiaolizai.blog.csdn.net/article/details/132764364?ydreferer=aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTAzMDk2NS9hcnRpY2xlL2RldGFpbHMvMTI5MjAzMDgx">https://xiaolizai.blog.csdn.net/article/details/132764364?ydreferer=aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTAzMDk2NS9hcnRpY2xlL2RldGFpbHMvMTI5MjAzMDgx</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/linux/linux%20arm64%20hook/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/linux/linux%20arm64%20hook/" class="post-title-link" itemprop="url">Linux ARM64平台上Hook系统调用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-06 17:04:10" itemprop="dateCreated datePublished" datetime="2025-04-06T17:04:10+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-12 16:02:18" itemprop="dateModified" datetime="2025-05-12T16:02:18+08:00">2025-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Linux-ARM64平台上Hook系统调用（以openat为例）"><a href="#Linux-ARM64平台上Hook系统调用（以openat为例）" class="headerlink" title="Linux ARM64平台上Hook系统调用（以openat为例）"></a>Linux ARM64平台上Hook系统调用（以openat为例）</h1><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6990646217399074853#heading-8">https://juejin.cn/post/6990646217399074853#heading-8</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/debug/debug%20Linux%20information/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/debug/debug%20Linux%20information/" class="post-title-link" itemprop="url">crash + windbg</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-06 17:03:52" itemprop="dateCreated datePublished" datetime="2025-04-06T17:03:52+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-14 19:49:33" itemprop="dateModified" datetime="2025-05-14T19:49:33+08:00">2025-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/debug/" itemprop="url" rel="index"><span itemprop="name">debug</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="crash"><a href="#crash" class="headerlink" title="crash"></a>crash</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">centos:</span><br><span class="line">rpm -ivh kernel-debuginfo-common-x86_64-3.10.0-862.el7.x86_64.rpm(need install)</span><br><span class="line">rpm -ivh kernel-debuginfo-3.10.0-862.el7.x86_64.rpm(need install)</span><br><span class="line">crash /usr/lib/debug/lib/modules/3.10.0-1160.el7.x86_64/vmlinux /root/127.0.0.1-2023-08-22-12\:31\:24/vmcore</span><br><span class="line">suse:</span><br><span class="line">rpm -ivh </span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">强制转储：</span><br><span class="line">echo 1 &gt; /proc/sys/kernel/sysrq</span><br><span class="line">echo c &gt; /proc/sysrq-trigger</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/shell/shell%20%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E8%BF%90%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/shell/shell%20%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E8%BF%90%E7%94%A8/" class="post-title-link" itemprop="url">bash 脚本中关于时间的运用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-04-06 17:03:33 / 修改时间：18:08:47" itemprop="dateCreated datePublished" datetime="2025-04-06T17:03:33+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/shell/" itemprop="url" rel="index"><span itemprop="name">shell</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="bash-脚本中关于时间的运用"><a href="#bash-脚本中关于时间的运用" class="headerlink" title="bash 脚本中关于时间的运用"></a>bash 脚本中关于时间的运用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">REM 记录当前开始时间</span><br><span class="line"><span class="built_in">set</span> start_time=%<span class="keyword">time</span>%</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Start <span class="keyword">time</span>: %start_time%</span><br><span class="line">REM 模拟某些操作，例如等待 5 秒（这里可以替换成其他操作）</span><br><span class="line"><span class="built_in">timeout</span> /t 5 &gt; nul</span><br><span class="line"></span><br><span class="line">REM 记录结束时间</span><br><span class="line"><span class="built_in">set</span> end_time=%<span class="keyword">time</span>%</span><br><span class="line"><span class="built_in">echo</span> End <span class="keyword">time</span>: %end_time%</span><br><span class="line"></span><br><span class="line">REM 将开始和结束时间转换为秒数</span><br><span class="line">call :TimeToSeconds start_seconds %start_time%</span><br><span class="line">call :TimeToSeconds end_seconds %end_time%</span><br><span class="line"></span><br><span class="line">REM 计算时间差（秒）</span><br><span class="line"><span class="built_in">set</span> /a elapsed_seconds=%end_seconds%-%start_seconds%</span><br><span class="line"></span><br><span class="line">REM 如果时间差为负值（表示跨天了），则加上 86400 秒 (24 小时)</span><br><span class="line"><span class="keyword">if</span> %elapsed_seconds% lss 0 <span class="built_in">set</span> /a elapsed_seconds+=86400</span><br><span class="line"></span><br><span class="line">REM 将时间差转换回时:分:秒格式</span><br><span class="line">call :FormatElapsedTime %elapsed_seconds%</span><br><span class="line"></span><br><span class="line">pause</span><br><span class="line"><span class="built_in">exit</span> /b</span><br><span class="line"></span><br><span class="line">REM 函数：将 HH:MM:SS 时间格式转换为秒数</span><br><span class="line">:TimeToSeconds</span><br><span class="line">setlocal</span><br><span class="line"><span class="built_in">set</span> time_string=%~2</span><br><span class="line"><span class="built_in">set</span> /a hours=1%time_string:~0,2% - 100</span><br><span class="line"><span class="built_in">set</span> /a minutes=1%time_string:~3,2% - 100</span><br><span class="line"><span class="built_in">set</span> /a seconds=1%time_string:~6,2% - 100</span><br><span class="line"><span class="built_in">set</span> /a %1=hours*3600 + minutes*60 + seconds</span><br><span class="line">endlocal &amp; <span class="built_in">set</span> %1=%hours% * 3600 + %minutes% * 60 + %seconds%</span><br><span class="line"><span class="built_in">exit</span> /b</span><br><span class="line"></span><br><span class="line">REM 函数：将秒数转换为时:分:秒格式输出</span><br><span class="line">:FormatElapsedTime</span><br><span class="line">setlocal</span><br><span class="line"><span class="built_in">set</span> /a seconds=%1, minutes=seconds/60, hours=minutes/60</span><br><span class="line"><span class="built_in">set</span> /a seconds=seconds%%60, minutes=minutes%%60</span><br><span class="line"><span class="built_in">echo</span> Elapsed Time: %hours% hour(s), %minutes% minute(s), %seconds% second(s)</span><br><span class="line"><span class="built_in">exit</span> /b</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>这些语句是用于将时间字符串中的小时、分钟和秒提取出来，并转换为整数表示。具体解释如下：</p>
-<h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">REM 函数：将 HH:MM:SS 时间格式转换为秒数</span></span><br><span class="line">:TimeToSeconds</span><br><span class="line"><span class="built_in">setlocal</span></span><br><span class="line"><span class="built_in">set</span> time_string=%~<span class="number">2</span></span><br><span class="line"><span class="built_in">set</span> /a hours=<span class="number">1</span><span class="variable">%time_string:~0,2%</span> - <span class="number">100</span></span><br><span class="line"><span class="built_in">set</span> /a minutes=<span class="number">1</span><span class="variable">%time_string:~3,2%</span> - <span class="number">100</span></span><br><span class="line"><span class="built_in">set</span> /a seconds=<span class="number">1</span><span class="variable">%time_string:~6,2%</span> - <span class="number">100</span></span><br><span class="line"><span class="built_in">set</span> /a %<span class="number">1</span>=hours*<span class="number">3600</span> + minutes*<span class="number">60</span> + seconds</span><br><span class="line"><span class="built_in">endlocal</span> &amp; <span class="built_in">set</span> <span class="variable">%1=%</span>hours% * <span class="number">3600</span> + <span class="variable">%minutes%</span> * <span class="number">60</span> + <span class="variable">%seconds%</span></span><br><span class="line"><span class="keyword">exit</span> /b</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p><strong><code>set time_string=%~2</code></strong>:</p>
-<ul>
-<li><code>set time_string=%~2</code> 语句将传递给当前批处理脚本的第二个参数（<code>%2</code>）赋值给变量 <code>time_string</code>。<code>%~2</code> 表示去除参数 <code>%2</code> 可能包含的引号。</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>例如，如果批处理脚本被调用为 <code>myScript.bat &quot;12:34:56&quot; 15:43:21</code>，那么 <code>%2</code> 对应的值就是 <code>15:43:21</code>，<code>time_string</code> 变量的值将被设置为 <code>15:43:21</code>。</li>
-</ul>
-<ol start="2">
-<li><p><strong><code>set /a hours=1%time_string:~0,2% - 100</code></strong>:</p>
-<ul>
-<li>这一行从 <code>time_string</code> 中提取 <code>0</code> 到 <code>2</code> 的字符（即小时部分），并将其转换为整数：<ul>
-<li><code>time_string:~0,2</code> 提取了 <code>time_string</code> 中从索引 <code>0</code> 开始的两个字符，表示小时数（假设 <code>time_string</code> 为 <code>15:43:21</code>，则提取结果为 <code>15</code>）。</li>
-<li><code>1%time_string:~0,2%</code> 在前面加了一个 <code>1</code>，避免批处理将 <code>08</code> 和 <code>09</code> 这样的数字视为八进制。</li>
-<li><code>- 100</code> 用来去除多加的 <code>1</code>。比如 <code>115 - 100 = 15</code>，<code>08</code> 会变成 <code>108 - 100 = 8</code>，这样处理后就得到了小时数的整数表示。</li>
-</ul>
-</li>
-<li>最终，<code>hours</code> 变量会被赋值为整数形式的小时数。</li>
-</ul>
-</li>
-<li><p><strong><code>set /a minutes=1%time_string:~3,2% - 100</code></strong>:</p>
-<ul>
-<li>这一行从 <code>time_string</code> 中提取 <code>3</code> 到 <code>5</code> 的字符（即分钟部分），并将其转换为整数：<ul>
-<li><code>time_string:~3,2</code> 提取了分钟部分，比如 <code>15:43:21</code> 的分钟部分是 <code>43</code>。</li>
-<li>同样在前面加 <code>1</code>，然后再减 <code>100</code> 来去除前导 <code>1</code>。</li>
-</ul>
-</li>
-<li>最终，<code>minutes</code> 变量会被赋值为整数形式的分钟数。</li>
-</ul>
-</li>
-<li><p><strong><code>set /a seconds=1%time_string:~6,2% - 100</code></strong>:</p>
-<ul>
-<li>这一行从 <code>time_string</code> 中提取 <code>6</code> 到 <code>8</code> 的字符（即秒部分），并将其转换为整数：<ul>
-<li><code>time_string:~6,2</code> 提取了秒数部分，比如 <code>15:43:21</code> 的秒部分是 <code>21</code>。</li>
-<li>同样在前面加 <code>1</code>，然后再减 <code>100</code> 来去除前导 <code>1</code>。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>最终，<code>seconds</code> 变量会被赋值为整数形式的秒数。</li>
-</ul>
-<ol start="5">
-<li><p><strong><code>set /a %1=hours*3600 + minutes*60 + seconds</code></strong>:</p>
-<ul>
-<li>这一行将提取的小时、分钟和秒数转换为总秒数，并赋值给传递给批处理脚本的第一个参数（<code>%1</code>）。</li>
-<li>例如，如果 <code>hours=15</code>，<code>minutes=43</code>，<code>seconds=21</code>，则计算的总秒数为：<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> /a %<span class="number">1</span>=<span class="number">15</span>*<span class="number">3600</span> + <span class="number">43</span>*<span class="number">60</span> + <span class="number">21</span></span><br></pre></td></tr></table></figure>
-
-计算结果为 <code>56580 + 2580 + 21 = 59181</code>，最终 <code>59181</code> 秒会被赋值给 <code>%1</code> 所指向的变量（假设 <code>%1</code> 对应的变量名是 <code>elapsed_seconds</code>，那么 <code>elapsed_seconds</code> 就会被赋值为 <code>59181</code>）。</li>
-</ul>
-</li>
-</ol>
-<h3 id="问-设置两次原因"><a href="#问-设置两次原因" class="headerlink" title="问:设置两次原因"></a>问:设置两次原因</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> /a %<span class="number">1</span>=hours*<span class="number">3600</span> + minutes*<span class="number">60</span> + seconds</span><br><span class="line"><span class="built_in">endlocal</span> &amp; <span class="built_in">set</span> <span class="variable">%1=%</span>hours% * <span class="number">3600</span> + <span class="variable">%minutes%</span> * <span class="number">60</span> + <span class="variable">%seconds%</span></span><br></pre></td></tr></table></figure>
-
+            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
 <blockquote>
-<h3 id="背景与原因"><a href="#背景与原因" class="headerlink" title="背景与原因"></a>背景与原因</h3><p>在批处理脚本中，<code>setlocal</code> 和 <code>endlocal</code> 用于创建和销毁局部变量作用域。也就是说，任何在 <code>setlocal</code> 和 <code>endlocal</code> 之间创建或修改的变量，都会在 <code>endlocal</code> 执行之后失效，返回到 <code>setlocal</code> 之前的状态。这使得它们非常适合防止变量污染全局环境。</p>
-<h3 id="具体原因"><a href="#具体原因" class="headerlink" title="具体原因"></a>具体原因</h3><ol>
-<li><strong><code>setlocal</code> 与 <code>endlocal</code> 作用域</strong>：<ul>
-<li>如果你在 <code>setlocal</code> 之后定义的变量（比如 <code>hours</code>、<code>minutes</code>、<code>seconds</code>），当执行 <code>endlocal</code> 后，这些变量将失效。</li>
-<li>当 <code>endlocal</code> 执行后，如果想要将 <code>setlocal</code> 作用域中的局部变量的值传递到全局变量，就需要使用一些技巧。</li>
-</ul>
-</li>
-<li><strong>为什么用两次 <code>set</code></strong>：<ul>
-<li>在 <code>endlocal</code> 之后，如果想将局部变量的值传递到全局变量，需要在 <code>endlocal</code> 后立即执行 <code>set</code> 命令，因为 <code>endlocal</code> 会让局部变量失效。</li>
-<li>由于 <code>endlocal</code> 会立即生效，直接用 <code>set</code> 的话，局部变量 <code>hours</code>、<code>minutes</code> 和 <code>seconds</code> 会在 <code>endlocal</code> 执行后失效，从而导致无法正确将其值赋值给全局变量。因此，使用 <code>endlocal &amp; set</code> 语法来在执行 <code>endlocal</code> 之前保存变量的值，然后在 <code>set</code> 中应用这些值。</li>
-</ul>
-</li>
-</ol>
+<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
 </blockquote>
-<h3 id="问-运算结果不符"><a href="#问-运算结果不符" class="headerlink" title="问:运算结果不符"></a>问:运算结果不符</h3><blockquote>
-<h3 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h3><p>其实上述脚本还存在问题,当bat脚本跑起来后,发现计算的值与实际不符,最后在 TimeToSeconds 函数逐步echo发现,最后一步</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> /a %1=hours*3600 + minutes*60 + seconds</span><br></pre></td></tr></table></figure>
-<p>这一步这里不会计算导致出现问题，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\WorkFile\20241008&gt;test.bat</span><br><span class="line">Start time: 10:24:18.30</span><br><span class="line">End time: 10:24:23.19</span><br><span class="line">Elapsed Time: 0 hour(s), 48 minute(s), 41 second(s)</span><br><span class="line">请按任意键继续. . .</span><br></pre></td></tr></table></figure>
-<h3 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">endlocal</span> &amp; <span class="built_in">set</span> <span class="variable">%1=%</span>hours% * <span class="number">3600</span> + <span class="variable">%minutes%</span> * <span class="number">60</span> + <span class="variable">%seconds%</span></span><br></pre></td></tr></table></figure>
-<p>这行代码实际上会把 <code>%hours% * 3600 + %minutes% * 60 + %seconds%</code> 这个表达式当作<strong>字符串</strong>赋值给变量 <code>%1</code>，而不会进行实际的数学运算。原因是 <code>set</code> 命令默认是字符串操作，除非用 <code>/a</code> 参数来强制进行算术运算（如：<code>set /a</code>）。</p>
-<p>例如：</p>
+<blockquote>
+<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
+</blockquote>
+<blockquote>
+<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
+</blockquote>
+<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
+<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
+<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> 是阁主的个人站。</p>
+<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
+<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 已经在github上开源</p>
+<p><code>3-hexo</code> 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a></p>
+<p>主要功能：</p>
 <ul>
-<li>假设 <code>hours=2</code>，<code>minutes=30</code>，<code>seconds=15</code>。</li>
-<li>执行上面的语句时，它不会计算 <code>2 * 3600 + 30 * 60 + 15</code> 的结果，而是直接将字符串 <code>&quot;2 * 3600 + 30 * 60 + 15&quot;</code> 赋值给变量 <code>%1</code>。</li>
-<li>当你试图 <code>echo</code> 或使用 <code>%1</code> 变量时，它的内容是 <code>&quot;2 * 3600 + 30 * 60 + 15&quot;</code>（而不是 <code>9015</code>），所以不能得到正确的结果。</li>
+<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
+<li>pad&#x2F;手机等移动端适配</li>
+<li>页面全局快捷键 <a target="_blank" rel="noopener" href='http://yelog.org/2017/03/24/3-hexo-shortcuts/'>3-hexo快捷键说明</a></li>
 </ul>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>如果希望在 <code>endlocal</code> 之后将计算结果传递给全局变量，可以使用下面的技巧：</p>
-<ol>
-<li><strong>在 <code>endlocal</code> 之前计算出结果</strong>，并通过命令行传递到 <code>endlocal</code> 之后。</li>
-<li>使用 <strong>临时文件</strong> 或其他方法将值传递到 <code>endlocal</code> 之后。</li>
-</ol>
-<h3 id="方法-1：通过-setlocal-中的临时变量传递值"><a href="#方法-1：通过-setlocal-中的临时变量传递值" class="headerlink" title="方法 1：通过 setlocal 中的临时变量传递值"></a>方法 1：通过 <code>setlocal</code> 中的临时变量传递值</h3><p>一种常见的做法是先用一个临时变量存储计算结果，然后使用 <code>endlocal &amp;</code> 语法将该值传递给全局变量：</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">setlocal</span></span><br><span class="line"><span class="built_in">set</span> hours=<span class="number">2</span></span><br><span class="line"><span class="built_in">set</span> minutes=<span class="number">30</span></span><br><span class="line"><span class="built_in">set</span> seconds=<span class="number">15</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">REM 在局部变量范围内计算总秒数</span></span><br><span class="line"><span class="built_in">set</span> /a total_seconds=hours*<span class="number">3600</span> + minutes*<span class="number">60</span> + seconds</span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">REM 通过临时变量传递总秒数</span></span><br><span class="line"><span class="built_in">endlocal</span> &amp; <span class="built_in">set</span> total_seconds=<span class="variable">%total_seconds%</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Total seconds: <span class="variable">%total_seconds%</span></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
-<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><ol>
-<li><strong>局部变量计算</strong>：<ul>
-<li>在 <code>setlocal</code> 范围内，计算了 <code>total_seconds</code> 的值（即 <code>2*3600 + 30*60 + 15 = 9015</code>）。</li>
-</ul>
-</li>
-<li><strong>传递临时变量</strong>：<ul>
-<li>使用 <code>endlocal &amp; set total_seconds=%total_seconds%</code>，将 <code>total_seconds</code> 的值从 <code>setlocal</code> 范围内传递到全局变量中。</li>
-<li>在执行 <code>endlocal</code> 之前，<code>%total_seconds%</code> 的值就已经被解析为 <code>9015</code>（局部作用域中计算出的值）。</li>
-</ul>
-</li>
-<li><strong>输出结果</strong>：<ul>
-<li><code>total_seconds</code> 的全局变量现在已经是 <code>9015</code>，因此可以在 <code>echo</code> 中正确输出。</li>
-</ul>
-</li>
-</ol>
-<h3 id="方法-2：使用-setlocal-和-endlocal-同时传递多个变量"><a href="#方法-2：使用-setlocal-和-endlocal-同时传递多个变量" class="headerlink" title="方法 2：使用 setlocal 和 endlocal 同时传递多个变量"></a>方法 2：使用 <code>setlocal</code> 和 <code>endlocal</code> 同时传递多个变量</h3><p>假设你希望将多个变量值传递到全局作用域，可以采用如下方式：</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">setlocal</span></span><br><span class="line"><span class="built_in">set</span> hours=<span class="number">2</span></span><br><span class="line"><span class="built_in">set</span> minutes=<span class="number">30</span></span><br><span class="line"><span class="built_in">set</span> seconds=<span class="number">15</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">REM 计算各变量的总秒数</span></span><br><span class="line"><span class="built_in">set</span> /a total_seconds=hours*<span class="number">3600</span> + minutes*<span class="number">60</span> + seconds</span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">REM 使用endlocal传递多个变量的值</span></span><br><span class="line"><span class="built_in">endlocal</span> &amp; (</span><br><span class="line">    <span class="built_in">set</span> &quot;hours=<span class="variable">%hours%</span>&quot; ^</span><br><span class="line">    &amp; <span class="built_in">set</span> &quot;minutes=<span class="variable">%minutes%</span>&quot; ^</span><br><span class="line">    &amp; <span class="built_in">set</span> &quot;seconds=<span class="variable">%seconds%</span>&quot; ^</span><br><span class="line">    &amp; <span class="built_in">set</span> &quot;total_seconds=<span class="variable">%total_seconds%</span>&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Hours: <span class="variable">%hours%</span></span><br><span class="line"><span class="built_in">echo</span> Minutes: <span class="variable">%minutes%</span></span><br><span class="line"><span class="built_in">echo</span> Seconds: <span class="variable">%seconds%</span></span><br><span class="line"><span class="built_in">echo</span> Total seconds: <span class="variable">%total_seconds%</span></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
-<h3 id="解析-1"><a href="#解析-1" class="headerlink" title="解析"></a>解析</h3><ol>
-<li><strong>局部变量计算</strong>：<ul>
-<li>在 <code>setlocal</code> 范围内，定义了 <code>hours</code>、<code>minutes</code>、<code>seconds</code> 并计算了 <code>total_seconds</code>。</li>
-</ul>
-</li>
-<li><strong>同时传递多个变量</strong>：<ul>
-<li>使用 <code>endlocal &amp; (...)</code> 的方式，传递了多个变量值。</li>
-<li><code>^</code> 是转义符，用于表示当前行没有结束，下一行仍然属于同一个命令块。</li>
-<li><code>set &quot;var=value&quot;</code> 中使用双引号，可以确保变量值中包含空格或其他特殊字符时能够正确处理。</li>
-</ul>
-</li>
-<li><strong>输出结果</strong>：<ul>
-<li><code>hours</code>、<code>minutes</code>、<code>seconds</code> 和 <code>total_seconds</code> 变量都被成功传递到了全局作用域，因此可以正确输出它们的值。</li>
-</ul>
-</li>
-</ol>
-<h3 id="方法-3：使用-call-传递计算结果"><a href="#方法-3：使用-call-传递计算结果" class="headerlink" title="方法 3：使用 call 传递计算结果"></a>方法 3：使用 <code>call</code> 传递计算结果</h3><p>另一种方法是使用 <code>call</code> 命令，通过子例程来传递计算后的值。例如：</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">setlocal</span></span><br><span class="line"><span class="built_in">set</span> hours=<span class="number">2</span></span><br><span class="line"><span class="built_in">set</span> minutes=<span class="number">30</span></span><br><span class="line"><span class="built_in">set</span> seconds=<span class="number">15</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">REM 在局部变量中计算秒数</span></span><br><span class="line"><span class="built_in">set</span> /a total_seconds=hours*<span class="number">3600</span> + minutes*<span class="number">60</span> + seconds</span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">REM 调用子例程并传递计算结果</span></span><br><span class="line"><span class="keyword">call</span> :SetGlobalVar total_seconds <span class="variable">%total_seconds%</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">endlocal</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Total seconds: <span class="variable">%total_seconds%</span></span><br><span class="line"><span class="built_in">pause</span></span><br><span class="line"><span class="keyword">exit</span> /b</span><br><span class="line"></span><br><span class="line">:SetGlobalVar</span><br><span class="line"><span class="built_in">set</span> <span class="variable">%1=%</span><span class="number">2</span></span><br><span class="line"><span class="keyword">exit</span> /b</span><br></pre></td></tr></table></figure>
-<h3 id="解析-2"><a href="#解析-2" class="headerlink" title="解析"></a>解析</h3><ol>
-<li><strong>局部变量计算</strong>：<ul>
-<li>在 <code>setlocal</code> 范围内计算 <code>total_seconds</code>，得到的值为 <code>9015</code>。</li>
-</ul>
-</li>
-<li><strong>通过子例程传递结果</strong>：<ul>
-<li>使用 <code>call :SetGlobalVar</code> 传递计算后的值。</li>
-<li><code>call :SetGlobalVar total_seconds %total_seconds%</code> 将 <code>9015</code> 的值传递给全局变量 <code>total_seconds</code>。</li>
-</ul>
-</li>
-<li><strong>输出结果</strong>：<ul>
-<li><code>total_seconds</code> 的全局变量被设置为 <code>9015</code>，因此可以在 <code>endlocal</code> 后成功输出。</li>
-</ul>
-</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li><strong>直接用 <code>set %1=%hours% \* 3600 + %minutes% \* 60 + %seconds%</code> 不会进行数学运算</strong>，而是将表达式作为字符串进行赋值。</li>
-<li>为了解决这个问题，可以先在 <code>setlocal</code> 中计算出结果，然后通过 <code>endlocal &amp; set</code> 或 <code>call</code> 的方式传递计算后的值到全局作用域。</li>
-<li>以上几种方法可以根据需求来选择使用，确保局部变量的值能够在 <code>endlocal</code> 之后正确传递到全局变量中。</li>
-</ul>
-<h3 id="修改举例"><a href="#修改举例" class="headerlink" title="修改举例:"></a>修改举例:</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">REM 函数：将 HH:MM:SS 时间格式转换为秒数</span></span><br><span class="line">:TimeToSeconds</span><br><span class="line"><span class="built_in">setlocal</span></span><br><span class="line"><span class="built_in">set</span> time_string=%~<span class="number">2</span></span><br><span class="line"><span class="built_in">set</span> /a hours=<span class="number">1</span><span class="variable">%time_string:~0,2%</span> - <span class="number">100</span></span><br><span class="line"><span class="built_in">set</span> /a minutes=<span class="number">1</span><span class="variable">%time_string:~3,2%</span> - <span class="number">100</span></span><br><span class="line"><span class="built_in">set</span> /a seconds=<span class="number">1</span><span class="variable">%time_string:~6,2%</span> - <span class="number">100</span></span><br><span class="line"><span class="built_in">set</span> /a total_seconds=hours*<span class="number">3600</span> + minutes*<span class="number">60</span> + seconds</span><br><span class="line"><span class="built_in">endlocal</span> &amp; <span class="built_in">set</span> <span class="variable">%1=%</span>total_seconds%</span><br><span class="line"><span class="keyword">exit</span> /b</span><br></pre></td></tr></table></figure></blockquote>
 
-      
+        </article>
+        
+        <p>
+            <a  class="dashang" onclick="dashangToggle()">赏</a>
+        </p>
+        
+        
     </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
-    
-    
-    
+    </div>
+</div>
+<div class="full-toc">
+    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/python/python%20threading/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/06/python/python%20threading/" class="post-title-link" itemprop="url">python使用 `threading` 模块来实现守护线程和定时任务</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-04-06 17:02:35 / 修改时间：18:11:51" itemprop="dateCreated datePublished" datetime="2025-04-06T17:02:35+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="python使用-threading-模块来实现守护线程和定时任务"><a href="#python使用-threading-模块来实现守护线程和定时任务" class="headerlink" title="python使用 threading 模块来实现守护线程和定时任务"></a>python使用 <code>threading</code> 模块来实现守护线程和定时任务</h1><h3 id="线程的基本概念"><a href="#线程的基本概念" class="headerlink" title="线程的基本概念"></a>线程的基本概念</h3><p>在 Python 中，<code>threading</code> 模块允许我们创建和管理多个线程。每个线程都可以并行执行任务，从而提高程序的执行效率。通过使用线程，我们可以在同一个程序中同时执行多个操作。</p>
-<p><strong>守护线程</strong>是指一种特殊类型的线程。与普通线程不同，守护线程会在程序退出时自动结束，而不需要显式地调用 <code>join()</code> 或者其他结束方法。这使得守护线程非常适合那些在后台持续运行、不需要干预主程序的任务。</p>
-<h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><p>假设我们需要在一个 Python 程序中同时执行两个任务：</p>
-<ol>
-<li>定时任务：每隔一段时间执行某个操作，比如检查防火墙规则。</li>
-<li>后台任务：不断查询防火墙配置或执行其他持续的工作。</li>
-<li>立即执行：特殊请求时能够立即调用执行一次</li>
-</ol>
-<p>这时，如果使用单一线程，程序将会被阻塞，直到某个任务完成。为了避免这种情况，我们可以使用 Python 的 <code>threading</code> 模块来实现并发。</p>
-
-      
     </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/04/hexo/hexo%20temp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/04/hexo/hexo%20temp/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-04-04 08:42:25" itemprop="dateCreated datePublished" datetime="2025-04-04T08:42:25+08:00">2025-04-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-06 18:01:56" itemprop="dateModified" datetime="2025-04-06T18:01:56+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
     </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/05/python/python%20%E8%A3%85%E9%A5%B0%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gcmz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Gcmz Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/05/python/python%20%E8%A3%85%E9%A5%B0%E5%99%A8/" class="post-title-link" itemprop="url">Python 装饰器</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-12-05 17:42:24" itemprop="dateCreated datePublished" datetime="2024-12-05T17:42:24+08:00">2024-12-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-06 18:11:42" itemprop="dateModified" datetime="2025-04-06T18:11:42+08:00">2025-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Python-装饰器"><a href="#Python-装饰器" class="headerlink" title="Python 装饰器"></a>Python 装饰器</h1><p>装饰器（decorators）是 Python 中的一种高级功能，它允许你动态地修改函数或类的行为。</p>
-<p>装饰器是一种函数，它接受一个函数作为参数，并返回一个新的函数或修改原来的函数。</p>
-<p>装饰器的语法使用 <strong>@decorator_name</strong> 来应用在函数或方法上。</p>
-<p>Python 还提供了一些内置的装饰器，比如 <strong>@staticmethod</strong> 和 <strong>@classmethod</strong>，用于定义静态方法和类方法。</p>
-<p><strong>装饰器的应用场景：</strong></p>
-<ul>
-<li><strong>日志记录</strong>: 装饰器可用于记录函数的调用信息、参数和返回值。</li>
-<li><strong>性能分析</strong>: 可以使用装饰器来测量函数的执行时间。</li>
-<li><strong>权限控制</strong>: 装饰器可用于限制对某些函数的访问权限。</li>
-<li><strong>缓存</strong>: 装饰器可用于实现函数结果的缓存，以提高性能。</li>
-</ul>
-<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>Python 装饰允许在不修改原有函数代码的基础上，动态地增加或修改函数的功能，装饰器本质上是一个接收函数作为输入并返回一个新的包装过后的函数的对象。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">decorator_function</span>(<span class="params">original_function</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        <span class="comment"># 这里是在调用原始函数前添加的新功能</span></span><br><span class="line">        before_call_code()</span><br><span class="line">      </span><br><span class="line">        result = original_function(*args, **kwargs)</span><br><span class="line">      </span><br><span class="line">        <span class="comment"># 这里是在调用原始函数后添加的新功能</span></span><br><span class="line">        after_call_code()</span><br><span class="line">      </span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用装饰器</span></span><br><span class="line"><span class="meta">@decorator_function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">target_function</span>(<span class="params">arg1, arg2</span>):</span><br><span class="line">    <span class="keyword">pass</span>  <span class="comment"># 原始函数的实现</span></span><br></pre></td></tr></table></figure>
-
-<p>**解析：**decorator 是一个装饰器函数，它接受一个函数 func 作为参数，并返回一个内部函数 wrapper，在 wrapper 函数内部，你可以执行一些额外的操作，然后调用原始函数 func，并返回其结果。</p>
-<ul>
-<li><code>decorator_function</code> 是装饰器，它接收一个函数 <code>original_function</code> 作为参数。</li>
-<li><code>wrapper</code> 是内部函数，它是实际会被调用的新函数，它包裹了原始函数的调用，并在其前后增加了额外的行为。</li>
-<li>当我们使用 <code>@decorator_function</code> 前缀在 <code>target_function</code> 定义前，Python会自动将 <code>target_function</code> 作为参数传递给 <code>decorator_function</code>，然后将返回的 <code>wrapper</code> 函数替换掉原来的 <code>target_function</code>。</li>
-</ul>
-<h3 id="使用装饰器"><a href="#使用装饰器" class="headerlink" title="使用装饰器"></a>使用装饰器</h3><p>装饰器通过 <strong>@</strong> 符号应用在函数定义之前，例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@time_logger</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">target_function</span>():</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-<p>等同于：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">target_function</span>():</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">target_function = time_logger(target_function)</span><br></pre></td></tr></table></figure>
-
-<p>这会将 target_function 函数传递给 decorator 装饰器，并将返回的函数重新赋值给 target_function。从而，每次调用 target_function 时，实际上是调用了经过装饰器处理后的函数。</p>
-<p>通过装饰器，开发者可以在保持代码整洁的同时，灵活且高效地扩展程序的功能。</p>
-<h3 id="带参数的装饰器"><a href="#带参数的装饰器" class="headerlink" title="带参数的装饰器"></a>带参数的装饰器</h3><p>装饰器函数也可以接受参数，例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">repeat</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decorator</span>(<span class="params">func</span>):</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                result = func(*args, **kwargs)</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br><span class="line"></span><br><span class="line"><span class="meta">@repeat(<span class="params"><span class="number">3</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Hello, <span class="subst">&#123;name&#125;</span>!&quot;</span>)</span><br><span class="line"></span><br><span class="line">greet(<span class="string">&quot;Alice&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>以上代码中 repeat 函数是一个带参数的装饰器，它接受一个整数参数 n，然后返回一个装饰器函数。该装饰器函数内部定义了 wrapper 函数，在调用原始函数之前重复执行 n 次。因此，greet 函数在被 @repeat(3) 装饰后，会打印三次问候语。</p>
-<h3 id="类装饰器"><a href="#类装饰器" class="headerlink" title="类装饰器"></a>类装饰器</h3><p>在python中，其实也可以同类来实现装饰器的功能，称之为类装饰器。类装饰器的实现是调用了类里面的__call__函数。类装饰器的写法比我们装饰器函数的写法更加简单。</p>
-<p>当我们将类作为一个装饰器，工作流程：</p>
-<p>通过__init__（）方法初始化类<br>通过__call__（）方法调用真正的装饰方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BaiyuDecorator</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, func</span>):</span><br><span class="line">        <span class="variable language_">self</span>.func = func</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行类的__init__方法&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;进入__call__函数&#x27;</span>)</span><br><span class="line">        t1 = time.time()</span><br><span class="line">        <span class="variable language_">self</span>.func(*args, **kwargs)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&quot;</span>, time.time() - t1)</span><br><span class="line"></span><br><span class="line"><span class="meta">@BaiyuDecorator</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">baiyu</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;----test----&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">python_blog_list</span>():</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;python_blog_list start&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@BaiyuDecorator</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;start blog&#x27;</span>)</span><br><span class="line">    name()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;end blog&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    baiyu()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;--------------&#x27;</span>)</span><br><span class="line">    blog(python_blog_list)</span><br></pre></td></tr></table></figure>
-
-<h3 id="带参数的类装饰器"><a href="#带参数的类装饰器" class="headerlink" title="带参数的类装饰器"></a>带参数的类装饰器</h3><p>当装饰器有参数的时候，<strong>init</strong>() 函数就不能传入<strong>func</strong>（func代表要装饰的函数）了，而<strong>func</strong>是在__call__函数调用的时候传入的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BaiyuDecorator</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, arg1, arg2</span>):  <span class="comment"># init()方法里面的参数都是装饰器的参数</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;执行类Decorator的__init__()方法&#x27;</span>)</span><br><span class="line">        <span class="variable language_">self</span>.arg1 = arg1</span><br><span class="line">        <span class="variable language_">self</span>.arg2 = arg2</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, func</span>):  <span class="comment"># 因为装饰器带了参数，所以接收传入函数变量的位置是这里</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;执行类Decorator的__call__()方法&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">baiyu_warp</span>(<span class="params">*args</span>):  <span class="comment"># 这里装饰器的函数名字可以随便命名，只要跟return的函数名相同即可</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;执行wrap()&#x27;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;装饰器参数：&#x27;</span>, <span class="variable language_">self</span>.arg1, <span class="variable language_">self</span>.arg2)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;执行&#x27;</span> + func.__name__ + <span class="string">&#x27;()&#x27;</span>)</span><br><span class="line">            func(*args)</span><br><span class="line">            <span class="built_in">print</span>(func.__name__ + <span class="string">&#x27;()执行完毕&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">return</span> baiyu_warp</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="meta">@BaiyuDecorator(<span class="params"><span class="string">&#x27;Hello&#x27;</span>, <span class="string">&#x27;Baiyu&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">example</span>(<span class="params">a1, a2, a3</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;传入example()的参数：&#x27;</span>, a1, a2, a3)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;准备调用example()&#x27;</span>)</span><br><span class="line">    example(<span class="string">&#x27;Baiyu&#x27;</span>, <span class="string">&#x27;Happy&#x27;</span>, <span class="string">&#x27;Coder&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;测试代码执行完毕&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="装饰器的顺序"><a href="#装饰器的顺序" class="headerlink" title="装饰器的顺序"></a>装饰器的顺序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">BaiyuDecorator_1</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        func(*args, **kwargs)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;我是装饰器1&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">BaiyuDecorator_2</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        func(*args, **kwargs)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;我是装饰器2&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">BaiyuDecorator_3</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        func(*args, **kwargs)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;我是装饰器3&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"> </span><br><span class="line"><span class="meta">@BaiyuDecorator_1</span></span><br><span class="line"><span class="meta">@BaiyuDecorator_2</span></span><br><span class="line"><span class="meta">@BaiyuDecorator_3</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">baiyu</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我是攻城狮白玉&quot;</span>)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    baiyu()</span><br></pre></td></tr></table></figure>
-
-<p>参考:</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhh763984017/article/details/120072425">https://blog.csdn.net/zhh763984017/article/details/120072425</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python-decorators.html#:~:text=Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%201%20%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%3A%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8F%AF%E7%94%A8%E4%BA%8E%E8%AE%B0%E5%BD%95%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E4%BF%A1%E6%81%AF%E3%80%81%E5%8F%82%E6%95%B0%E5%92%8C%E8%BF%94%E5%9B%9E%E5%80%BC%E3%80%82%202%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%3A,%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E8%A3%85%E9%A5%B0%E5%99%A8%E6%9D%A5%E6%B5%8B%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%E3%80%82%203%20%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6%3A%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8F%AF%E7%94%A8%E4%BA%8E%E9%99%90%E5%88%B6%E5%AF%B9%E6%9F%90%E4%BA%9B%E5%87%BD%E6%95%B0%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E3%80%82%204%20%E7%BC%93%E5%AD%98%3A%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8F%AF%E7%94%A8%E4%BA%8E%E5%AE%9E%E7%8E%B0%E5%87%BD%E6%95%B0%E7%BB%93%E6%9E%9C%E7%9A%84%E7%BC%93%E5%AD%98%EF%BC%8C%E4%BB%A5%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD%E3%80%82">菜鸟</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-  </nav>
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2025</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Gcmz</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
 </body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
 </html>
