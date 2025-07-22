@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,15 +17,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.2","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="一、观察进程是否有句柄泄漏1、查看工具使用任务管理器或Process Explorer（procexp.exe）工具可观察进程的句柄数。 任务管理器查看句柄数  procexp.exe查看进程句柄信息2、判断是否有句柄泄漏通常在程序运行稳定后，再观察句柄数有无增长，比如进程启动5分钟后再开始观察，让其运行半天或一天，比较前后的句柄数有无明显增长。 可以使用性能监视工具或者在Procexp.exe选">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Gcmz Blog">
 <meta property="og:url" content="http://example.com/2025/05/14/debug/%E4%BE%8B%E5%AD%90/windbg%20%E8%A7%82%E5%AF%9F%E5%8F%A5%E6%9F%84%E6%B3%84%E9%9C%B2/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Gcmz Blog">
 <meta property="og:description" content="一、观察进程是否有句柄泄漏1、查看工具使用任务管理器或Process Explorer（procexp.exe）工具可观察进程的句柄数。 任务管理器查看句柄数  procexp.exe查看进程句柄信息2、判断是否有句柄泄漏通常在程序运行稳定后，再观察句柄数有无增长，比如进程启动5分钟后再开始观察，让其运行半天或一天，比较前后的句柄数有无明显增长。 可以使用性能监视工具或者在Procexp.exe选">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202505142010412.png">
 <meta property="og:image" content="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202505142011038.png">
 <meta property="og:image" content="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202505142011701.png">
@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202505142015563.png">
 <meta property="article:published_time" content="2025-05-14T11:06:11.372Z">
 <meta property="article:modified_time" content="2025-06-08T15:23:11.202Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Gcmz">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gcmz925-note.oss-cn-shenzhen.aliyuncs.com/gcmz/note202505142010412.png">
 
@@ -53,10 +53,10 @@
 <link rel="canonical" href="http://example.com/2025/05/14/debug/%E4%BE%8B%E5%AD%90/windbg%20%E8%A7%82%E5%AF%9F%E5%8F%A5%E6%9F%84%E6%B3%84%E9%9C%B2/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/05/14/debug/%E4%BE%8B%E5%AD%90/windbg%20%E8%A7%82%E5%AF%9F%E5%8F%A5%E6%9F%84%E6%B3%84%E9%9C%B2/","path":"2025/05/14/debug/例子/windbg 观察句柄泄露/","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/05/14/debug/%E4%BE%8B%E5%AD%90/windbg%20%E8%A7%82%E5%AF%9F%E5%8F%A5%E6%9F%84%E6%B3%84%E9%9C%B2/","path":"2025/05/14/debug/例子/windbg 观察句柄泄露/","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | Hexo</title>
+<title> | Gcmz Blog</title>
   
 
 
@@ -95,7 +95,7 @@
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
@@ -103,13 +103,13 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">Hexo</p>
+      <p class="site-title">Gcmz Blog</p>
       <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -128,10 +128,10 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -144,7 +144,7 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+  <p class="site-author-name" itemprop="name">Gcmz</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
@@ -152,13 +152,13 @@
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
           <span class="site-state-item-count">39</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span></a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
 </div>
@@ -183,21 +183,21 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/14/debug/%E4%BE%8B%E5%AD%90/windbg%20%E8%A7%82%E5%AF%9F%E5%8F%A5%E6%9F%84%E6%B3%84%E9%9C%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Gcmz">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Gcmz Blog">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="name" content=" | Gcmz Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -211,16 +211,16 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2025-05-14 19:06:11" itemprop="dateCreated datePublished" datetime="2025-05-14T19:06:11+08:00">2025-05-14</time>
+      <time title="创建时间：2025-05-14 19:06:11" itemprop="dateCreated datePublished" datetime="2025-05-14T19:06:11+08:00">2025-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-06-08 23:23:11" itemprop="dateModified" datetime="2025-06-08T23:23:11+08:00">2025-06-08</time>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-06-08 23:23:11" itemprop="dateModified" datetime="2025-06-08T23:23:11+08:00">2025-06-08</time>
     </span>
 
   
@@ -315,9 +315,9 @@
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
-    <span class="author" itemprop="copyrightHolder">John Doe</span>
+    <span class="author" itemprop="copyrightHolder">Gcmz</span>
   </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
@@ -330,7 +330,7 @@
     <span class="toggle-line"></span>
   </div>
   <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
