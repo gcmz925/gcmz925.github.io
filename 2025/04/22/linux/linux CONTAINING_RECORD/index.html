@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="在 C 语言开发中，尤其是驱动开发和内核级编程中，我们常常需要从结构体的某个成员指针，反推整个结构体的起始地址。这在实现内核链表（如 Windows 内核的 LIST_ENTRY）、对象封装或回调系统中尤为常见。实现这一需求的核心技巧就是使用 CONTAINING_RECORD 宏，它的实现背后，正是 &amp;((type*)0)-&gt;member 这样的偏移量计算技巧。 一、CONTAIN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/04/22/linux/linux%20CONTAINING_RECORD/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在 C 语言开发中，尤其是驱动开发和内核级编程中，我们常常需要从结构体的某个成员指针，反推整个结构体的起始地址。这在实现内核链表（如 Windows 内核的 LIST_ENTRY）、对象封装或回调系统中尤为常见。实现这一需求的核心技巧就是使用 CONTAINING_RECORD 宏，它的实现背后，正是 &amp;((type*)0)-&gt;member 这样的偏移量计算技巧。 一、CONTAIN">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-22T07:37:04.118Z">
+<meta property="article:modified_time" content="2025-04-22T08:17:30.751Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/04/22/linux/linux%20CONTAINING_RECORD/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/04/22/linux/linux%20CONTAINING_RECORD/","path":"2025/04/22/linux/linux CONTAINING_RECORD/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81CONTAINING-RECORD-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">一、CONTAINING_RECORD 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%8F%E6%8B%86%E8%A7%A3%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">二、宏拆解分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%99%85%E4%BE%8B%E5%AD%90"><span class="nav-number">3.</span> <span class="nav-text">三、实际例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">4.</span> <span class="nav-text">四、应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%86%85%E6%A0%B8%E9%93%BE%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="nav-number">4.1.</span> <span class="nav-text">1. 内核链表结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%B0%8F%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">五、小结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/22/linux/linux%20CONTAINING_RECORD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-22 15:37:04 / Modified: 16:17:30" itemprop="dateCreated datePublished" datetime="2025-04-22T15:37:04+08:00">2025-04-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>在 C 语言开发中，尤其是驱动开发和内核级编程中，我们常常需要从结构体的某个成员指针，反推整个结构体的起始地址。这在实现内核链表（如 Windows 内核的 LIST_ENTRY）、对象封装或回调系统中尤为常见。实现这一需求的核心技巧就是使用 <code>CONTAINING_RECORD</code> 宏，它的实现背后，正是 <code>&amp;((type*)0)-&gt;member</code> 这样的偏移量计算技巧。</p>
+<h2 id="一、CONTAINING-RECORD-是什么？"><a href="#一、CONTAINING-RECORD-是什么？" class="headerlink" title="一、CONTAINING_RECORD 是什么？"></a>一、CONTAINING_RECORD 是什么？</h2><p><code>CONTAINING_RECORD</code> 是一个宏，它的定义如下（常见版本）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> CONTAINING_RECORD(address, type, field) \</span></span><br><span class="line"><span class="meta">    ((type *)((char *)(address) - (size_t)&amp;(((type *)0)-&gt;field)))</span></span><br></pre></td></tr></table></figure>
+
+<p>它的作用是：</p>
+<blockquote>
+<p>已知结构体 <code>type</code> 中 <code>field</code> 成员的地址为 <code>address</code>，反推出结构体 <code>type</code> 的起始地址。</p>
+</blockquote>
+<h2 id="二、宏拆解分析"><a href="#二、宏拆解分析" class="headerlink" title="二、宏拆解分析"></a>二、宏拆解分析</h2><p>我们来逐步拆解这个宏：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="type">char</span> *)(address)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将成员地址强制转换为 <code>char*</code> 类型是为了方便做字节级的指针运算。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="type">size_t</span>)&amp;(((type *)<span class="number">0</span>)-&gt;field)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>这部分是计算 <code>field</code> 成员在 <code>type</code> 结构体中的偏移量。</p>
+</li>
+<li><p>通过将 0 强制转换为 <code>type*</code> 指针，访问它的 <code>field</code> 成员，再取地址，就可以得到 <code>field</code> 相对于结构体起始地址的偏移（以字节为单位）。</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((<span class="type">char</span> *)(address) - 偏移量)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>从成员地址中减去偏移量，就得到了结构体首地址。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((type *)...)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最后，将结果强制转换为结构体指针类型。</li>
+</ul>
+<h2 id="三、实际例子"><a href="#三、实际例子" class="headerlink" title="三、实际例子"></a>三、实际例子</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">MY_STRUCT</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">&#125; MY_STRUCT;</span><br><span class="line"></span><br><span class="line">MY_STRUCT s = &#123;<span class="number">10</span>, <span class="number">20</span>&#125;;</span><br><span class="line"><span class="type">int</span> *pb = &amp;s.b;</span><br><span class="line"></span><br><span class="line">MY_STRUCT *ps = CONTAINING_RECORD(pb, MY_STRUCT, b);</span><br></pre></td></tr></table></figure>
+
+<p>展开后就是：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps = (MY_STRUCT *)((<span class="type">char</span> *)pb - offsetof(MY_STRUCT, b));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>你会发现，<code>CONTAINING_RECORD</code> 其实和 <code>offsetof</code> 的本质是一致的，都是基于成员偏移量计算结构体地址。</p>
+</blockquote>
+<h2 id="四、应用场景"><a href="#四、应用场景" class="headerlink" title="四、应用场景"></a>四、应用场景</h2><p>这个宏在实际开发中的用途非常广泛，以下是常见场景：</p>
+<h3 id="1-内核链表结构"><a href="#1-内核链表结构" class="headerlink" title="1. 内核链表结构"></a>1. 内核链表结构</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">DEVICE</span> &#123;</span></span><br><span class="line">    LIST_ENTRY List;</span><br><span class="line">    <span class="type">int</span> DeviceId;</span><br><span class="line">&#125; DEVICE;</span><br><span class="line"></span><br><span class="line">DEVICE *dev = CONTAINING_RECORD(pListEntry, DEVICE, List);</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、小结"><a href="#五、小结" class="headerlink" title="五、小结"></a>五、小结</h2><p><code>CONTAINING_RECORD</code> 的核心思想是：</p>
+<blockquote>
+<p><strong>结构体指针 &#x3D; 成员指针 - 成员偏移量</strong></p>
+</blockquote>
+<p>它看起来有点黑魔法，但实际是一种非常高效、零开销的做法，用好了能写出非常优雅的底层代码。</p>
+<p>这个技巧背后最根本的就是 <code>&amp;((type *)0)-&gt;member</code>，建议你深入理解这个表达式背后的含义和使用方式，它不仅对理解 <code>CONTAINING_RECORD</code> 有帮助，更是很多底层 C 语言技巧的基础。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/11/debug/debug%20Linux%20enable%20kdump/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/04/22/linux/liunx%20%E7%BC%96%E8%AF%91%E5%91%8A%E8%AD%A6%E9%80%9F%E6%9F%A5/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

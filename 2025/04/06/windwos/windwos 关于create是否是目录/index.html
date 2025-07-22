@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="关于create是否是目录 Iopb-&gt;TargetFileObject-&gt;FileName：这是一个 UNICODE_STRING类型，包含了目标文件对象的文件名。你可以通过检查文件名的特征（例如是否以反斜杠结尾）来推断它是文件还是目录。 Iopb-&gt;MajorFunction：这是一个指定主要函数的字段，表示这次操作的类型。例如，创建、读取、写入等操作。对于创建操作，可以进一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于create是否是目录">
+<meta property="og:url" content="http://example.com/2025/04/06/windwos/windwos%20%E5%85%B3%E4%BA%8Ecreate%E6%98%AF%E5%90%A6%E6%98%AF%E7%9B%AE%E5%BD%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于create是否是目录 Iopb-&gt;TargetFileObject-&gt;FileName：这是一个 UNICODE_STRING类型，包含了目标文件对象的文件名。你可以通过检查文件名的特征（例如是否以反斜杠结尾）来推断它是文件还是目录。 Iopb-&gt;MajorFunction：这是一个指定主要函数的字段，表示这次操作的类型。例如，创建、读取、写入等操作。对于创建操作，可以进一">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-06T09:07:52.041Z">
+<meta property="article:modified_time" content="2025-04-06T10:09:26.185Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/04/06/windwos/windwos%20%E5%85%B3%E4%BA%8Ecreate%E6%98%AF%E5%90%A6%E6%98%AF%E7%9B%AE%E5%BD%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/04/06/windwos/windwos%20%E5%85%B3%E4%BA%8Ecreate%E6%98%AF%E5%90%A6%E6%98%AF%E7%9B%AE%E5%BD%95/","path":"2025/04/06/windwos/windwos 关于create是否是目录/","title":"关于create是否是目录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>关于create是否是目录 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/06/windwos/windwos%20%E5%85%B3%E4%BA%8Ecreate%E6%98%AF%E5%90%A6%E6%98%AF%E7%9B%AE%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="关于create是否是目录 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于create是否是目录
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-06 17:07:52 / Modified: 18:09:26" itemprop="dateCreated datePublished" datetime="2025-04-06T17:07:52+08:00">2025-04-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/windwos/" itemprop="url" rel="index"><span itemprop="name">windwos</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>关于create是否是目录</p>
+<p><strong><code>Iopb-&gt;TargetFileObject-&gt;FileName</code></strong>：这是一个 <code>UNICODE_STRING</code>类型，包含了目标文件对象的文件名。你可以通过检查文件名的特征（例如是否以反斜杠结尾）来推断它是文件还是目录。</p>
+<p><strong><code>Iopb-&gt;MajorFunction</code></strong>：这是一个指定主要函数的字段，表示这次操作的类型。例如，创建、读取、写入等操作。对于创建操作，可以进一步检查它是针对文件还是目录。</p>
+<p><strong><code>Iopb-&gt;Parameters.Create.Options</code></strong>：这是一个包含创建选项的字段。可以通过检查其中的标志位来确定目标是文件还是目录。具体来说：</p>
+<ul>
+<li><code>FILE_DIRECTORY_FILE</code>：表示目标是一个目录。 0x00000001</li>
+<li><code>FILE_NON_DIRECTORY_FILE</code>：表示目标是一个文件。 0x00000040</li>
+</ul>
+<p>该方法存在问题</p>
+<p>原因是：</p>
+<p>当 IRP_MJ_CREATE 操作创建目录的时候，一定要设置 FILE_DIRECTORY_FILE 标志，打开目录的时候，却不需要。</p>
+<p>因此在打开目录的时候，上面的判断方法就不能够很好的工作。</p>
+<p>如何设置了  FILE_DIRECTORY_FILE 标志去打开普通的文件，则操作会失败。</p>
+<hr>
+<p>FltIsDirectory 可以很好的解决这个问题，不过需要在IRP_MJ_CREATE 的 PostOperation 中调用。</p>
+<p><strong>想从另外一个角度解决，既是 存在 FILE_DIRECTORY_FILE ，又只有创建的权限</strong></p>
+<p>Parameters.Create.Options成员是一个 ULONG 值，描述打开句柄时使用的选项。高 8 位对应于<strong>ZwCreateFile</strong>的<em>CreateDisposition参数的值，低 24</em><strong>位对应于****ZwCreateFile</strong>的<em>CreateOptions</em>参数的值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[in] CreateDisposition</span><br></pre></td></tr></table></figure>
+
+<p>Specifies the action to perform if the file does or does not exist. <em>CreateDisposition</em> can be one of the values in the following table.</p>
+<table>
+<thead>
+<tr>
+<th align="left"><em>CreateDisposition</em> value</th>
+<th align="left">Action if file exists</th>
+<th align="left">Action if file does not exist</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">FILE_SUPERSEDE</td>
+<td align="left">Replace the file.</td>
+<td align="left">Create the file.</td>
+</tr>
+<tr>
+<td align="left">FILE_CREATE</td>
+<td align="left">Return an error.</td>
+<td align="left">Create the file.</td>
+</tr>
+<tr>
+<td align="left">FILE_OPEN</td>
+<td align="left">Open the file.</td>
+<td align="left">Return an error.</td>
+</tr>
+<tr>
+<td align="left">FILE_OPEN_IF</td>
+<td align="left">Open the file.</td>
+<td align="left">Create the file.</td>
+</tr>
+<tr>
+<td align="left">FILE_OVERWRITE</td>
+<td align="left">Open the file, and overwrite it.</td>
+<td align="left">Return an error.</td>
+</tr>
+<tr>
+<td align="left">FILE_OVERWRITE_IF</td>
+<td align="left">Open the file, and overwrite it.</td>
+<td align="left">Create the file.</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[in] CreateOptions</span><br></pre></td></tr></table></figure>
+
+<p>Specifies the options to apply when the driver creates or opens the file. Use one or more of the flags in the following table.</p>
+<table>
+<thead>
+<tr>
+<th align="left"><em>CreateOptions</em> flag</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">FILE_DIRECTORY_FILE</td>
+<td align="left">The file is a directory. Compatible<em>CreateOptions</em> flags are FILE_SYNCHRONOUS_IO_ALERT, FILE_SYNCHRONOUS_IO_NONALERT, FILE_WRITE_THROUGH, FILE_OPEN_FOR_BACKUP_INTENT, and FILE_OPEN_BY_FILE_ID. The <em>CreateDisposition</em> parameter must be set to FILE_CREATE, FILE_OPEN, or FILE_OPEN_IF.</td>
+</tr>
+<tr>
+<td align="left">FILE_NON_DIRECTORY_FILE</td>
+<td align="left">The file is not a directory. The file object to open can represent a data file; a logical, virtual, or physical device; or a volume.</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/06/debug/debug%20windows%20%E5%86%85%E6%A0%B8%E4%B8%8D%E9%87%8D%E5%90%AF%E8%BD%AC%E5%82%A8/" rel="prev" title="获取pdb强制转储">
+                  <i class="fa fa-angle-left"></i> 获取pdb强制转储
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/04/06/linux/linux%20%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6%5Betcdefaultgrub%20%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/" rel="next" title="开机引导文件 etc&#x2F;default&#x2F;grub 文件详解">
+                  开机引导文件 etc/default/grub 文件详解 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

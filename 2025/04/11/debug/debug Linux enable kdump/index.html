@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Linux 内核崩溃转储机制详解：kdump 使用与配置在 Linux 服务器运维中，排查内核崩溃问题往往是最棘手的一类工作。而 kdump 提供了一种可靠的机制，用于在系统崩溃时保存内存镜像（core dump），方便事后分析。本篇文章将介绍 kdump 的原理、配置方式，以及在 CentOS 系统中的实战使用方法。  一、什么是 kdump？当系统发生内核崩溃时，kdump 会利用 kexec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/04/11/debug/debug%20Linux%20enable%20kdump/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Linux 内核崩溃转储机制详解：kdump 使用与配置在 Linux 服务器运维中，排查内核崩溃问题往往是最棘手的一类工作。而 kdump 提供了一种可靠的机制，用于在系统崩溃时保存内存镜像（core dump），方便事后分析。本篇文章将介绍 kdump 的原理、配置方式，以及在 CentOS 系统中的实战使用方法。  一、什么是 kdump？当系统发生内核崩溃时，kdump 会利用 kexec">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-11T13:59:04.652Z">
+<meta property="article:modified_time" content="2025-04-11T14:34:46.642Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/04/11/debug/debug%20Linux%20enable%20kdump/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/04/11/debug/debug%20Linux%20enable%20kdump/","path":"2025/04/11/debug/debug Linux enable kdump/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-%E5%86%85%E6%A0%B8%E5%B4%A9%E6%BA%83%E8%BD%AC%E5%82%A8%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3%EF%BC%9Akdump-%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Linux 内核崩溃转储机制详解：kdump 使用与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-kdump%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">一、什么是 kdump？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81kdump-%E6%AD%A3%E5%B8%B8%E8%BF%90%E8%A1%8C%E7%9A%84%E5%89%8D%E6%8F%90"><span class="nav-number">1.2.</span> <span class="nav-text">二、kdump 正常运行的前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%9F%A5%E7%9C%8B-kdump-%E7%8A%B6%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">三、查看 kdump 状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81CentOS-%E7%B3%BB%E5%88%97%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.4.</span> <span class="nav-text">四、CentOS 系列配置方法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CentOS-6-x-%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. CentOS 6.x 配置步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E9%85%8D%E7%BD%AE-grub-%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">(1) 配置 grub 启动参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%90%AF%E7%94%A8-kdump-%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">(2) 启用 kdump 服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%AA%8C%E8%AF%81%E9%85%8D%E7%BD%AE"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">(3) 验证配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%B5%8B%E8%AF%95"><span class="nav-number">1.4.1.4.</span> <span class="nav-text">(4) 测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CentOS-7-x-%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. CentOS 7.x 配置步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BF%AE%E6%94%B9-grub-%E5%90%AF%E5%8A%A8%E9%A1%B9"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">(1) 修改 grub 启动项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%90%AF%E7%94%A8-kdump-%E6%9C%8D%E5%8A%A1-1"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">(2) 启用 kdump 服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%AA%8C%E8%AF%81%E9%85%8D%E7%BD%AE-1"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">(3) 验证配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%B5%8B%E8%AF%95%E5%B4%A9%E6%BA%83%E8%BD%AC%E5%82%A8"><span class="nav-number">1.4.2.4.</span> <span class="nav-text">(4) 测试崩溃转储</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BF%AE%E6%94%B9-kdump-%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE"><span class="nav-number">1.5.</span> <span class="nav-text">五、修改 kdump 默认配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.6.</span> <span class="nav-text">六、常见错误与解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%8A%A5%E9%94%99%EF%BC%9AFailed-to-start-Crash-recovery-kernel-arming"><span class="nav-number">1.6.1.</span> <span class="nav-text">1. 报错：Failed to start Crash recovery kernel arming</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">排查与解决步骤：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/11/debug/debug%20Linux%20enable%20kdump/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-11 21:59:04 / Modified: 22:34:46" itemprop="dateCreated datePublished" datetime="2025-04-11T21:59:04+08:00">2025-04-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Linux-内核崩溃转储机制详解：kdump-使用与配置"><a href="#Linux-内核崩溃转储机制详解：kdump-使用与配置" class="headerlink" title="Linux 内核崩溃转储机制详解：kdump 使用与配置"></a>Linux 内核崩溃转储机制详解：kdump 使用与配置</h1><p>在 Linux 服务器运维中，排查内核崩溃问题往往是最棘手的一类工作。而 <code>kdump</code> 提供了一种可靠的机制，用于在系统崩溃时保存内存镜像（core dump），方便事后分析。本篇文章将介绍 kdump 的原理、配置方式，以及在 CentOS 系统中的实战使用方法。</p>
+<hr>
+<h2 id="一、什么是-kdump？"><a href="#一、什么是-kdump？" class="headerlink" title="一、什么是 kdump？"></a>一、什么是 kdump？</h2><p>当系统发生内核崩溃时，kdump 会利用 kexec 技术，直接跳转启动一个精简的“捕获内核（capture kernel）”，该内核运行在事先保留的一小块内存中，用于收集第一个内核的内存镜像（即 crash dump）。</p>
+<p>由于 kexec 启动过程绕过了 BIOS，系统不会清除内存内容，从而使得第一内核的内存得以完整保留并转储。</p>
+<hr>
+<h2 id="二、kdump-正常运行的前提"><a href="#二、kdump-正常运行的前提" class="headerlink" title="二、kdump 正常运行的前提"></a>二、kdump 正常运行的前提</h2><ul>
+<li><p>kdump 服务必须已启用</p>
+</li>
+<li><p>系统启动配置中需预留一定内存供 crash kernel 使用（通过 <code>crashkernel=</code> 参数指定）</p>
+</li>
+</ul>
+<hr>
+<h2 id="三、查看-kdump-状态"><a href="#三、查看-kdump-状态" class="headerlink" title="三、查看 kdump 状态"></a>三、查看 kdump 状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CentOS 6</span></span><br><span class="line">service kdump status</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS 7 及以后</span></span><br><span class="line">systemctl status kdump.service</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、CentOS-系列配置方法详解"><a href="#四、CentOS-系列配置方法详解" class="headerlink" title="四、CentOS 系列配置方法详解"></a>四、CentOS 系列配置方法详解</h2><h3 id="1-CentOS-6-x-配置步骤"><a href="#1-CentOS-6-x-配置步骤" class="headerlink" title="1. CentOS 6.x 配置步骤"></a>1. CentOS 6.x 配置步骤</h3><h4 id="1-配置-grub-启动参数"><a href="#1-配置-grub-启动参数" class="headerlink" title="(1) 配置 grub 启动参数"></a>(1) 配置 grub 启动参数</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/grub.conf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>找到要启动的内核条目</p>
+</li>
+<li><p>修改或添加 <code>crashkernel=XXXM</code> 参数，例如：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kernel /vmlinuz-... ro crashkernel=256M</span><br></pre></td></tr></table></figure>
+
+<p>推荐设置值：</p>
+<ul>
+<li><p><code>crashkernel=128M</code></p>
+</li>
+<li><p><code>crashkernel=256M</code>（<strong>建议</strong>）</p>
+</li>
+<li><p><code>crashkernel=512M</code></p>
+</li>
+<li><p><code>crashkernel=auto</code>（根据系统内存自动分配）</p>
+</li>
+</ul>
+<h4 id="2-启用-kdump-服务"><a href="#2-启用-kdump-服务" class="headerlink" title="(2) 启用 kdump 服务"></a>(2) 启用 kdump 服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig kdump on</span><br><span class="line">service kdump start</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-验证配置"><a href="#3-验证配置" class="headerlink" title="(3) 验证配置"></a>(3) 验证配置</h4><ul>
+<li><p>重启系统</p>
+</li>
+<li><p>再次检查服务状态：<code>service kdump status</code></p>
+</li>
+<li><p>检查实际启动参数：<code>cat /proc/cmdline</code></p>
+</li>
+</ul>
+<h4 id="4-测试"><a href="#4-测试" class="headerlink" title="(4) 测试"></a>(4) 测试</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /var/crash/</span><br><span class="line"><span class="built_in">echo</span> c &gt; /proc/sysrq-trigger</span><br></pre></td></tr></table></figure>
+
+<p>系统会触发崩溃并自动重启，转储文件会保存在 <code>/var/crash/</code> 目录。</p>
+<hr>
+<h3 id="2-CentOS-7-x-配置步骤"><a href="#2-CentOS-7-x-配置步骤" class="headerlink" title="2. CentOS 7.x 配置步骤"></a>2. CentOS 7.x 配置步骤</h3><h4 id="1-修改-grub-启动项"><a href="#1-修改-grub-启动项" class="headerlink" title="(1) 修改 grub 启动项"></a>(1) 修改 grub 启动项</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/default/grub</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编辑 <code>GRUB_CMDLINE_LINUX</code> 字段，添加或修改 <code>crashkernel=256M</code>（或其他值）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX=<span class="string">&quot;... crashkernel=256M ...&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更新 grub 配置：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br><span class="line">grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg   <span class="comment"># 如为UEFI系统</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-启用-kdump-服务-1"><a href="#2-启用-kdump-服务-1" class="headerlink" title="(2) 启用 kdump 服务"></a>(2) 启用 kdump 服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> kdump.service</span><br><span class="line">systemctl start kdump.service</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-验证配置-1"><a href="#3-验证配置-1" class="headerlink" title="(3) 验证配置"></a>(3) 验证配置</h4><ul>
+<li><p>重启系统</p>
+</li>
+<li><p>执行：<code>systemctl status kdump.service</code></p>
+</li>
+<li><p>检查启动参数：<code>cat /proc/cmdline</code></p>
+</li>
+</ul>
+<h4 id="4-测试崩溃转储"><a href="#4-测试崩溃转储" class="headerlink" title="(4) 测试崩溃转储"></a>(4) 测试崩溃转储</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /var/crash/</span><br><span class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/kernel/sysrq</span><br><span class="line"><span class="built_in">echo</span> c &gt; /proc/sysrq-trigger</span><br></pre></td></tr></table></figure>
+
+<p>系统应崩溃、重启，并生成新的 crash dump 文件。</p>
+<hr>
+<h2 id="五、修改-kdump-默认配置"><a href="#五、修改-kdump-默认配置" class="headerlink" title="五、修改 kdump 默认配置"></a>五、修改 kdump 默认配置</h2><p>编辑 <code>/etc/kdump.conf</code> 文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 崩溃转储目录</span></span><br><span class="line">path /var/crash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 makedumpfile 工具并启用压缩（推荐）</span></span><br><span class="line">core_collector makedumpfile -c -l -message-level 1 -d 31</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转储后系统行为（默认 reboot）</span></span><br><span class="line">default reboot</span><br></pre></td></tr></table></figure>
+
+<p>修改后重启系统生效。</p>
+<hr>
+<p>当然可以，以下是这段内容整理后的博客风格版本，更清晰流畅一些：</p>
+<hr>
+<h2 id="六、常见错误与解决方案"><a href="#六、常见错误与解决方案" class="headerlink" title="六、常见错误与解决方案"></a>六、常见错误与解决方案</h2><h3 id="1-报错：Failed-to-start-Crash-recovery-kernel-arming"><a href="#1-报错：Failed-to-start-Crash-recovery-kernel-arming" class="headerlink" title="1. 报错：Failed to start Crash recovery kernel arming"></a>1. 报错：<code>Failed to start Crash recovery kernel arming</code></h3><p>这个报错的本质是 <strong>kdump 服务启动失败</strong>，常见原因与内核预留内存不足有关。</p>
+<h4 id="排查与解决步骤："><a href="#排查与解决步骤：" class="headerlink" title="排查与解决步骤："></a>排查与解决步骤：</h4><ol>
+<li><p>检查内核参数设置<br> 使用以下命令或直接查看 <code>/etc/grub.conf</code>（CentOS6）或 <code>/etc/default/grub</code>（CentOS7+）：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/cmdline</span><br></pre></td></tr></table></figure>
+<p> 如果发现内核参数中使用了 <code>crashkernel=auto</code>，需要注意这并不是总是有效的。</p>
+</li>
+<li><p>理解 <code>crashkernel=auto</code> 的行为：</p>
+<ul>
+<li><p>当系统内存 <strong>小于等于 8 GB</strong> 时，<code>crashkernel=auto</code> 不会为 kdump 保留内存，相当于 <strong>禁用了 kdump</strong>。</p>
+</li>
+<li><p>当内存 <strong>大于 8 GB 且小于等于 16 GB</strong>，会自动保留 <strong>256M</strong> 内存。</p>
+</li>
+<li><p>当内存 <strong>大于 16 GB</strong>，会自动保留 <strong>512M</strong>。</p>
+</li>
+</ul>
+<blockquote>
+<p>⚠️ 如果你在虚拟机中测试 kdump，且只分配了 1G 内存，那么 <code>crashkernel=auto</code> 实际不会保留任何内存，这就是服务无法启动的根本原因。</p>
+</blockquote>
+</li>
+<li><p>解决方案：</p>
+<ul>
+<li><p>修改内核参数中的 <code>crashkernel</code> 设置，例如：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crashkernel=128M</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改完成后，保存配置，并更新 grub：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br></pre></td></tr></table></figure>
+<p>  如果是 UEFI 系统，还需执行：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启系统后再次启动 kdump 服务：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start kdump.service</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>如果设置 <code>crashkernel=128M</code> 后仍失败，可以尝试提高至 <code>256M</code> 再重试。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/09/linux/linux%20sys_call_table%20%E6%B5%8B%E8%AF%95/" rel="prev" title="linux sys_call_table 测试">
+                  <i class="fa fa-angle-left"></i> linux sys_call_table 测试
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/04/22/linux/linux%20CONTAINING_RECORD/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
