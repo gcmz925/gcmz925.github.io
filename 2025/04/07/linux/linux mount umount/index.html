@@ -1,45 +1,598 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>mount umount | Gcmz Blog</title><meta name="author" content="Gcmz"><meta name="copyright" content="Gcmz"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="mount umount"><meta name="application-name" content="mount umount"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="mount umount"><meta property="og:url" content="http://example.com/2025/04/07/linux/linux%20mount%20umount/index.html"><meta property="og:site_name" content="Gcmz Blog"><meta property="og:description" content="1.查看当前系统支持的文件系统Linux 内核会将当支持的文件系统类型列在 &amp;#x2F;proc&amp;#x2F;filesystems 文件中。你可以使用以下命令查看： 1cat &amp;#x2F;proc&amp;#x2F;filesystems  输出示例： 12345678910111213141516nodev   sysfsnodev   tmp"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="Gcmz"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description" content="1.查看当前系统支持的文件系统Linux 内核会将当支持的文件系统类型列在 &amp;#x2F;proc&amp;#x2F;filesystems 文件中。你可以使用以下命令查看： 1cat &amp;#x2F;proc&amp;#x2F;filesystems  输出示例： 12345678910111213141516nodev   sysfsnodev   tmp"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2025/04/07/linux/linux%20mount%20umount/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Gcmz","link":"链接: ","source":"来源: Gcmz Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Gcmz Blog',
+  title: 'mount umount',
+  postAI: '',
+  pageFillDescription: '1.查看当前系统支持的文件系统, 2./proc/mounts 解析, 3.挂载磁盘, 4.设置开机自动挂载磁盘分区查看当前系统支持的文件系统内核会将当支持的文件系统类型列在文件中你可以使用以下命令查看输出示例带有的文件系统是虚拟文件系统不需要物理设备没有的文件系统是常规的文件系统如等解析文件包含了当前系统中所有已挂载文件系统的信息每一行代表一个挂载点格式如下设备挂载点文件系统类型挂载选项设备挂载的存储设备或分区挂载点设备挂载到的目录文件系统类型文件系统的类型如等挂载选项挂载时使用的选项如表示可读写表示更新访问时间等备份工具是否使用该文件系统表示不使用在启动时检查文件系统的顺序表示不检查具体解释设备挂载点文件系统类型挂载选项可读写相对时间更新访问时间启用空间缓存使用子卷子卷路径为不备份不检查挂载磁盘前提条件已挂载数据盘至云服务器且该数据盘未初始化本操作以该场景为例当云服务器挂载了一块新的数据盘时使用分区工具将该数据盘设为主分区分区形式默认设置为文件系统设为格式挂载在下并设置开机启动自动挂载执行以下命令查看新增数据盘回显类似如下信息表示当前的云服务器有两块磁盘是系统盘是新增数据盘执行以下命令进入分区工具开始对新增数据盘执行分区操作新增数据盘以新挂载的数据盘为例回显类似如下信息新建分区输入按开始新建分区回显类似如下信息表示磁盘有两种分区类型表示主分区表示扩展分区说明磁盘使用分区形式最多可以创建个主分区或者个主分区加个扩展分区扩展分区不可以直接使用需要划分成若干个逻辑分区才可以使用磁盘使用分区形式时没有主分区扩展分区以及逻辑分区之分创建一个主要分区以创建一个主要分区为例输入按开始创建一个主分区回显类似如下信息表示主分区编号可以选择选择分区编号以分区编号选择为例输入主分区编号按回显类似如下信息表示起始磁柱值可以选择默认为选择默认起始磁柱值以选择默认起始磁柱值为例按系统会自动提示分区可用空间的起始磁柱值和截止磁柱值可以在该区间内自定义或者使用默认值起始磁柱值必须小于分区的截止磁柱值回显类似如下信息表示截止磁柱值可以选择默认为选择默认截止磁柱值以选择默认截止磁柱值为例按系统会自动提示分区可用空间的起始磁柱值和截止磁柱值可以在该区间内自定义或者使用默认值起始磁柱值必须小于分区的截止磁柱值回显类似如下信息表示分区完成即为数据盘新建了个分区查看新建分区的详细信息输入按查看新建分区的详细信息回显类似如下信息表示新建分区的详细信息将分区结果写入分区表输入按将分区结果写入分区表中回显类似如下信息表示分区创建完成说明如果之前分区操作有误请输入则会退出分区工具之前的分区结果将不会被保留分区表变更同步至操作系统执行以下命令将新的分区表变更同步至操作系统设置分区文件系统格式执行以下命令将新建分区文件系统设为系统所需格式文件系统格式以设置文件系统为为例回显类似如下信息格式化需要等待一段时间请观察系统运行状态不要退出注意不同文件系统支持的分区大小不同请根据您的业务需求选择合适的文件系统新建挂载目录执行以下命令新建挂载目录挂载目录以新建挂载目录为例挂载执行以下命令将新建分区挂载到步骤中创建的目录下磁盘分区挂载目录以挂载新建分区至为例查看挂载结果执行以下命令查看挂载结果回显类似如下信息表示新建分区已挂载至说明云服务器重启后挂载会失效您可以修改文件将新建磁盘分区设置为开机自动挂载请参见设置开机自动挂载磁盘分区设置开机自动挂载磁盘分区设置云服务器系统启动时自动挂载磁盘分区不能采用在直接指定设备名比如的方法因为云中设备的顺序编码在关闭或者开启云服务器过程中可能发生改变例如可能会变成推荐使用来配置自动挂载磁盘分区说明是系统为磁盘分区提供的唯一的标识字符串执行如下命令查询磁盘分区的磁盘分区以查询磁盘分区的为例回显类似如下信息表示的执行以下命令使用编辑器打开文件按进入编辑模式将光标移至文件末尾按添加如下内容以内容上仅为示例具体请以实际情况为准参数说明如下第一列为此处填写中查询到的磁盘分区的第二列为磁盘分区的挂载目录可以通过命令查询第三列为磁盘分区的文件系统格式可以通过命令查询第四列为磁盘分区的挂载选项此处通常设置为即可第五列为备份选项表示不使用备份现在通常不使用备份此处设置为即可表示使用备份第六列为选项即开机时是否使用检查磁盘表示不检验挂载点为根目录的分区此处必须填写根分区设置为其他分区只能从开始系统会按照数字从小到大依次检查下去按后输入按保存设置并退出编辑器执行以下步骤验证自动挂载功能执行如下命令卸载已挂载的分区磁盘分区命令示例执行如下命令将文件所有内容重新加载执行如下命令查询文件系统挂载信息挂载目录命令示例回显类似如下信息说明自动挂载功能生效报错挂载报错指定文件系统类型来尝试挂载常见的光盘文件系统类型有常见的光盘文件系统较新的光盘格式比如蓝光用只读进行挂载参考',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-09 16:49:46',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-block content
-  #post
-    if top_img === false || page.bilibili_bg
-      include includes/header/post-info.pug
-    if theme.post_head_ai_description
-      include includes/anzhiyu/ai-info.pug
-    - let url = page.copyright_url || page.permalink
-    article#article-container.post-content(itemscope itemtype=url_for(url))
-      header
-        if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
-          each item, index in page.categories.data
-            a(href=url_for(item.path) itemprop="url").post-meta-categories #[=item.name]
-        if (theme.post_meta.page.tags)
-          each item, index in page.tags.data
-            a(href=url_for(item.path) tabindex="-1" itemprop="url")=item.name
-        h1#CrawlerTitle(itemprop="name headline")= page.title || _p('no_title')
-        - let author = page.copyright_author || config.author
-        span(itemprop="author" itemscope itemtype="http://schema.org/Person")=author
-        if (theme.post_meta.post.date_type)
-          if (theme.post_meta.post.date_type === 'both')
-            time(itemprop="dateCreated datePublished" datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
-            time(itemprop="dateCreated datePublished" datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
-          else
-            - let data_type_update = theme.post_meta.post.date_type === 'updated'
-            - let date_type = data_type_update ? 'updated' : 'date'
-            time(itemprop="dateCreated datePublished" datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
-      !=page.content
-
-    include includes/post/post-copyright.pug
-
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
-
-    if theme.post_pagination
-      include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
-
-    if page.comments !== false && theme.comments && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Gcmz Blog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="/null" target="_blank"><img class="post-qr-code-img" alt="微信" src="/null"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/null" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="/null"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">七月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">12</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">六月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">五月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">28</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/linux/" itemprop="url">linux</a></span><span class="article-meta tags"></span></div></div><h1 class="post-title" itemprop="name headline">mount umount</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-04-07T05:42:21.349Z" title="发表于 2025-04-07 13:42:21">2025-04-07</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-04-09T08:49:46.830Z" title="更新于 2025-04-09 16:49:46">2025-04-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为深圳"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>深圳</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2025/04/07/linux/linux%20mount%20umount/"><header><a class="post-meta-categories" href="/categories/linux/" itemprop="url">linux</a><h1 id="CrawlerTitle" itemprop="name headline">mount umount</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Gcmz</span><time itemprop="dateCreated datePublished" datetime="2025-04-07T05:42:21.349Z" title="发表于 2025-04-07 13:42:21">2025-04-07</time><time itemprop="dateCreated datePublished" datetime="2025-04-09T08:49:46.830Z" title="更新于 2025-04-09 16:49:46">2025-04-09</time></header><h2 id="1-查看当前系统支持的文件系统"><a href="#1-查看当前系统支持的文件系统" class="headerlink" title="1.查看当前系统支持的文件系统"></a>1.查看当前系统支持的文件系统</h2><p>Linux 内核会将当支持的文件系统类型列在 <code>/proc/filesystems</code> 文件中。你可以使用以下命令查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/filesystems</span><br></pre></td></tr></table></figure>
+
+<p>输出示例：</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">nodev   sysfs</span><br><span class="line">nodev   tmpfs</span><br><span class="line">nodev   bdev</span><br><span class="line">nodev   <span class="keyword">proc</span><span class="title"></span></span><br><span class="line"><span class="title">nodev</span> <span class="title">  cgroup</span></span><br><span class="line">nodev<span class="title">   cgroup2</span></span><br><span class="line">nodev<span class="title">   devpts</span></span><br><span class="line">nodev<span class="title">   ramfs</span></span><br><span class="line">nodev<span class="title">   hugetlbfs</span></span><br><span class="line">nodev<span class="title">   autofs</span></span><br><span class="line">nodev<span class="title">   pstore</span></span><br><span class="line">nodev<span class="title">   mqueue</span></span><br><span class="line"><span class="title">        ext4</span></span><br><span class="line"><span class="title">        vfat</span></span><br><span class="line"><span class="title">        xfs</span></span><br><span class="line"><span class="title">        btrfs</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>带有 <code>nodev</code> 的文件系统是虚拟文件系统（不需要物理设备）。</li>
+<li>没有 <code>nodev</code> 的文件系统是常规的文件系统（如 ext4、xfs 等）。</li>
+</ul>
+<h2 id="2-proc-mounts-解析"><a href="#2-proc-mounts-解析" class="headerlink" title="2./proc/mounts 解析"></a>2.<code>/proc/mounts</code> 解析</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MiWiFi-RD03-srv:~ <span class="comment"># cat /proc/mounts</span></span><br><span class="line"><span class="regexp">/dev/</span>sda2 <span class="regexp">/var/</span>log btrfs rw,relatime,space_cache,subvolid=<span class="number">275</span>,subvol=<span class="regexp">/@/</span>var/log <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="regexp">/dev/</span>sda2 <span class="regexp">/usr/</span>local btrfs rw,relatime,space_cache,subvolid=<span class="number">265</span>,subvol=<span class="regexp">/@/u</span>sr/local <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="regexp">/dev/</span>sda2 <span class="regexp">/var/</span>cache btrfs rw,relatime,space_cache,subvolid=<span class="number">266</span>,subvol=<span class="regexp">/@/</span>var/cache <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="regexp">/dev/</span>sda2 <span class="regexp">/var/</span>lib<span class="regexp">/named btrfs rw,relatime,space_cache,subvolid=273,subvol=/</span>@<span class="regexp">/var/</span>lib/named <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="regexp">/dev/</span>sda2 <span class="regexp">/srv btrfs rw,relatime,space_cache,subvolid=263,subvol=/</span>@/srv <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><code>/proc/mounts</code> 文件包含了当前系统中所有已挂载文件系统的信息。每一行代表一个挂载点，格式如下：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;设备&gt;</span> <span class="section">&lt;挂载点&gt;</span> <span class="section">&lt;文件系统类型&gt;</span> <span class="section">&lt;挂载选项&gt;</span> <span class="section">&lt;dump&gt;</span> <span class="section">&lt;pass&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>设备</strong>：挂载的存储设备或分区。</li>
+<li><strong>挂载点</strong>：设备挂载到的目录。</li>
+<li><strong>文件系统类型</strong>：文件系统的类型（如 <code>btrfs</code>、<code>ext4</code> 等）。</li>
+<li><strong>挂载选项</strong>：挂载时使用的选项（如 <code>rw</code> 表示可读写，<code>relatime</code> 表示更新访问时间等）。</li>
+<li><strong>dump</strong>：备份工具 <code>dump</code> 是否使用该文件系统（<code>0</code> 表示不使用）。</li>
+<li><strong>pass</strong>：<code>fsck</code> 在启动时检查文件系统的顺序（<code>0</code> 表示不检查）。</li>
+</ul>
+<blockquote>
+<p>具体解释</p>
+</blockquote>
+<ol>
+<li><strong><code>/dev/sda2 /var/log btrfs rw,relatime,space_cache,subvolid=275,subvol=/@/var/log 0 0</code></strong><ul>
+<li><strong>设备</strong>：<code>/dev/sda2</code></li>
+<li><strong>挂载点</strong>：<code>/var/log</code></li>
+<li><strong>文件系统类型</strong>：<code>btrfs</code></li>
+<li><strong>挂载选项</strong>：<code>rw,relatime,space_cache,subvolid=275,subvol=/@/var/log</code><ul>
+<li><code>rw</code>：可读写。</li>
+<li><code>relatime</code>：相对时间更新访问时间。</li>
+<li><code>space_cache</code>：启用空间缓存。</li>
+<li><code>subvolid=275</code>：使用子卷 ID 275。</li>
+<li><code>subvol=/@/var/log</code>：子卷路径为 <code>/@/var/log</code>。</li>
+</ul>
+</li>
+<li><strong>dump</strong>：<code>0</code>（不备份）。</li>
+<li><strong>pass</strong>：<code>0</code>（不检查）。</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-挂载磁盘"><a href="#3-挂载磁盘" class="headerlink" title="3.挂载磁盘"></a>3.挂载磁盘</h2><blockquote>
+<p>前提条件 :</p>
+<ul>
+<li>已挂载数据盘至云服务器，且该数据盘未初始化。</li>
+</ul>
+</blockquote>
+<p>本操作以该场景为例，当云服务器挂载了一块新的数据盘时，使用fdisk分区工具将该数据盘设为主分区，分区形式默认设置为MBR，文件系统设为ext4格式，挂载在“&#x2F;mnt&#x2F;sdc”下，并设置开机启动自动挂载。</p>
+<ol>
+<li><strong>fdisk -l</strong></li>
+</ol>
+<blockquote>
+<p>执行以下命令，查看新增数据盘。<strong>fdisk -l</strong>回显类似如下信息：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-test-0001 ~]# fdisk -l</span><br><span class="line"></span><br><span class="line">Disk /dev/vda: 42.9 GB, 42949672960 bytes, 83886080 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk label <span class="built_in">type</span>: dos</span><br><span class="line">Disk identifier: 0x000bcb4e</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/vda1   *        2048    83886079    41942016   83  Linux</span><br><span class="line"></span><br><span class="line">Disk /dev/vdb: 107.4 GB, 107374182400 bytes, 209715200 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br></pre></td></tr></table></figure>
+
+<p>表示当前的云服务器有两块磁盘，**“&#x2F;dev&#x2F;vda”<strong>是系统盘，</strong>“&#x2F;dev&#x2F;vdb”**是新增数据盘。</p>
+<p>2.<code>fdisk /dev/vdb</code></p>
+<blockquote>
+<p>执行以下命令，进入fdisk分区工具，开始对新增数据盘执行分区操作。<strong>fdisk</strong> <em>新增数据盘</em>以新挂载的数据盘“&#x2F;dev&#x2F;vdb”为例：<strong>fdisk &#x2F;dev&#x2F;vdb</strong>回显类似如下信息：</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@ecs-test-0001 ~]</span># fdisk /dev/vdb</span><br><span class="line">Welcome <span class="selector-tag">to</span> fdisk (util-linux <span class="number">2.23</span>.<span class="number">2</span>).</span><br><span class="line"></span><br><span class="line">Changes will remain in memory only, until you decide <span class="selector-tag">to</span> write them.</span><br><span class="line">Be careful before using the write command.</span><br><span class="line"></span><br><span class="line">Device does not <span class="attribute">contain</span> <span class="selector-tag">a</span> recognized partition <span class="selector-tag">table</span></span><br><span class="line">Building <span class="selector-tag">a</span> new DOS disklabel with disk identifier <span class="number">0</span>x38717fc1.</span><br><span class="line"></span><br><span class="line">Command (m for help): </span><br></pre></td></tr></table></figure>
+
+<p>3.新建分区</p>
+<blockquote>
+<p>输入“n”，按“Enter”，开始新建分区。回显类似如下信息：</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Command (m <span class="keyword">for</span> help): n</span><br><span class="line"><span class="keyword">Partition</span> type:</span><br><span class="line">   p   <span class="keyword">primary</span> (<span class="number">0</span> <span class="keyword">primary</span>, <span class="number">0</span> extended, <span class="number">4</span> <span class="keyword">free</span>)</span><br><span class="line">   e   extended</span><br></pre></td></tr></table></figure>
+
+<p>表示磁盘有两种分区类型：</p>
+<ul>
+<li>“p”表示主分区。</li>
+<li>“e”表示扩展分区。</li>
+</ul>
+<p>说明：</p>
+<p>磁盘使用MBR分区形式，最多可以创建4个主分区，或者3个主分区加1个扩展分区，扩展分区不可以直接使用，需要划分成若干个逻辑分区才可以使用。</p>
+<p>磁盘使用GPT分区形式时，没有主分区、扩展分区以及逻辑分区之分。</p>
+<ol start="4">
+<li>创建一个主要分区</li>
+</ol>
+<blockquote>
+<p>以创建一个主要分区为例，输入“p”，按“Enter”，开始创建一个主分区。回显类似如下信息：</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> (<span class="keyword">default</span> p): p</span><br><span class="line"><span class="keyword">Partition</span> number (<span class="number">1</span><span class="number">-4</span>, <span class="keyword">default</span> <span class="number">1</span>): </span><br></pre></td></tr></table></figure>
+
+<p>**“Partition number”**表示主分区编号，可以选择1-4。</p>
+<p>5.选择分区编号</p>
+<blockquote>
+<p>以分区编号选择“1”为例，输入主分区编号“1”，按“Enter”。回显类似如下信息：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Partition <span class="title function_">number</span> <span class="params">(<span class="number">1</span>-<span class="number">4</span>, <span class="keyword">default</span> <span class="number">1</span>)</span>: <span class="number">1</span></span><br><span class="line">First <span class="title function_">sector</span> <span class="params">(<span class="number">2048</span>-<span class="number">209715199</span>, <span class="keyword">default</span> <span class="number">2048</span>)</span>:</span><br></pre></td></tr></table></figure>
+
+<p>**“First sector”**表示起始磁柱值，可以选择2048-209715199，默认为2048。</p>
+<p>6.选择默认起始磁柱值</p>
+<blockquote>
+<p>以选择默认起始磁柱值2048为例，按“Enter”。</p>
+</blockquote>
+<p>系统会自动提示分区可用空间的起始磁柱值和截止磁柱值，可以在该区间内自定义，或者使用默认值。起始磁柱值必须小于分区的截止磁柱值。回显类似如下信息：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">First <span class="title">sector</span> <span class="params">(<span class="number">2048</span><span class="number">-209715199</span>, <span class="keyword">default</span> <span class="number">2048</span>)</span>:</span></span><br><span class="line"><span class="function">Using default value <span class="number">2048</span></span></span><br><span class="line"><span class="function">Last sector, +sectors or +size&#123;</span>K,M,G&#125; (<span class="number">2048</span><span class="number">-209715199</span>, <span class="keyword">default</span> <span class="number">209715199</span>):</span><br></pre></td></tr></table></figure>
+
+<p>**“Last sector”**表示截止磁柱值，可以选择2048-209715199，默认为209715199。</p>
+<p>7.选择默认截止磁柱值</p>
+<blockquote>
+<p>以选择默认截止磁柱值209715199为例，按“Enter”。</p>
+</blockquote>
+<p>系统会自动提示分区可用空间的起始磁柱值和截止磁柱值，可以在该区间内自定义，或者使用默认值。起始磁柱值必须小于分区的截止磁柱值。</p>
+<p>回显类似如下信息：</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Last sector, +sectors <span class="keyword">or</span> +size<span class="comment">&#123;K,M,G&#125;</span> (<span class="number">2048</span>-<span class="number">209715199</span>, <span class="keyword">default</span> <span class="number">209715199</span>):</span><br><span class="line">Using <span class="keyword">default</span> value <span class="number">209715199</span></span><br><span class="line">Partition <span class="number">1</span> <span class="keyword">of</span> <span class="keyword">type</span> Linux <span class="keyword">and</span> <span class="keyword">of</span> size <span class="number">100</span> GiB <span class="keyword">is</span> <span class="keyword">set</span></span><br><span class="line"></span><br><span class="line">Command (m <span class="keyword">for</span> help):</span><br></pre></td></tr></table></figure>
+
+<p>表示分区完成，即为数据盘新建了1个分区。</p>
+<p>8.查看新建分区的详细信息</p>
+<blockquote>
+<p>输入“p”，按“Enter”，查看新建分区的详细信息。回显类似如下信息：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): p</span><br><span class="line"></span><br><span class="line">Disk /dev/vdb: <span class="number">107.4</span> GB, <span class="number">107374182400</span> <span class="built_in">bytes</span>, <span class="number">209715200</span> sectors</span><br><span class="line">Units = sectors of <span class="number">1</span> * <span class="number">512</span> = <span class="number">512</span> <span class="built_in">bytes</span></span><br><span class="line">Sector size (logical/physical): <span class="number">512</span> <span class="built_in">bytes</span> / <span class="number">512</span> <span class="built_in">bytes</span></span><br><span class="line">I/O size (minimum/optimal): <span class="number">512</span> <span class="built_in">bytes</span> / <span class="number">512</span> <span class="built_in">bytes</span></span><br><span class="line">Disk label <span class="built_in">type</span>: dos</span><br><span class="line">Disk identifier: <span class="number">0x38717fc1</span></span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/vdb1            <span class="number">2048</span>   <span class="number">209715199</span>   <span class="number">104856576</span>   <span class="number">83</span>  Linux</span><br><span class="line"></span><br><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>):</span><br></pre></td></tr></table></figure>
+
+<p>表示新建分区**“&#x2F;dev&#x2F;vdb1”**的详细信息。</p>
+<p>9.将分区结果写入分区表</p>
+<blockquote>
+<p>输入“w”，按“Enter”，将分区结果写入分区表中。回显类似如下信息：</p>
+</blockquote>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Command (m <span class="keyword">for</span> help): w</span><br><span class="line">The partition <span class="built_in">table</span> has been altered!</span><br><span class="line"></span><br><span class="line">Calling ioctl() to re-<span class="built_in">read</span> partition <span class="built_in">table</span>.</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+
+<p>表示分区创建完成。</p>
+<p>说明：</p>
+<p>如果之前分区操作有误，请输入“q”，则会退出fdisk分区工具，之前的分区结果将不会被保留。</p>
+<p>10.分区表变更同步至操作系统</p>
+<blockquote>
+<p>执行以下命令，将新的分区表变更同步至操作系统。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">partprobe</span><br></pre></td></tr></table></figure>
+
+<p>11.设置分区文件系统格式</p>
+<blockquote>
+<p>执行以下命令，将新建分区文件系统设为系统所需格式。</p>
+</blockquote>
+<p><strong>mkfs</strong> <strong>-t</strong> <em>文件系统格式</em> <strong>&#x2F;dev&#x2F;vdb1</strong></p>
+<p>以设置文件系统为“ext4”为例：</p>
+<p><strong>mkfs -t ext4 &#x2F;dev&#x2F;vdb1</strong>回显类似如下信息：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-test<span class="number">-0001</span> ~]<span class="comment"># mkfs -t ext4 /dev/vdb1</span></span><br><span class="line">mke<span class="symbol">2f</span>s <span class="number">1</span>.<span class="number">42</span>.<span class="number">9</span> (<span class="number">28</span>-Dec<span class="number">-2013</span>)</span><br><span class="line">Fileexperience label=</span><br><span class="line">OS type: Linux</span><br><span class="line"><span class="keyword">Block </span>size=<span class="number">4096</span> (log=<span class="number">2</span>)</span><br><span class="line">Fragment size=<span class="number">4096</span> (log=<span class="number">2</span>)</span><br><span class="line">Stride=<span class="number">0</span> <span class="keyword">blocks, </span>Stripe width=<span class="number">0</span> <span class="keyword">blocks</span></span><br><span class="line"><span class="keyword"></span><span class="number">6553600</span> inodes, <span class="number">26214144</span> <span class="keyword">blocks</span></span><br><span class="line"><span class="keyword"></span><span class="number">1310707</span> <span class="keyword">blocks </span>(<span class="number">5</span>.<span class="number">00</span>%) reserved for the super user</span><br><span class="line">First data <span class="keyword">block=0</span></span><br><span class="line"><span class="keyword"></span>Maximum fileexperience <span class="keyword">blocks=2174746624</span></span><br><span class="line"><span class="keyword"></span><span class="number">800</span> <span class="keyword">block </span>groups</span><br><span class="line"><span class="number">32768</span> <span class="keyword">blocks </span>per group, <span class="number">32768</span> fragments per group</span><br><span class="line"><span class="number">8192</span> inodes per group</span><br><span class="line">Superblock <span class="keyword">backups </span>stored on <span class="keyword">blocks:</span></span><br><span class="line"><span class="keyword"></span>        <span class="number">32768</span>, <span class="number">98304</span>, <span class="number">163840</span>, <span class="number">229376</span>, <span class="number">294912</span>, <span class="number">819200</span>, <span class="number">884736</span>, <span class="number">1605632</span>, <span class="number">2654208</span>,</span><br><span class="line">        <span class="number">4096000</span>, <span class="number">7962624</span>, <span class="number">11239424</span>, <span class="number">20480000</span>, <span class="number">23887872</span></span><br><span class="line"></span><br><span class="line">Allocating group tables: done</span><br><span class="line">Writing inode tables: done</span><br><span class="line">Creating <span class="keyword">journal </span>(<span class="number">32768</span> <span class="keyword">blocks): </span>done</span><br><span class="line">Writing superblocks <span class="keyword">and </span>fileexperience accounting information: done</span><br></pre></td></tr></table></figure>
+
+<p>格式化需要等待一段时间，请观察系统运行状态，不要退出。<strong>注意：</strong></p>
+<p>不同文件系统支持的分区大小不同，请根据您的业务需求选择合适的文件系统。</p>
+<p>12.新建挂载目录</p>
+<blockquote>
+<p>执行以下命令，新建挂载目录。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> 挂载目录</span><br></pre></td></tr></table></figure>
+
+<p>以新建挂载目录“&#x2F;mnt&#x2F;sdc”为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /mnt/sdc</span><br></pre></td></tr></table></figure>
+
+<p>13.挂载</p>
+<blockquote>
+<p>执行以下命令，将新建分区挂载到步骤12中创建的目录下。</p>
+</blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mount</span> 磁盘分区 挂载目录</span><br></pre></td></tr></table></figure>
+
+<p>以挂载新建分区“&#x2F;dev&#x2F;vdb1”至“&#x2F;mnt&#x2F;sdc”为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/vdb1 /mnt/sdc</span><br></pre></td></tr></table></figure>
+
+<p>14.查看挂载结果</p>
+<blockquote>
+<p>执行以下命令，查看挂载结果。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -TH</span><br></pre></td></tr></table></figure>
+
+<p>回显类似如下信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-test-0001 ~]# <span class="built_in">df</span> -TH</span><br><span class="line">Fileexperience     Type      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/vda1      ext4       43G  1.9G   39G   5% /</span><br><span class="line">devtmpfs       devtmpfs  2.0G     0  2.0G   0% /dev</span><br><span class="line">tmpfs          tmpfs     2.0G     0  2.0G   0% /dev/shm</span><br><span class="line">tmpfs          tmpfs     2.0G  9.1M  2.0G   1% /run</span><br><span class="line">tmpfs          tmpfs     2.0G     0  2.0G   0% /sys/fs/cgroup</span><br><span class="line">tmpfs          tmpfs     398M     0  398M   0% /run/user/0</span><br><span class="line">/dev/vdb1      ext4      106G   63M  101G   1% /mnt/sdc</span><br></pre></td></tr></table></figure>
+
+<p>表示新建分区**“&#x2F;dev&#x2F;vdb1”**已挂载至“&#x2F;mnt&#x2F;sdc”。</p>
+<p>说明：</p>
+<p>云服务器重启后，挂载会失效。您可以修改“&#x2F;etc&#x2F;fstab”文件，将新建磁盘分区设置为开机自动挂载，请参见<strong>设置开机自动挂载磁盘分区</strong>。</p>
+<h2 id="4-设置开机自动挂载磁盘分区"><a href="#4-设置开机自动挂载磁盘分区" class="headerlink" title="4.设置开机自动挂载磁盘分区"></a>4.设置开机自动挂载磁盘分区</h2><p>设置云服务器系统启动时自动挂载磁盘分区，不能采用在“&#x2F;etc&#x2F;fstab”直接指定设备名（比如&#x2F;dev&#x2F;vdb1）的方法，因为云中设备的顺序编码在关闭或者开启云服务器过程中可能发生改变，例如&#x2F;dev&#x2F;vdb1可能会变成&#x2F;dev&#x2F;vdb2。推荐使用UUID来配置自动挂载磁盘分区。</p>
+<p>说明：</p>
+<p>UUID（universally unique identifier）是Linux系统为磁盘分区提供的唯一的标识字符串。</p>
+<p>1.执行如下命令，查询磁盘分区的UUID。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">blkid </span>磁盘分区</span><br></pre></td></tr></table></figure>
+
+<p>以查询磁盘分区**“&#x2F;dev&#x2F;vdb1”**的UUID为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blkid /dev/vdb1</span><br></pre></td></tr></table></figure>
+
+<p>回显类似如下信息：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">ecs</span>-<span class="built_in">test-0001</span> ~]<span class="comment"># blkid /dev/vdb1</span></span><br><span class="line">/dev/vdb1: UUID=<span class="string">&quot;0b3040e2-1367-4abb-841d-ddb0b92693df&quot;</span> <span class="built_in">TYPE</span>=<span class="string">&quot;ext4&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>表示**“&#x2F;dev&#x2F;vdb1”**的UUID。</p>
+<p>2.执行以下命令，使用VI编辑器打开“fstab”文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>3.按“i”，进入编辑模式。</p>
+<p>\4. 将光标移至文件末尾，按“Enter”，添加如下内容。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">UUID</span>=<span class="number">0</span>b3040e2-<span class="number">1367</span>-<span class="number">4</span>abb-<span class="number">841</span>d-ddb0b92693df /mnt/sdc                ext4    defaults        <span class="number">0</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>以内容上仅为示例，具体请以实际情况为准，参数说明如下：</p>
+<ul>
+<li>第一列为UUID，此处填写1中查询到的磁盘分区的UUID。</li>
+<li>第二列为磁盘分区的挂载目录，可以通过<strong>df -TH</strong>命令查询。</li>
+<li>第三列为磁盘分区的文件系统格式， 可以通过<strong>df -TH</strong>命令查询。</li>
+<li>第四列为磁盘分区的挂载选项，此处通常设置为defaults即可。</li>
+<li>第五列为Linux dump备份选项。<ul>
+<li>0表示不使用Linux dump备份。现在通常不使用dump备份，此处设置为0即可。</li>
+<li>1表示使用Linux dump备份。</li>
+</ul>
+</li>
+<li>第六列为fsck选项，即开机时是否使用fsck检查磁盘。<ul>
+<li>0表示不检验。</li>
+<li>挂载点为（&#x2F;）根目录的分区，此处必须填写1。根分区设置为1，其他分区只能从2开始，系统会按照数字从小到大依次检查下去。</li>
+</ul>
+</li>
+</ul>
+<p>\5. 按“ESC”后，输入“:wq”，按“Enter”。保存设置并退出编辑器。</p>
+<p>6.执行以下步骤，验证自动挂载功能。</p>
+<p>a.执行如下命令，卸载已挂载的分区。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount 磁盘分区</span><br></pre></td></tr></table></figure>
+
+<p>命令示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /dev/vdb1</span><br></pre></td></tr></table></figure>
+
+<p>b.执行如下命令，将“&#x2F;etc&#x2F;fstab”文件所有内容重新加载。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -<span class="selector-tag">a</span></span><br></pre></td></tr></table></figure>
+
+<p>c.执行如下命令，查询文件系统挂载信息。</p>
+<p><strong>mount</strong> <strong>|</strong> <strong>grep</strong> <em>挂载目录</em></p>
+<p>命令示例：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount | <span class="keyword">grep</span> <span class="regexp">/mnt/sd</span>c</span><br></pre></td></tr></table></figure>
+
+<p>回显类似如下信息，说明自动挂载功能生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@ecs-test-0001 ~]# mount | grep /mnt/sdc</span><br><span class="line">/dev/vdb1 on /mnt/sdc <span class="built_in">type</span> ext4 (rw,relatime,data=ordered)</span><br></pre></td></tr></table></figure>
+
+
+<p>5.mount dvd 报错</p>
+<p>挂载dev报错 read-only</p>
+<p>指定文件系统类型来尝试挂载。常见的光盘文件系统类型有：</p>
+<ul>
+<li><p><code>iso9660</code>：常见的光盘文件系统</p>
+</li>
+<li><p><code>udf</code>：较新的光盘格式（比如DVD、蓝光）</p>
+</li>
+</ul>
+<p>用只读进行挂载</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mmount -o ro,remount -t iso9660 <span class="regexp">/dev/</span>sr0 <span class="regexp">/mnt/</span>cdrom</span><br></pre></td></tr></table></figure>
+
+
+<p>参考:</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/edda/p/13384091.html">https://www.cnblogs.com/edda/p/13384091.html</a></p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Gcmz</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2025/04/07/linux/linux%20mount%20umount/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2025/04/07/linux/linux%20mount%20umount/')">mount umount</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2025/04/07/linux/linux%20mount%20umount/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=mount umount&amp;url=http://example.com/2025/04/07/linux/linux%20mount%20umount/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Gcmz Blog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/04/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/linux%20%E5%AE%89%E8%A3%85git/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">linux 安装git</div></div></a></div><div class="next-post pull-right"><a href="/2025/04/07/hexo/hexo%20options/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hexo options</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description"></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E6%94%AF%E6%8C%81%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">1.查看当前系统支持的文件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-proc-mounts-%E8%A7%A3%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">2.&#x2F;proc&#x2F;mounts 解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8C%82%E8%BD%BD%E7%A3%81%E7%9B%98"><span class="toc-number">3.</span> <span class="toc-text">3.挂载磁盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA"><span class="toc-number">4.</span> <span class="toc-text">4.设置开机自动挂载磁盘分区</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/23/Library/Windows%E5%86%85%E6%A0%B8%E7%BC%96%E7%A8%8B(%E8%B0%AD%E6%96%87%20%E9%99%88%E9%93%AD%E9%9C%96%20%E8%91%97)/%E7%AC%AC6%E7%AB%A0%20%E5%86%85%E6%A0%B8%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" title="第6章 内核编程技巧">第6章 内核编程技巧</a><time datetime="2025-07-23T15:19:12.164Z" title="发表于 2025-07-23 23:19:12">2025-07-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/23/Library/Windows%E5%86%85%E6%A0%B8%E7%BC%96%E7%A8%8B(%E8%B0%AD%E6%96%87%20%E9%99%88%E9%93%AD%E9%9C%96%20%E8%91%97)/%E7%AC%AC5%E7%AB%A0%2064%E4%BD%8D%E5%92%8C32%E4%BD%8D%E5%86%85%E6%A0%B8%E5%BC%80%E5%8F%91%E5%B7%AE%E5%BC%82/" title="第5章 64位和32位内核开发差异">第5章 64位和32位内核开发差异</a><time datetime="2025-07-23T15:19:12.139Z" title="发表于 2025-07-23 23:19:12">2025-07-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/23/Library/Windows%E5%86%85%E6%A0%B8%E7%BC%96%E7%A8%8B(%E8%B0%AD%E6%96%87%20%E9%99%88%E9%93%AD%E9%9C%96%20%E8%91%97)/%E7%AC%AC4%E7%AB%A0%20%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%85%E6%A0%B8%E9%80%9A%E4%BF%A1/" title="第4章 应用与内核通信">第4章 应用与内核通信</a><time datetime="2025-07-23T15:19:12.117Z" title="发表于 2025-07-23 23:19:12">2025-07-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/23/Library/Windows%E5%86%85%E6%A0%B8%E7%BC%96%E7%A8%8B(%E8%B0%AD%E6%96%87%20%E9%99%88%E9%93%AD%E9%9C%96%20%E8%91%97)/%E7%AC%AC3%E7%AB%A0%20%E5%86%85%E6%A0%B8%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" title="第3章 内核编程基础">第3章 内核编程基础</a><time datetime="2025-07-23T15:19:12.106Z" title="发表于 2025-07-23 23:19:12">2025-07-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/23/Library/Windows%E5%86%85%E6%A0%B8%E7%BC%96%E7%A8%8B(%E8%B0%AD%E6%96%87%20%E9%99%88%E9%93%AD%E9%9C%96%20%E8%91%97)/%E7%AC%AC2%E7%AB%A0%20%E5%86%85%E6%A0%B8%E9%A9%B1%E5%8A%A8%E8%BF%90%E8%A1%8C%E4%B8%8E%E8%B0%83%E8%AF%95/" title="第2章 内核驱动运行与调试">第2章 内核驱动运行与调试</a><time datetime="2025-07-23T15:19:12.086Z" title="发表于 2025-07-23 23:19:12">2025-07-23</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2025 By <a class="footer-bar-link" href="/" title="Gcmz" target="_blank">Gcmz</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">13</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("25/12/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Gcmz 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
